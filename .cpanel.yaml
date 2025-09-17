@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/steq8791/public_html/stifin
+    - /bin/cp -r * $DEPLOYPATH
