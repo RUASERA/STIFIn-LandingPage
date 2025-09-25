@@ -10,11 +10,114 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <title>STIFIn | Promoted by STEPS ID</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      container: {
+        center: true,
+        padding: "1rem",
+        screens: {
+          xs: "400px",
+          sm: "540px",
+          md: "720px",
+          lg: "960px",
+          xl: "1140px",
+          "2xl": "1320px",
+        },
+      },
+      extend: {
+        colors: {
+          primary: "#3758F9",
+          secondary: "#13C296",
+          dark: "#111928",
+          "dark-2": "#1F2A37",
+          "dark-3": "#374151",
+          "dark-6": "#9CA3AF",
+          "dark-7": "#D1D5DB",
+          "body-color": "#637381",
+          "tg-bg": "#F7F8FA",
+          stroke: "#DFE4EA",
+        },
+        boxShadow: {
+          1: "0px 1px 3px 0px rgba(166, 175, 195, 0.40)",
+          2: "0px 5px 12px 0px rgba(0, 0, 0, 0.10)",
+          portfolio: "0px 4px 30px 0px rgba(0, 0, 0, 0.08)",
+          pricing: "0px 39px 23px -27px rgba(0, 0, 0, 0.04)",
+          "box-dark": "0px 10px 15px 0px rgba(5, 13, 29, 0.18)",
+        },
+        dropShadow: {
+          pricing: "0px 16px 40px rgba(0, 0, 0, 0.07)",
+        },
+        zIndex: {
+          "-2": "-2",
+          99999: "99999",
+        },
+        backgroundImage: {
+          "shape-gradient":
+            "linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(196,196,196,0) 100%)",
+        },
+        screens: {
+          xs: "400px",
+        },
+      },
+    },
+  };
+</script>
 
+<!-- Custom utilities manual (karena CDN tidak support plugin) -->
+<style type="text/tailwindcss">
+  .navbarTogglerActive > span:nth-child(1) {
+    top: 7px;
+    --tw-rotate: 45deg;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+      rotate(var(--tw-rotate));
+  }
+  .navbarTogglerActive > span:nth-child(2) {
+    opacity: 0;
+  }
+  .navbarTogglerActive > span:nth-child(3) {
+    top: -0.5rem;
+    --tw-rotate: 135deg;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+      rotate(var(--tw-rotate));
+  }
+
+  /* Custom toggle/checkbox states */
+  .checkbox-list:checked ~ label {
+    @apply border-primary bg-primary text-white;
+  }
+  .box-select-1:checked ~ label .box {
+    @apply border-primary bg-primary;
+  }
+  .tableCheckbox:checked ~ label .icon-box {
+    @apply border-primary bg-primary;
+  }
+
+  /* Zoom button custom (map) */
+  .jvm-zoom-btn {
+    @apply flex h-8 w-8 items-center justify-center rounded border border-stroke bg-[#F9FAFB] font-semibold text-body-color;
+  }
+  .jvm-zoom-btn:hover {
+    @apply border-primary bg-primary text-white;
+  }
+
+  /* Shape gradient */
+  .shape-gradient {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(196, 196, 196, 0) 100%
+    );
+  }
+</style>
+
+<!-- 
     <link
       rel="stylesheet"
       href="src/css/tailwind.css"
-    />
+    /> -->
     <script
       defer
       src="https://unpkg.com/alpinejs@3.5.1/dist/cdn.min.js"
@@ -49,9 +152,9 @@
           <div class="relative z-10 max-w-full px-4 py-3 w-60">
             <a href="javascript:void(0)" class="block w-full">
               <img
-                src="src/assets/images/logo/logo-white.svg"
+                src="src/images/logo_stifin.webp"
                 alt="logo"
-                class="w-full"
+                style="width: 50%;"
               />
             </a>
             <span
@@ -152,60 +255,29 @@
     <!-- ====== Hero Section Start -->
     <div class="relative overflow-hidden bg-white dark:bg-dark">
       <div class="relative z-10 pb-20 pt-[150px] lg:pb-[120px] lg:pt-[210px]">
-        <img
-          src="src/assets/images/hero/hero-image-07.jpg"
-          alt="image"
+        <span
           class="absolute top-0 left-0 z-[-1] h-full w-full object-cover object-center"
+          style="background-color: rgba(46, 46, 46, 0.322);"
+        ></span>
+        <img
+          src="src/images/hero.jpg"
+          alt="image"
+          class="absolute top-0 left-0 z-[-2] h-full w-full object-cover object-center"
         />
         <div class="container mx-auto">
           <div class="flex flex-wrap -mx-4">
-            <div class="w-full px-4">
-              <div
-                class="max-w-[570px] bg-white dark:bg-dark-2 py-10 px-8 sm:p-12 md:p-[60px]"
-              >
-                <span class="block mb-3 text-base font-medium text-primary">
-                  Your Business Revenue to The Moon
-                </span>
-                <h1
-                  class="mb-3 text-3xl font-bold leading-[1.208] text-dark dark:text-white md:text-4xl"
+            <div class="w-full px-4 text-white">
+              <h1 class="text-4xl">Lorem Ipsum Sit Dolor Amet</h1>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta saepe enim necessitatibus.
+              </p>
+              <div>
+                <a
+                  href="javascript:void(0)"
+                  class="inline-block px-6 py-4 my-5 text-base font-medium text-white transition hover:bg-white  hover:text-primary transition rounded bg-primary hover:bg- md:px-9 lg:px-6 xl:px-9"
                 >
-                  Corporate & Business Site Template By TailGrids.
-                </h1>
-                <p
-                  class="mb-8 text-base font-medium text-body-color dark:text-dark-6 lg:mb-10"
-                >
-                  There are many variations of passages of Lorem Ipsum
-                  available, but the majority have suffered.
-                </p>
-                <div class="flex flex-wrap gap-3">
-                  <a
-                    href="javascript:void(0)"
-                    class="py-3 text-base font-medium text-white transition bg-primary px-7 hover:bg-blue-dark"
-                  >
-                    Discover More
-                  </a>
-                  <a
-                    href="javascript:void(0)"
-                    class="inline-flex items-center px-6 py-3 text-base font-medium bg-white dark:bg-dark-2 shadow-1 dark:shadow-none text-dark dark:text-white hover:text-primary dark:hover:text-primary"
-                  >
-                    Explore Services
-                    <span class="ml-2">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="fill-current"
-                      >
-                        <path
-                          d="M18 9.5L11.5312 2.9375C11.25 2.65625 10.8125 2.65625 10.5312 2.9375C10.25 3.21875 10.25 3.65625 10.5312 3.9375L15.7812 9.28125H2.5C2.125 9.28125 1.8125 9.59375 1.8125 9.96875C1.8125 10.3437 2.125 10.6875 2.5 10.6875H15.8437L10.5312 16.0938C10.25 16.375 10.25 16.8125 10.5312 17.0938C10.6562 17.2188 10.8437 17.2813 11.0312 17.2813C11.2187 17.2813 11.4062 17.2188 11.5312 17.0625L18 10.5C18.2812 10.2187 18.2812 9.78125 18 9.5Z"
-                          fill=""
-                        />
-                      </svg>
-                    </span>
-                  </a>
-                </div>
+                  Start Free Trial
+                </a>
               </div>
             </div>
           </div>
@@ -225,14 +297,14 @@
               <div class="w-full px-3 sm:px-4 xl:w-1/2">
                 <div class="py-3 sm:py-4">
                   <img
-                    src="src/assets/images/services/image-1.jpg"
+                    src="src/images/edu1.jpg"
                     alt=""
                     class="w-full rounded-2xl"
                   />
                 </div>
                 <div class="py-3 sm:py-4">
                   <img
-                    src="src/assets/images/services/image-2.jpg"
+                    src="src/images/edu2.jpg"
                     alt=""
                     class="w-full rounded-2xl"
                   />
@@ -241,7 +313,7 @@
               <div class="w-full px-3 sm:px-4 xl:w-1/2">
                 <div class="relative z-10 my-4">
                   <img
-                    src="src/assets/images/services/image-3.jpg"
+                    src="src/images/edu3.jpg"
                     alt=""
                     class="w-full rounded-2xl"
                   />
@@ -861,12 +933,12 @@
           <div class="w-full px-4">
             <div class="mx-auto mb-12 max-w-[510px] text-center lg:mb-20">
               <span class="block mb-2 text-lg font-semibold text-primary">
-                Our Services
+                Why You Should Try?
               </span>
               <h2
                 class="text-dark dark:text-white mb-3 text-3xl leading-[1.2] font-bold sm:text-4xl md:text-[40px]"
               >
-                What We Offer
+                The Benefit of STIFIn Test
               </h2>
               <p class="text-base text-body-color dark:text-dark-6">
                 There are many variations of passages of Lorem Ipsum available
@@ -1090,7 +1162,7 @@
     <!-- ====== Services Section End -->
 
     <!-- ====== Portfolio Section Start -->
-    <section
+    <!-- <section
       x-data="
         {
           showCards: 'all',
@@ -1353,7 +1425,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- ====== Portfolio Section End -->
 
     <!-- ====== Team Section Start -->
@@ -1383,7 +1455,7 @@
             <div class="mx-auto mb-10 w-full max-w-[370px]">
               <div class="relative overflow-hidden rounded-lg">
                 <img
-                  src="src/assets/images/team/team-01/image-01.jpg"
+                  src="src/images/null2.png"
                   alt="image"
                   class="w-full"
                 />
@@ -1577,7 +1649,7 @@
             <div class="mx-auto mb-10 w-full max-w-[370px]">
               <div class="relative overflow-hidden rounded-lg">
                 <img
-                  src="src/assets/images/team/team-01/image-02.jpg"
+                  src="src/images/null2.png"
                   alt="image"
                   class="w-full"
                 />
@@ -1771,7 +1843,7 @@
             <div class="mx-auto mb-10 w-full max-w-[370px]">
               <div class="relative overflow-hidden rounded-lg">
                 <img
-                  src="src/assets/images/team/team-01/image-03.jpg"
+                  src="src/images/null2.png"
                   alt="image"
                   class="w-full"
                 />
@@ -1965,7 +2037,7 @@
             <div class="mx-auto mb-10 w-full max-w-[370px]">
               <div class="relative overflow-hidden rounded-lg">
                 <img
-                  src="src/assets/images/team/team-01/image-04.jpg"
+                  src="src/images/null2.png"
                   alt="image"
                   class="w-full"
                 />
@@ -2652,9 +2724,10 @@
       </div>
     </section>
     <!-- ====== Brands Section End -->
+     
 
     <!-- ====== Testimonials Section Start -->
-    <section x-data="{activeItem: 1}" class="pt-20 lg:pt-[120px] dark:bg-dark">
+    <!-- <section x-data="{activeItem: 1}" class="pt-20 lg:pt-[120px] dark:bg-dark">
       <div class="container mx-auto">
         <div class="flex flex-wrap justify-center -mx-4">
           <div class="w-full px-4">
@@ -3407,11 +3480,11 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- ====== Testimonials Section End -->
 
     <!-- ====== Blog Section Start -->
-    <section class="pt-20 lg:pt-[120px] dark:bg-dark">
+    <!-- <section class="pt-20 lg:pt-[120px] dark:bg-dark">
       <div class="container mx-auto">
         <div class="flex flex-wrap justify-center -mx-4">
           <div class="w-full px-4">
@@ -3525,7 +3598,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- ====== Blog Section End -->
 
     <!-- ====== Call To Action Section Start -->
