@@ -1,7 +1,8 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-$dot = parse_ini_file(__DIR__ . '/.env');
+require './utils.php';
+$dot = parse_ini_file(base_url() . '/.env');
 
 $conn = new mysqli(
   $dot['DB_HOST'],
