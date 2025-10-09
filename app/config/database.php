@@ -1,14 +1,17 @@
 <?php
-$db = [
-    'host'     => getenv('DB_HOST') ?: 'Localhost',
-    'port'     => getenv('DB_PORT') ?: '3306',
-    'database' => getenv('DB_DATABASE') ?: 'my_database',
-    'username' => getenv('DB_USERNAME') ?: 'root',
-    'password' => getenv('DB_PASSWORD') ?: '',
-];
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+$dot = parse_ini_file(__DIR__ . '/.env');
 
-$conn = new mysqli($db['host'], $db['username'], $db['password'], $db['database'], $db['port']);
+$conn = new mysqli(
+  $dot['DB_HOST'],
+  $dot['DB_HOST'],
+  $dot['DB_HOST'],
+  $dot['DB_HOST'],
+  $dot['DB_HOST'],
+);
 
-if($conn->connect_error){
-    die("Connection failed: " . $conn->connect_error);
+if ($conn->connect_error) {
+  die("Koneksi gagal: " . $conn->connect_error);
 }
+echo "Koneksi berhasil!";
