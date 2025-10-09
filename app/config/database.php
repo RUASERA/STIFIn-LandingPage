@@ -2,13 +2,13 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require './utils.php';
-$dot = parse_ini_file(base_url() . '/.env');
+$dot = parse_ini_file('../../.env');
 
 $conn = new mysqli(
   $dot['DB_HOST'],
   $dot['DB_USERNAME'],
   $dot['DB_PASSWORD'],
-  $dot['DB_DATABSE'],
+  $dot['DB_DATABASE'],
   $dot['DB_PORT'],
 );
 
