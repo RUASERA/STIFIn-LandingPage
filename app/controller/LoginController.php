@@ -1,6 +1,17 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 session_start();
-require '../config/database.php';
+require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../config/utils.php';
+
+// Pastikan pengguna telah login
+if (!isset($_SESSION['loggedIn'])) {
+    echo json_encode(['error' => 'Unauthorized']);
+    http_response_code(403);
+    exit();
+}
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $data = json_decode(file_get_contents("php://input"), true);
