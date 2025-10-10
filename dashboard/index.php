@@ -29,7 +29,7 @@ if(isset($_SESSION['loggedIn']) == false){
       <div class="hidden md:flex items-center gap-6">
         <a href="#" class="text-gray-600 hover:text-blue-600">Home</a>
         <a href="#" class="text-gray-600 hover:text-blue-600">Analytics</a>
-        <a href="#" class="text-gray-600 hover:text-blue-600">Reports</a>
+        <a href="../operators/list-operator.php" class="text-gray-600 hover:text-blue-600">Pengguna Dashboard</a>
       </div>
 
       <!-- Header kanan -->
