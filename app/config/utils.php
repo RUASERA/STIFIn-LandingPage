@@ -25,3 +25,24 @@ function generate_varchar($length = 8) {
   }
   return substr(str_shuffle(str_repeat('0123456789', $length)), 0, $length);
 }
+function rememberMe($conn)
+{
+  if (isset($_COOKIE['auth_token'])) {
+    $token = $_COOKIE['auth_token'];
+    $stmt = $conn->prepare("SELECT * FROM admin WHERE token = ?");
+    $stmt->bind_param("s", $token);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $_SESSION['name'] = $row['username'];
+        $_SESSION['email'] = $row['email'];
+        $_SESSION['profile'] = base_url() ."/". $row['image'];
+        $_SESSION['loggedIn'] = true;
+        $_SESSION['role'] = $row['role'];
+        header('location: '.base_url() .'/src/pages/dashboard/index.php');
+        exit();
+    }
+  }
+}

@@ -16,12 +16,12 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 function login($conn)
 {
     session_start();
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = $_POST['password'];
 
     // Gunakan prepared statement untuk mencegah SQL Injection
-    $stmt = $conn->prepare("SELECT * FROM admin WHERE email = ?");
-    $stmt->bind_param("s", $email);
+    $stmt = $conn->prepare("SELECT * FROM operators WHERE username = ?");
+    $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -31,19 +31,22 @@ function login($conn)
         // Verifikasi password dengan password_verify()
         if (password_verify($password, $row['password'])) {
             $_SESSION['name'] = $row['username'];
-            $_SESSION['profile'] = base_url() . "/" . $row['image'];
+            $_SESSION['profile'] = $row['img'];
             $_SESSION['loggedIn'] = true;
             $_SESSION['role'] = $row['role'];
 
-            json_encode(['status'=>'success', 'message' => 'Login berhasil']);
+            header('location: ../../dashboard');
             exit();
         } else {
-            echo json_encode(['status'=>'error', 'message' => 'Passowrd salah']);
+            $_SESSION['error'] = "Password salah!";
+            header('location: ../../dashboard');
             exit();
         }
     } else {
-        echo json_encode(['status'=>'error', 'message' => 'Pengguna tidak ditemukan']);
-        exit();
+        $_SESSION['error'] = "Akun tidak ditemukan!";
+            header('location: ../../dashboard');
+            exit();
     }
 }
+
 
