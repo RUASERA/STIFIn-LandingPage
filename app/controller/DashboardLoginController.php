@@ -6,13 +6,6 @@ session_start();
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../config/utils.php';
 
-// Pastikan pengguna telah login
-if (!isset($_SESSION['loggedIn'])) {
-    echo json_encode(['error' => 'Unauthorized']);
-    http_response_code(403);
-    exit();
-}
-
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $data = json_decode(file_get_contents("php://input"), true);
     $action = $_POST['action'] ?? $data['action'] ?? '';

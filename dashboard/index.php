@@ -28,8 +28,8 @@ if(isset($_SESSION['loggedIn']) == false){
       <!-- Header tengah -->
       <div class="hidden md:flex items-center gap-6">
         <a href="#" class="text-gray-600 hover:text-blue-600">Home</a>
-        <a href="#" class="text-gray-600 hover:text-blue-600">Analytics</a>
-        <a href="#" class="text-gray-600 hover:text-blue-600">Reports</a>
+        <a href="./sert/" class="text-gray-600 hover:text-blue-600">Sertifikat</a>
+        <a href="#" class="text-gray-600 hover:text-blue-600">Dashboard Operators</a>
       </div>
 
       <!-- Header kanan -->

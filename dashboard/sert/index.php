@@ -1,5 +1,5 @@
 <?php
-require_once'../../app/config/utils.php';
+require_once '../../app/config/utils.php';
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +55,7 @@ require_once'../../app/config/utils.php';
         <h2 class="text-xl font-semibold mb-4">Tambah Sertifikat</h2>
 
         <!-- Form -->
-        <form id="formSertifikat" class="space-y-4" onsubmit="submitForm(event)">
+        <form id="formSertifikat" class="space-y-4">
           <!-- Input Text -->
           <div>
             <label class="block text-sm font-medium mb-1">Nama Pemilik</label>
@@ -129,30 +129,10 @@ require_once'../../app/config/utils.php';
             <th class="py-3 px-4 text-center text-sm font-semibold text-gray-600">Aksi</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="tableBody">
           <!-- Row 1 -->
-          <tr class="border-b hover:bg-gray-50">
-            <td class="py-3 px-4">1</td>
-            <td class="py-3 px-4">John Doe</td>
-            <td class="py-3 px-4">Feeling Introvert</td>
-            <td class="py-3 px-4">12 Jan 2024</td>
-            <td class="py-3 px-4 text-center">
-              <button
-                class="bg-sky-400 text-white px-3 py-1 rounded-lg hover:bg-yellow-500 transition"
-                onclick="alert('Download sertifikat ini')">
-                Download
-              </button>
-              <button
-                class="bg-yellow-400 text-white px-3 py-1 rounded-lg hover:bg-yellow-500 transition"
-                onclick="alert('Edit sertifikat ini')">
-                Edit
-              </button>
-              <button
-                class="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600 transition ml-2"
-                onclick="confirm('Hapus sertifikat ini?')">
-                Hapus
-              </button>
-            </td>
+          <tr>
+            <td colspan="5" class="py-4 px-4 text-center text-gray-500">Memuat data...</td>
           </tr>
         </tbody>
       </table>
@@ -160,62 +140,116 @@ require_once'../../app/config/utils.php';
   </main>
 
   <script>
-    document.addEventListener("DOMContentLoaded",
-      populateTypeDropdown());
+    document.addEventListener("DOMContentLoaded",function(){
+      populateTypeDropdown();
+      loadSertifikat();
+    });
+
+    async function loadSertifikat() {
+    const tableBody = document.getElementById("tableBody");
+    tableBody.innerHTML = `
+      <tr>
+        <td colspan="5" class="py-4 px-4 text-center text-gray-500">Memuat data...</td>
+      </tr>`;
+
+    try {
+      const res = await fetch("<?= base_url() ?>/app/controller/Cert/show.php");
+      const data = await res.json();
+
+      if (!data.success || data.data.length === 0) {
+        tableBody.innerHTML = `
+          <tr><td colspan="5" class="py-4 px-4 text-center text-gray-500">Data sertifikat belum tersedia.</td></tr>`;
+        return;
+      }
+
+      tableBody.innerHTML = "";
+
+      data.data.forEach((row, i) => {
+        const tr = document.createElement("tr");
+        tr.className = "border-b hover:bg-gray-50";
+
+        tr.innerHTML = `
+          <td class="py-3 px-4">${i + 1}</td>
+          <td class="py-3 px-4">${row.name}</td>
+          <td class="py-3 px-4">${row.tipe_stifin}</td>
+          <td class="py-3 px-4">${row.tanggal_terbit}</td>
+          <td class="py-3 px-4 text-center">
+            <button class="bg-sky-400 text-white px-3 py-1 rounded-lg hover:bg-sky-500 transition"
+              onclick="window.location.href='download.php?id=${row.id}'">Download</button>
+            <button class="bg-yellow-400 text-white px-3 py-1 rounded-lg hover:bg-yellow-500 transition"
+              onclick="window.location.href='edit.php?id=${row.id}'">Edit</button>
+            <button class="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600 transition ml-2"
+              onclick="if(confirm('Hapus sertifikat ini?')) window.location.href='delete.php?id=${row.id}'">Hapus</button>
+          </td>
+        `;
+        tableBody.appendChild(tr);
+      });
+    } catch (err) {
+      console.error(err);
+      tableBody.innerHTML = `
+        <tr><td colspan="5" class="py-4 px-4 text-center text-red-500">Gagal memuat data.</td></tr>`;
+    }
+  }
+
 
     function populateTypeDropdown() {
-     const jenis = document.getElementById("jenis");
-     fetch("<?= base_url() ?>/app/controller/TypeController.php?action=getTypes")
-       .then(response => response.json())
-       .then(json => {
-         json.data.forEach(item => {
-           const option = document.createElement("option");
-           option.value = item.id;
-           option.textContent = item.type;
-           jenis.appendChild(option);
-         });
-       });
-   }
+      const jenis = document.getElementById("jenis");
+      fetch("<?= base_url() ?>/app/controller/TypeController.php?action=getTypes")
+        .then(response => response.json())
+        .then(json => {
+          json.data.forEach(item => {
+            const option = document.createElement("option");
+            option.value = item.id;
+            option.textContent = item.type;
+            jenis.appendChild(option);
+          });
+        });
+    }
 
     function toggleModal(show) {
       document.getElementById("modal").classList.toggle("hidden", !show);
     }
 
-    
-    async function kirimDataSertifikat(formElement, endpointUrl) {
-      const formData = new FormData(formElement);
+
+    document.getElementById("formSertifikat").addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const formData = new FormData(form);
 
       try {
-        const response = await fetch(endpointUrl, {
+        // Tampilkan status loading (opsional)
+        const submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Menyimpan...";
+
+        const response = await fetch("<?= base_url() ?>/app/controller/Cert/insert.php", {
           method: "POST",
           body: formData,
         });
 
-        if (!response.ok) {
-          throw new Error("Gagal mengirim data ke server.");
-        }
-
+        // Parsing hasil JSON dari API
         const result = await response.json();
 
         if (result.success) {
-          console.log("Sertifikat berhasil ditambahkan.");
-          toggleModal(false);
-          formElement.reset();
-          // panggil fungsi refresh data jika diperlukan, contoh: refreshTabelSertifikat();
+          alert("Sertifikat berhasil disimpan!");
+          form.reset();
+          // contoh: tutup modal jika ada fungsi toggleModal()
+          if (typeof toggleModal === "function") toggleModal(false);
         } else {
-          console.warn("Gagal menambahkan sertifikat:", result.message || "Terjadi kesalahan.");
+          alert("Gagal menyimpan: " + (result.message || "Terjadi kesalahan."));
         }
+
       } catch (error) {
         console.error("Error:", error);
+        alert("Gagal mengirim data ke server.");
+      } finally {
+        // Kembalikan tombol ke keadaan semula
+        const submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Simpan";
       }
-    }
-
-    // contoh pemakaian:
-    document.getElementById("formSertifikat").addEventListener("submit", function(e) {
-      e.preventDefault();
-      kirimDataSertifikat(e.target, "api/sertifikat/tambah.php");
     });
-
   </script>
 </body>
 
