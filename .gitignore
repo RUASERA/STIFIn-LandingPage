@@ -1,2 +1,2 @@
 .env
-./app/uploads
+app/uploads/*

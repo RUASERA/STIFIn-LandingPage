@@ -120,6 +120,14 @@ require_once '../../app/config/utils.php';
     <!-- TABLE -->
     <div class="bg-white rounded-xl shadow-md overflow-hidden">
       <table class="w-full border-collapse">
+        <div class="flex justify-between items-center mb-4">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Cari nama atau tipe sertifikat..."
+            class="border border-gray-300 rounded-lg px-3 py-2 w-1/3 focus:ring-2 focus:ring-blue-400" />
+          <div id="pagination" class="flex items-center gap-2"></div>
+        </div>
         <thead class="bg-gray-50 border-b">
           <tr>
             <th class="py-3 px-4 text-left text-sm font-semibold text-gray-600">No</th>
@@ -140,57 +148,107 @@ require_once '../../app/config/utils.php';
   </main>
 
   <script>
-    document.addEventListener("DOMContentLoaded",function(){
+    document.addEventListener("DOMContentLoaded", function() {
       populateTypeDropdown();
       loadSertifikat();
     });
 
-    async function loadSertifikat() {
     const tableBody = document.getElementById("tableBody");
-    tableBody.innerHTML = `
-      <tr>
-        <td colspan="5" class="py-4 px-4 text-center text-gray-500">Memuat data...</td>
-      </tr>`;
+    const searchInput = document.getElementById("searchInput");
+    const paginationDiv = document.getElementById("pagination");
 
-    try {
-      const res = await fetch("<?= base_url() ?>/app/controller/Cert/show.php");
-      const data = await res.json();
+    let currentPage = 1;
+    let currentSearch = "";
 
-      if (!data.success || data.data.length === 0) {
-        tableBody.innerHTML = `
-          <tr><td colspan="5" class="py-4 px-4 text-center text-gray-500">Data sertifikat belum tersedia.</td></tr>`;
-        return;
-      }
+    async function loadSertifikat(page = 1, search = "") {
+      tableBody.innerHTML = `<tr><td colspan="5" class="py-4 text-center text-gray-500">Memuat data...</td></tr>`;
+      try {
+        const res = await fetch(`<?= base_url() ?>/app/controller/cert/show.php?page=${page}&search=${encodeURIComponent(search)}`);
+        const data = await res.json();
 
-      tableBody.innerHTML = "";
+        if (!data.success || data.data.length === 0) {
+          tableBody.innerHTML = `<tr><td colspan="5" class="py-4 text-center text-gray-500">Data tidak ditemukan.</td></tr>`;
+          paginationDiv.innerHTML = "";
+          return;
+        }
 
-      data.data.forEach((row, i) => {
-        const tr = document.createElement("tr");
-        tr.className = "border-b hover:bg-gray-50";
-
-        tr.innerHTML = `
-          <td class="py-3 px-4">${i + 1}</td>
+        tableBody.innerHTML = "";
+        data.data.forEach((row, i) => {
+          const tr = document.createElement("tr");
+          tr.className = "border-b hover:bg-gray-50";
+          tr.innerHTML = `
+          <td class="py-3 px-4">${(data.current_page - 1) * data.per_page + i + 1}</td>
           <td class="py-3 px-4">${row.name}</td>
           <td class="py-3 px-4">${row.tipe_stifin}</td>
           <td class="py-3 px-4">${row.tanggal_terbit}</td>
           <td class="py-3 px-4 text-center">
             <button class="bg-sky-400 text-white px-3 py-1 rounded-lg hover:bg-sky-500 transition"
-              onclick="window.location.href='download.php?id=${row.id}'">Download</button>
+              onclick="window.location.href='<?= base_url() ?>/app/controller/cert/download.php?id=' + ${row.id}">Download</button>
             <button class="bg-yellow-400 text-white px-3 py-1 rounded-lg hover:bg-yellow-500 transition"
               onclick="window.location.href='edit.php?id=${row.id}'">Edit</button>
-            <button class="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600 transition ml-2"
-              onclick="if(confirm('Hapus sertifikat ini?')) window.location.href='delete.php?id=${row.id}'">Hapus</button>
+            <button 
+              class="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600 transition ml-2"
+              onclick="deleteCert(${row.id})">
+              Hapus
+            </button>
           </td>
         `;
-        tableBody.appendChild(tr);
-      });
-    } catch (err) {
-      console.error(err);
-      tableBody.innerHTML = `
-        <tr><td colspan="5" class="py-4 px-4 text-center text-red-500">Gagal memuat data.</td></tr>`;
-    }
-  }
+          tableBody.appendChild(tr);
+        });
 
+        // Generate pagination
+        paginationDiv.innerHTML = "";
+        for (let i = 1; i <= data.total_pages; i++) {
+          const btn = document.createElement("button");
+          btn.textContent = i;
+          btn.className = `px-3 py-1 rounded ${i === data.current_page ? "bg-blue-500 text-white" : "bg-gray-200 hover:bg-gray-300"}`;
+          btn.onclick = () => {
+            currentPage = i;
+            loadSertifikat(currentPage, currentSearch);
+          };
+          paginationDiv.appendChild(btn);
+        }
+      } catch (err) {
+        console.error(err);
+        tableBody.innerHTML = `<tr><td colspan="5" class="py-4 text-center text-red-500">Gagal memuat data.</td></tr>`;
+      }
+    }
+
+    // Pencarian realtime (debounced)
+    let searchTimer;
+    searchInput.addEventListener("input", () => {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(() => {
+        currentSearch = searchInput.value;
+        currentPage = 1;
+        loadSertifikat(currentPage, currentSearch);
+      }, 500);
+    });
+
+    async function deleteCert(id) {
+      if (!confirm("Yakin ingin menghapus sertifikat ini?")) return;
+
+      const formData = new FormData();
+      formData.append("action", "deleteCert");
+      formData.append("id", id);
+
+      try {
+        const res = await fetch("<?= base_url() ?>/app/controller/cert/delete.php", {
+          method: "POST",
+          body: formData
+        });
+
+        const result = await res.json();
+        alert(result.message);
+
+        if (result.success) {
+          loadSertifikat(); // refresh tabel
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        alert("Terjadi kesalahan saat menghapus data.");
+      }
+    }
 
     function populateTypeDropdown() {
       const jenis = document.getElementById("jenis");
@@ -236,6 +294,7 @@ require_once '../../app/config/utils.php';
           form.reset();
           // contoh: tutup modal jika ada fungsi toggleModal()
           if (typeof toggleModal === "function") toggleModal(false);
+          loadSertifikat();
         } else {
           alert("Gagal menyimpan: " + (result.message || "Terjadi kesalahan."));
         }

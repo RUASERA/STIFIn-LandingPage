@@ -19,8 +19,8 @@ if($_SERVER['REQUEST_METHOD'] !== 'POST'){
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-$nama = mysqli_real_escape_string($conn, $_POST['nama']);
-$jenis = mysqli_real_escape_string($conn, $_POST['jenis']);
+$nama = mysqli_real_escape_string($conn, $data['nama']);
+$jenis = mysqli_real_escape_string($conn, $data['jenis']);
 $file = $_FILES['file'];
 $passcode = generateKodeUnik();
 
@@ -38,7 +38,7 @@ if (!in_array($file['type'], $allowedTypes)) {
 }
 
 // Pindahkan file ke direktori uploads
-$uploadDir = __DIR__ . '/../uploads/certificates';
+$uploadDir = __DIR__ . '/../../uploads/certificates/';
 if (!is_dir($uploadDir)) {
     mkdir($uploadDir, 0755, true);
 }

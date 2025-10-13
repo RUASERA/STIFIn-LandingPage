@@ -13,14 +13,38 @@ if (!isset($_SESSION['loggedIn'])) {
     exit();
 }
 
-$query = "SELECT u.id, u.name, t.type AS tipe_stifin, u.created_at AS tanggal_terbit
-          FROM user u
-          LEFT JOIN types t ON u.type_id = t.id
-          ORDER BY u.created_at DESC";
+// Pagination setup
+$per_page = 5;
+$page = isset($_GET['page']) ? max(1, intval($_GET['page'])) : 1;
+$offset = ($page - 1) * $per_page;
+
+// Search filter
+$search = isset($_GET['search']) ? trim($_GET['search']) : '';
+$search_condition = '';
+if ($search !== '') {
+    $search = mysqli_real_escape_string($conn, $search);
+    $search_condition = "WHERE s.name LIKE '%$search%' OR t.type LIKE '%$search%'";
+}
+
+// Hitung total data
+$total_query = "SELECT COUNT(*) as total FROM user s 
+                LEFT JOIN types t ON s.type_id = t.id
+                $search_condition";
+$total_result = mysqli_query($conn, $total_query);
+$total_data = $total_result ? mysqli_fetch_assoc($total_result)['total'] : 0;
+$total_pages = ceil($total_data / $per_page);
+
+// Ambil data sesuai halaman
+$query = "SELECT s.id, s.name, t.type AS tipe_stifin, s.created_at AS tanggal_terbit
+          FROM user s
+          LEFT JOIN types t ON s.type_id = t.id
+          $search_condition
+          ORDER BY s.created_at DESC
+          LIMIT $per_page OFFSET $offset";
 
 $result = mysqli_query($conn, $query);
-
 $data = [];
+
 if ($result && mysqli_num_rows($result) > 0) {
   while ($row = mysqli_fetch_assoc($result)) {
     $data[] = [
@@ -34,5 +58,9 @@ if ($result && mysqli_num_rows($result) > 0) {
 
 echo json_encode([
   "success" => true,
-  "data" => $data
+  "data" => $data,
+  "current_page" => $page,
+  "per_page" => $per_page,
+  "total_pages" => $total_pages,
+  "total_data" => $total_data
 ]);
