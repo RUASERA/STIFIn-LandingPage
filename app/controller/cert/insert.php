@@ -19,8 +19,8 @@ if($_SERVER['REQUEST_METHOD'] !== 'POST'){
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-$nama = mysqli_real_escape_string($conn, $data['nama']);
-$jenis = mysqli_real_escape_string($conn, $data['jenis']);
+$nama = mysqli_real_escape_string($conn, $_POST['nama']);
+$jenis = mysqli_real_escape_string($conn, $_POST['jenis']);
 $file = $_FILES['file'];
 $passcode = generateKodeUnik();
 
@@ -42,7 +42,11 @@ $uploadDir = __DIR__ . '/../../uploads/certificates/';
 if (!is_dir($uploadDir)) {
     mkdir($uploadDir, 0755, true);
 }
-$filePath = $uploadDir . basename($file['name']);
+// Ubah nama file sebelum disimpan
+$newFileName = time() . "_" . preg_replace('/[^A-Za-z0-9_\-\.]/', '_', basename($file['name']));
+$filePath = $uploadDir . $newFileName;
+
+// Pindahkan file ke direktori upload
 if (!move_uploaded_file($file['tmp_name'], $filePath)) {
     echo json_encode(['success' => false, 'message' => 'Gagal mengunggah file.']);
     return;
@@ -50,7 +54,7 @@ if (!move_uploaded_file($file['tmp_name'], $filePath)) {
 
 // Simpan data ke database
 $stmt = $conn->prepare("INSERT INTO user (name, type_id, file, password) VALUES (?, ?, ?, ?)");
-$stmt->bind_param("ssss", $nama, $jenis, $file['name'], $passcode);
+$stmt->bind_param("ssss", $nama, $jenis, $newFileName, $passcode);
 
 if ($stmt->execute()) {
     echo json_encode(['success' => true, 'message' => 'Sertifikat berhasil ditambahkan.']);

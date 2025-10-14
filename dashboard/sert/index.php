@@ -42,7 +42,7 @@ require_once '../../app/config/utils.php';
       <h1 class="text-2xl font-semibold">Data Sertifikat</h1>
       <button
         class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
-        onclick="toggleModal(true)">
+        onclick="toggleModal('add')">
         + Tambah Sertifikat
       </button>
     </div>
@@ -52,11 +52,12 @@ require_once '../../app/config/utils.php';
       class="hidden fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
       <!-- Modal Content -->
       <div class="bg-white w-full max-w-md rounded-xl shadow-lg p-6 relative">
-        <h2 class="text-xl font-semibold mb-4">Tambah Sertifikat</h2>
+        <h2 class="text-xl font-semibold mb-4" id="formTitle">Tambah Sertifikat</h2>
 
         <!-- Form -->
         <form id="formSertifikat" class="space-y-4">
           <!-- Input Text -->
+          <input type="hidden" id="sertifikatId" name="id" />
           <div>
             <label class="block text-sm font-medium mb-1">Nama Pemilik</label>
             <input
@@ -88,15 +89,14 @@ require_once '../../app/config/utils.php';
               id="file"
               name="file"
               accept=".pdf,.jpg,.jpeg,.png"
-              class="w-full border border-gray-300 rounded-lg px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-400"
-              required />
+              class="w-full border border-gray-300 rounded-lg px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-400"/>
           </div>
 
           <!-- Tombol Aksi -->
           <div class="flex justify-end gap-3 pt-4">
             <button
               type="button"
-              onclick="toggleModal(false)"
+              onclick="toggleHidModal()"
               class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-100 transition">
               Batal
             </button>
@@ -110,7 +110,7 @@ require_once '../../app/config/utils.php';
 
         <!-- Tombol Close (X) -->
         <button
-          onclick="toggleModal(false)"
+          onclick="toggleHideModal()"
           class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
           ✕
         </button>
@@ -159,6 +159,7 @@ require_once '../../app/config/utils.php';
 
     let currentPage = 1;
     let currentSearch = "";
+    let currentMode = "add";
 
     async function loadSertifikat(page = 1, search = "") {
       tableBody.innerHTML = `<tr><td colspan="5" class="py-4 text-center text-gray-500">Memuat data...</td></tr>`;
@@ -185,7 +186,11 @@ require_once '../../app/config/utils.php';
             <button class="bg-sky-400 text-white px-3 py-1 rounded-lg hover:bg-sky-500 transition"
               onclick="window.location.href='<?= base_url() ?>/app/controller/cert/download.php?id=' + ${row.id}">Download</button>
             <button class="bg-yellow-400 text-white px-3 py-1 rounded-lg hover:bg-yellow-500 transition"
-              onclick="window.location.href='edit.php?id=${row.id}'">Edit</button>
+              onclick="toggleModal('edit', {
+                id: '${row.id}',
+                name: '${row.name}',
+                type_id: '${row.typeId}'
+              })">Edit</button>
             <button 
               class="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600 transition ml-2"
               onclick="deleteCert(${row.id})">
@@ -264,8 +269,31 @@ require_once '../../app/config/utils.php';
         });
     }
 
-    function toggleModal(show) {
-      document.getElementById("modal").classList.toggle("hidden", !show);
+    function toggleHideModal() {
+      document.getElementById("modal").classList.toggle("hidden", true);
+    }
+
+    function toggleModal(action, data = null) {
+      const modal = document.getElementById("modal");
+      const title = document.getElementById("formTitle");
+      const form = document.getElementById("formSertifikat");
+      const fileInput = document.getElementById('file');
+
+      modal.classList.remove("hidden");
+      currentMode = action;
+
+      if (action === "add") {
+        title.textContent = "Tambah Sertifikat";
+        form.reset();
+        document.getElementById("sertifikatId").value = "";
+        fileInput.required = true;
+      } else if (action === "edit" && data) {
+        title.textContent = "Edit Sertifikat";
+        document.getElementById("sertifikatId").value = data.id;
+        document.getElementById("nama").value = data.name;
+        document.getElementById("jenis").value = data.type_id;
+        fileInput.required = false;
+      }
     }
 
 
@@ -274,6 +302,9 @@ require_once '../../app/config/utils.php';
 
       const form = e.target;
       const formData = new FormData(form);
+      const ENDPOINT = currentMode === "add" ?
+        "<?= base_url() ?>/app/controller/Cert/insert.php" :
+        "<?= base_url() ?>/app/controller/Cert/update.php";
 
       try {
         // Tampilkan status loading (opsional)
@@ -281,7 +312,7 @@ require_once '../../app/config/utils.php';
         submitBtn.disabled = true;
         submitBtn.textContent = "Menyimpan...";
 
-        const response = await fetch("<?= base_url() ?>/app/controller/Cert/insert.php", {
+        const response = await fetch(ENDPOINT, {
           method: "POST",
           body: formData,
         });
