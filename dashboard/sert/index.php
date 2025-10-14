@@ -23,7 +23,7 @@ require_once '../../app/config/utils.php';
       </div>
 
       <div class="hidden md:flex items-center gap-6">
-        <a href="#" class="text-gray-600 hover:text-blue-600">Home</a>
+        <a href="../index.php" class="text-gray-600 hover:text-blue-600">Home</a>
         <a href="#" class="text-gray-600 hover:text-blue-600 font-semibold">Sertifikat</a>
         <a href="#" class="text-gray-600 hover:text-blue-600">Pengaturan</a>
       </div>
