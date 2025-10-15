@@ -18,48 +18,74 @@ if($_SERVER['REQUEST_METHOD'] !== 'POST'){
 }
 
 $data = json_decode(file_get_contents("php://input"), true);
-
 $nama = mysqli_real_escape_string($conn, $_POST['nama']);
 $jenis = mysqli_real_escape_string($conn, $_POST['jenis']);
 $file = $_FILES['file'];
+$foto = $_FILES['foto']; // Foto hasil crop dari form
 $passcode = generateKodeUnik();
 
-// Validasi input
+// Validasi input utama
 if (empty($nama) || empty($jenis) || empty($file)) {
     echo json_encode(['success' => false, 'message' => 'Semua field harus diisi.']);
     return;
 }
 
-// Validasi file
+// ================== VALIDASI & SIMPAN FILE UTAMA ==================
 $allowedTypes = ['application/pdf', 'image/jpeg', 'image/png'];
 if (!in_array($file['type'], $allowedTypes)) {
     echo json_encode(['success' => false, 'message' => 'Tipe file tidak valid. Hanya PDF, JPEG, dan PNG yang diperbolehkan.']);
     return;
 }
 
-// Pindahkan file ke direktori uploads
 $uploadDir = __DIR__ . '/../../uploads/certificates/';
 if (!is_dir($uploadDir)) {
     mkdir($uploadDir, 0755, true);
 }
-// Ubah nama file sebelum disimpan
+
+// Ganti nama file utama dengan timestamp
 $newFileName = time() . "_" . preg_replace('/[^A-Za-z0-9_\-\.]/', '_', basename($file['name']));
 $filePath = $uploadDir . $newFileName;
 
-// Pindahkan file ke direktori upload
 if (!move_uploaded_file($file['tmp_name'], $filePath)) {
-    echo json_encode(['success' => false, 'message' => 'Gagal mengunggah file.']);
+    echo json_encode(['success' => false, 'message' => 'Gagal mengunggah file sertifikat.']);
     return;
 }
 
-// Simpan data ke database
-$stmt = $conn->prepare("INSERT INTO user (name, type_id, file, password) VALUES (?, ?, ?, ?)");
-$stmt->bind_param("ssss", $nama, $jenis, $newFileName, $passcode);
+// ================== VALIDASI & SIMPAN FOTO CLIENT ==================
+$profileFileName = null; // default
+
+if (!empty($foto) && $foto['error'] === UPLOAD_ERR_OK) {
+    $allowedImageTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+
+    if (!in_array($foto['type'], $allowedImageTypes)) {
+        echo json_encode(['success' => false, 'message' => 'Tipe foto tidak valid. Hanya JPG atau PNG diperbolehkan.']);
+        return;
+    }
+
+    $photoDir = __DIR__ . '/../../uploads/photos/clients/';
+    if (!is_dir($photoDir)) {
+        mkdir($photoDir, 0755, true);
+    }
+
+    // Gunakan datetime untuk nama file foto (YYYYmmdd_His.jpg)
+    $profileFileName = date('Ymd_His') . '.jpg';
+    $photoPath = $photoDir . $profileFileName;
+
+    if (!move_uploaded_file($foto['tmp_name'], $photoPath)) {
+        echo json_encode(['success' => false, 'message' => 'Gagal menyimpan foto pemilik.']);
+        return;
+    }
+}
+
+// ================== SIMPAN DATA KE DATABASE ==================
+$stmt = $conn->prepare("INSERT INTO user (name, type_id, file, profile, password) VALUES (?, ?, ?, ?, ?)");
+$stmt->bind_param("sssss", $nama, $jenis, $newFileName, $profileFileName, $passcode);
 
 if ($stmt->execute()) {
-    echo json_encode(['success' => true, 'message' => 'Sertifikat berhasil ditambahkan.']);
+    echo json_encode(['success' => true, 'message' => 'Sertifikat dan foto berhasil ditambahkan.']);
 } else {
     echo json_encode(['success' => false, 'message' => 'Gagal menyimpan data ke database.']);
 }
 
 $stmt->close();
+$conn->close();

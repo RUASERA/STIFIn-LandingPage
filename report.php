@@ -28,7 +28,7 @@ if (!isset($_SESSION['ClientLoggedIn']) == True) {
 
   <link rel="icon" type="image/png" href="./src/images/favicon_stifin.webp">
 
-  <meta name="theme-color" content="#5540af">
+  <meta name="theme-color" content="#0a0716ff">
 
   <link crossorigin="crossorigin" href="https://fonts.gstatic.com" rel="preconnect" />
 
@@ -52,7 +52,7 @@ if (!isset($_SESSION['ClientLoggedIn']) == True) {
         },
         extend: {
           colors: {
-            primary: "#5540AF",
+            primary: "#242033ff",
             secondary: "#252426",
             yellow: "#F9E71C",
             lila: "#E6E5EC",
@@ -124,10 +124,9 @@ if (!isset($_SESSION['ClientLoggedIn']) == True) {
               <img src="./src/images/logo_steps.png" class="w-24 lg:w-48" alt="logo image">
             </div>
           </div>
-          <div class="">
-            <button type="button"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Default</button>
-          </div>
+          <form method="POST" action="./app/controller/LoginController.php">
+            <button type="submit" name="action" value="logout" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Default</button>
+          </form>
           <!-- <div class="hidden lg:block">
       <ul class="flex items-center">
         
@@ -269,7 +268,7 @@ if (!isset($_SESSION['ClientLoggedIn']) == True) {
           <div class="container relative z-30 pt-20 pb-12 sm:pt-56 sm:pb-48 lg:pt-64 lg:pb-48">
             <div class="flex flex-col items-center justify-center lg:flex-row">
               <div class="rounded-full border-8 border-primary shadow-xl">
-                <img src="./src/images/blog-author.jpg" class="h-48 rounded-full sm:h-56" alt="author">
+                <img src="./app/uploads/photos/clients/<?=$_SESSION['profile']?>" class="h-48 rounded-full sm:h-56" alt="author">
               </div>
               <div class="pt-8 sm:pt-10 lg:pl-8 lg:pt-0">
                 <h1 class="text-center font-header text-4xl text-white sm:text-left sm:text-5xl md:text-6xl">
@@ -753,7 +752,7 @@ if (!isset($_SESSION['ClientLoggedIn']) == True) {
     <div class="bg-primary">
       <div class="container flex flex-col justify-between py-6 sm:flex-row">
         <p class="text-center font-body text-white md:text-left">
-          © Copyright 2022. All right reserved, ATOM.
+          © Copyright 2025. All right reserved, STEPS ID.
         </p>
         <div class="flex items-center justify-center pt-5 sm:justify-start sm:pt-0">
           <a href="https://atom.redpixelthemes.com/">

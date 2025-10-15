@@ -35,7 +35,7 @@ $total_data = $total_result ? mysqli_fetch_assoc($total_result)['total'] : 0;
 $total_pages = ceil($total_data / $per_page);
 
 // Ambil data sesuai halaman
-$query = "SELECT s.id, s.name, t.type AS tipe_stifin, s.type_id, s.created_at AS tanggal_terbit
+$query = "SELECT s.id, s.name, t.type AS tipe_stifin, s.type_id, s.created_at AS tanggal_terbit, s.profile
           FROM user s
           LEFT JOIN types t ON s.type_id = t.id
           $search_condition
@@ -51,6 +51,7 @@ if ($result && mysqli_num_rows($result) > 0) {
       "id" => $row["id"],
       "typeId" => $row["type_id"],
       "name" => htmlspecialchars($row["name"]),
+      "profile" => htmlspecialchars($row["profile"]),
       "tipe_stifin" => htmlspecialchars($row["tipe_stifin"]),
       "tanggal_terbit" => date("d M Y", strtotime($row["tanggal_terbit"]))
     ];

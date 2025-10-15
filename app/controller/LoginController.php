@@ -18,6 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         case 'loginClient':
             loginClient($conn);
             break;
+        case 'logout':
+            logout();
+            break;
     }
 }
 
@@ -31,7 +34,7 @@ function loginClient($conn) {
         exit;
     }
 
-    $stmt = $conn->prepare("SELECT s.id, s.name, t.type AS tipe_stifin, password
+    $stmt = $conn->prepare("SELECT s.id, s.name, t.type AS tipe_stifin, password, s.profile
           FROM user s
           LEFT JOIN types t ON s.type_id = t.id
           WHERE s.name = ?
@@ -46,6 +49,7 @@ function loginClient($conn) {
         if ($password === $user['password']) {
             $_SESSION['ClientLoggedIn'] = true;
             $_SESSION['user_id'] = $user['id'];
+            $_SESSION['profile'] = $user['profile'] ?? 'default.jpg';
             $_SESSION['user_name'] = $user['name'];
             $_SESSION['type'] = $user['tipe_stifin'];
 
@@ -91,4 +95,11 @@ function login($conn)
     }
     exit;
 }
-?>
+
+function logout()
+{
+    session_unset();
+    session_destroy();
+    header("Location: " . base_url() . "/index.php");
+    exit;
+}

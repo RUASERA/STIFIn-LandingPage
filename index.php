@@ -223,7 +223,7 @@ session_start();
               onclick="<?php if (isset($_SESSION['ClientLoggedIn'])) { echo "window.location.href='report.php'; return false;"; }?>"
               data-modal-target="authentication-modal" data-modal-toggle="authentication-modal"
               class="absolute right-4 top-1/2 -translate-y-1/2 rounded-md px-4 py-[6px] text-white bg-primary hover:opacity-80 ring-stroke focus:ring-2 transition">
-              Start Now
+              Cek Hasil Tes Kamu
             </button>
             <!-- Main modal -->
             <div id="authentication-modal" tabindex="-1" aria-hidden="true"
@@ -235,7 +235,7 @@ session_start();
                   <div
                     class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                      Sign in to our platform
+                      Lihat Hasil Tes Kamu yuk!
                     </h3>
                     <button type="button"
                       class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -271,8 +271,7 @@ session_start();
                         class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login
                         to your account</button>
                       <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
-                        Not registered? <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">Create
-                          account</a>
+                        Belum punya akun? <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">Tes Sekarang yuk!</a>
                       </div>
                     </form>
                   </div>

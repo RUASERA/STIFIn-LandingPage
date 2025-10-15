@@ -1,10 +1,10 @@
 <?php
 session_start();
 require_once '../../app/config/utils.php';
-if(isset($_SESSION['loggedIn']) == false){
-        header('location: ./index.php');
-        exit();
-    }
+if (isset($_SESSION['loggedIn']) == false) {
+  header('location: ./index.php');
+  exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +15,8 @@ if(isset($_SESSION['loggedIn']) == false){
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manajemen Sertifikat</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/cropperjs@1.6.2/dist/cropper.min.css" rel="stylesheet" />
+  <script src="https://unpkg.com/cropperjs@1.6.2/dist/cropper.min.js"></script>
 </head>
 
 <body class="bg-gray-100 font-sans text-gray-800">
@@ -88,20 +90,30 @@ if(isset($_SESSION['loggedIn']) == false){
 
           <!-- Input File -->
           <div>
+            <label class="block text-sm font-medium mb-1">Foto pemilik</label>
+            <input
+              type="file"
+              id="foto"
+              name="foto"
+              accept=".jpeg, .png, .jpg"
+              class="w-full border border-gray-300 rounded-lg px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-400" />
+          </div>
+
+          <div>
             <label class="block text-sm font-medium mb-1">Upload Sertifikat (PDF/JPG)</label>
             <input
               type="file"
               id="file"
               name="file"
               accept=".pdf,.jpg,.jpeg,.png"
-              class="w-full border border-gray-300 rounded-lg px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-400"/>
+              class="w-full border border-gray-300 rounded-lg px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-400" />
           </div>
 
           <!-- Tombol Aksi -->
           <div class="flex justify-end gap-3 pt-4">
             <button
               type="button"
-              onclick="toggleHidModal()"
+              onclick="toggleHideModal()"
               class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-100 transition">
               Batal
             </button>
@@ -122,6 +134,20 @@ if(isset($_SESSION['loggedIn']) == false){
       </div>
     </div>
 
+    <!-- Modal Crop Foto -->
+    <div id="cropModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+      <div class="bg-white p-4 rounded-lg shadow-lg w-[90%] max-w-md">
+        <h2 class="text-lg font-semibold mb-2">Crop Foto</h2>
+        <div class="w-full">
+          <img id="cropImage" class="max-w-full" />
+        </div>
+        <div class="mt-4 flex justify-end gap-3">
+          <button onclick="closeCropModal()" class="px-3 py-1 border rounded hover:bg-gray-100">Batal</button>
+          <button onclick="applyCrop()" class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">Terapkan</button>
+        </div>
+      </div>
+    </div>
+
     <!-- TABLE -->
     <div class="bg-white rounded-xl shadow-md overflow-hidden">
       <table class="w-full border-collapse">
@@ -136,7 +162,7 @@ if(isset($_SESSION['loggedIn']) == false){
         <thead class="bg-gray-50 border-b">
           <tr>
             <th class="py-3 px-4 text-left text-sm font-semibold text-gray-600">No</th>
-            <th class="py-3 px-4 text-left text-sm font-semibold text-gray-600">Nama Pemilik</th>
+            <th class="py-3 px-4 text-left text-sm font-semibold text-gray-600">Pemilik</th>
             <th class="py-3 px-4 text-left text-sm font-semibold text-gray-600">Tipe STIFIn</th>
             <th class="py-3 px-4 text-left text-sm font-semibold text-gray-600">Tanggal Diterbitkan</th>
             <th class="py-3 px-4 text-center text-sm font-semibold text-gray-600">Aksi</th>
@@ -161,10 +187,66 @@ if(isset($_SESSION['loggedIn']) == false){
     const tableBody = document.getElementById("tableBody");
     const searchInput = document.getElementById("searchInput");
     const paginationDiv = document.getElementById("pagination");
+    const fotoInput = document.getElementById('foto');
+    const cropModal = document.getElementById('cropModal');
+    const cropImage = document.getElementById('cropImage');
 
+    let cropper;
+    let croppedBlob; // hasil crop yang akan dikirim ke server
     let currentPage = 1;
     let currentSearch = "";
     let currentMode = "add";
+
+    // Saat user memilih file
+    fotoInput.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        cropImage.src = event.target.result;
+        openCropModal();
+      };
+      reader.readAsDataURL(file);
+    });
+
+    function openCropModal() {
+      cropModal.classList.remove('hidden');
+      setTimeout(() => {
+        if (cropper) cropper.destroy();
+        cropper = new Cropper(cropImage, {
+          aspectRatio: 1, // ubah sesuai kebutuhan: 1 = square, 4/3 = landscape, 3/4 = portrait
+          viewMode: 1,
+          autoCropArea: 1,
+        });
+      }, 200);
+    }
+
+    function closeCropModal() {
+      cropModal.classList.add('hidden');
+      if (cropper) cropper.destroy();
+    }
+
+    function applyCrop() {
+      cropper.getCroppedCanvas({
+        width: 300, // ukuran final (statis)
+        height: 300,
+      }).toBlob((blob) => {
+        croppedBlob = blob;
+
+        // Buat file baru hasil crop
+        const file = new File([blob], 'cropped.jpg', {
+          type: 'image/jpeg'
+        });
+
+        // Ganti file input agar dikirim file hasil crop ke server
+        const dataTransfer = new DataTransfer();
+        dataTransfer.items.add(file);
+        fotoInput.files = dataTransfer.files;
+
+        closeCropModal();
+      }, 'image/jpeg', 0.9);
+    }
 
     async function loadSertifikat(page = 1, search = "") {
       tableBody.innerHTML = `<tr><td colspan="5" class="py-4 text-center text-gray-500">Memuat data...</td></tr>`;
@@ -184,7 +266,10 @@ if(isset($_SESSION['loggedIn']) == false){
           tr.className = "border-b hover:bg-gray-50";
           tr.innerHTML = `
           <td class="py-3 px-4">${(data.current_page - 1) * data.per_page + i + 1}</td>
-          <td class="py-3 px-4">${row.name}</td>
+          <td class="py-3 px-4 flex items-center gap-3">
+          <img class="w-[40px] rounded" src="<?=base_url()?>/app/uploads/photos/clients/${row.profile}" alt="img">
+          ${row.name}
+          </td>
           <td class="py-3 px-4">${row.tipe_stifin}</td>
           <td class="py-3 px-4">${row.tanggal_terbit}</td>
           <td class="py-3 px-4 text-center">
