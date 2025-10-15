@@ -216,19 +216,12 @@
         </div>
         <div class="flex items-center justify-between w-full px-4">
           <div>
-            <button @click="navbarOpen = !navbarOpen" :class="navbarOpen && 'navbarTogglerActive' " id="navbarToggler"
-              class="absolute right-4 top-1/2 block -translate-y-1/2 rounded-md px-3 py-[6px] text-white bg-primary hover:opacity-75 ring-stroke focus:ring-2">
-              Start Now
-              <!-- <span
-                  class="relative my-[6px] block h-[2px] w-[30px] bg-body-color dark:bg-white"
-                ></span>
-                <span
-                  class="relative my-[6px] block h-[2px] w-[30px] bg-body-color dark:bg-white"
-                ></span>
-                <span
-                  class="relative my-[6px] block h-[2px] w-[30px] bg-body-color dark:bg-white"
-                ></span> -->
-            </button>
+            <button 
+  id="startNowBtn"
+  onclick="openLogin()" 
+  class="absolute right-4 top-1/2 -translate-y-1/2 rounded-md px-4 py-[6px] text-white bg-primary hover:opacity-80 ring-stroke focus:ring-2 transition">
+  Start Now
+</button>
             <!-- <nav
                 :class="!navbarOpen && 'hidden' "
                 id="navbarCollapse"
@@ -797,6 +790,42 @@
       </span>
     </label>
   </div>
+
+  <!--  MODAL LOGIN -->
+  <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-xl shadow-lg p-6 w-96 relative">
+      <h2 class="text-xl font-semibold mb-4 text-center">Login</h2>
+      <button onclick="closeLogin()" class="absolute top-3 right-4 text-gray-500 hover:text-gray-800 text-xl">&times;</button>
+
+      <form action="app/controller/LoginController.php" method="POST" class="space-y-4">
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-700">Nama</label>
+          <input type="text" name="name" required class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary focus:outline-none">
+        </div>
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-700">Password</label>
+          <input type="password" name="password" required class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary focus:outline-none">
+        </div>
+        <div class="flex justify-end gap-3 pt-2">
+          <button type="button" onclick="closeLogin()" class="bg-gray-400 text-white px-4 py-2 rounded-lg hover:bg-gray-500 transition">Batal</button>
+          <button type="submit" class="bg-primary text-white px-4 py-2 rounded-lg hover:opacity-80 transition">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 🔹 SCRIPT -->
+  <script>
+    function openLogin() {
+      const modal = document.getElementById('loginModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+    function closeLogin() {
+      document.getElementById('loginModal').classList.add('hidden');
+    }
+  </script>
+
 
   <!-- theme switcher -->
   <script defer src="./src/js/bundle.js"></script>

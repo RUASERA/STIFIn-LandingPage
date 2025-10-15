@@ -19,7 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
 function login($conn)
 {
-    session_start();
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = $_POST['password'];
 
