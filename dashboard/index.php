@@ -29,17 +29,17 @@ if(isset($_SESSION['loggedIn']) == false){
       <div class="hidden md:flex items-center gap-6">
         <a href="#" class="text-gray-600 hover:text-blue-600">Home</a>
         <a href="./sert/" class="text-gray-600 hover:text-blue-600">Sertifikat</a>
-        <a href="./operators/index.php" class="text-gray-600 hover:text-blue-600">Dashboard Operators</a>
+        <a href="./operators/" class="text-gray-600 hover:text-blue-600">Dashboard Operators</a>
       </div>
 
       <!-- Header kanan -->
       <div class="flex items-center gap-4">
-        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
-          + Add New
-        </button>
         <div class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center">
           <span class="text-sm font-medium">OR</span>
         </div>
+        <a href="./logout.php" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+          Logout
+        </a>
       </div>
     </div>
   </nav>

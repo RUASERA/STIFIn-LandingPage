@@ -6,12 +6,6 @@ session_start();
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../config/utils.php';
 
-// Jalankan fungsi loginclient jika diminta langsung via form
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
-    loginclient($conn);
-    exit;
-}
-
 // Jalankan fungsi login (admin)
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $data = json_decode(file_get_contents("php://input"), true);
@@ -21,11 +15,14 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         case 'login':
             login($conn);
             break;
+        case 'loginClient':
+            loginClient($conn);
+            break;
     }
 }
 
 // Fungsi login untuk client    
-function loginclient($conn) {
+function loginClient($conn) {
     $name = trim($_POST['name'] ?? '');
     $password = trim($_POST['password'] ?? '');
 
@@ -34,23 +31,26 @@ function loginclient($conn) {
         exit;
     }
 
-    // Cek user di tabel user
-    $stmt = $conn->prepare("SELECT * FROM user WHERE name = ?");
+    $stmt = $conn->prepare("SELECT s.id, s.name, t.type AS tipe_stifin, password
+          FROM user s
+          LEFT JOIN types t ON s.type_id = t.id
+          WHERE s.name = ?
+          LIMIT 1");
     $stmt->bind_param("s", $name);
     $stmt->execute();
     $result = $stmt->get_result();
 
-    if ($result->num_rows === 1) {
+    if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
 
-        // Bandingkan password polos
         if ($password === $user['password']) {
+            $_SESSION['ClientLoggedIn'] = true;
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_name'] = $user['name'];
-            $_SESSION['type_id'] = $user['type_id'];
+            $_SESSION['type'] = $user['tipe_stifin'];
 
-            // ✅ Redirect ke report.php
-            header("Location: ../../report.php");
+
+            header("Location:". base_url() ."/report.php");
             exit;
         } else {
             echo "<script>alert('Password salah!'); window.history.back();</script>";

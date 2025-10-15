@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +13,7 @@
   <title>STIFIn | Promoted by STEPS ID</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" /> -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -56,8 +60,7 @@
             99999: "99999",
           },
           backgroundImage: {
-            "shape-gradient":
-              "linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(196,196,196,0) 100%)",
+            "shape-gradient": "linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(196,196,196,0) 100%)",
           },
           screens: {
             xs: "400px",
@@ -217,51 +220,65 @@
         <div class="flex items-center justify-between w-full px-4">
           <div>
             <button 
-  id="startNowBtn"
-  onclick="openLogin()" 
-  class="absolute right-4 top-1/2 -translate-y-1/2 rounded-md px-4 py-[6px] text-white bg-primary hover:opacity-80 ring-stroke focus:ring-2 transition">
-  Start Now
-</button>
-            <!-- <nav
-                :class="!navbarOpen && 'hidden' "
-                id="navbarCollapse"
-                class="absolute right-4 top-full z-20 w-full max-w-[250px] rounded-lg bg-white dark:bg-dark-2 py-5 px-6 shadow lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:py-0 lg:shadow-none lg:dark:bg-transparent"
-              >
-                <ul class="blcok lg:flex">
-                  <li>
-                    <a
-                      href="javascript:void(0)"
-                      class="flex py-2 text-base font-medium border-transparent text-dark dark:text-white hover:border-primary hover:text-primary dark:hover:text-primary lg:ml-10 lg:inline-flex lg:border-t-2 lg:py-7"
-                    >
-                      Home
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="javascript:void(0)"
-                      class="flex py-2 text-base font-medium border-transparent text-dark dark:text-white hover:border-primary hover:text-primary dark:hover:text-primary lg:ml-10 lg:inline-flex lg:border-t-2 lg:py-7"
-                    >
-                      About
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="javascript:void(0)"
-                      class="flex py-2 text-base font-medium border-transparent text-dark dark:text-white hover:border-primary hover:text-primary dark:hover:text-primary lg:ml-10 lg:inline-flex lg:border-t-2 lg:py-7"
-                    >
-                      Pricing
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="javascript:void(0)"
-                      class="flex py-2 text-base font-medium border-transparent text-dark dark:text-white hover:border-primary hover:text-primary dark:hover:text-primary lg:ml-10 lg:inline-flex lg:border-t-2 lg:py-7"
-                    >
-                      Features
-                    </a>
-                  </li>
-                </ul>
-              </nav> -->
+              onclick="<?php if (isset($_SESSION['ClientLoggedIn'])) { echo "window.location.href='report.php'; return false;"; }?>"
+              data-modal-target="authentication-modal" data-modal-toggle="authentication-modal"
+              class="absolute right-4 top-1/2 -translate-y-1/2 rounded-md px-4 py-[6px] text-white bg-primary hover:opacity-80 ring-stroke focus:ring-2 transition">
+              Start Now
+            </button>
+            <!-- Main modal -->
+            <div id="authentication-modal" tabindex="-1" aria-hidden="true"
+              class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+              <div class="relative p-4 w-full max-w-md max-h-full">
+                <!-- Modal content -->
+                <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
+                  <!-- Modal header -->
+                  <div
+                    class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                      Sign in to our platform
+                    </h3>
+                    <button type="button"
+                      class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                      data-modal-hide="authentication-modal">
+                      <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                      </svg>
+                      <span class="sr-only">Close modal</span>
+                    </button>
+                  </div>
+                  <!-- Modal body -->
+                  <div class="p-4 md:p-5">
+                    <form class="space-y-4" action="./app/controller/LoginController.php" method="POST">
+                      <div>
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
+                        <input type="name" name="name" id="name"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                          required />
+                      </div>
+                      <div>
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                          password</label>
+                        <input type="password" name="password" id="password" placeholder="••••••••"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                          required />
+                      </div>
+                      <div class="flex justify-between">
+                        <a href="#" class="text-sm text-blue-700 hover:underline dark:text-blue-500">Lost Password?</a>
+                      </div>
+                      <button type="submit" name="action" value="loginClient"
+                        class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login
+                        to your account</button>
+                      <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+                        Not registered? <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">Create
+                          account</a>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -651,7 +668,8 @@
               <img src="src/images/logo_stifin.webp" alt="logo" class="hidden max-w-full dark:block" />
             </a>
             <p class="text-base text-body-color dark:text-dark-6 mb-7">
-              QW3P+G3, Jl. Pd. Kelapa Raya No.5B Blok F1, RT.6/RW.11, Pd. Klp., Kec. Duren Sawit, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13450
+              QW3P+G3, Jl. Pd. Kelapa Raya No.5B Blok F1, RT.6/RW.11, Pd. Klp., Kec. Duren Sawit, Kota Jakarta Timur,
+              Daerah Khusus Ibukota Jakarta 13450
             </p>
             <div class="flex items-center -mx-3">
               <a href="https://www.facebook.com/steps.co.id"
@@ -659,7 +677,7 @@
                 <svg width="10" height="18" viewBox="0 0 10 18" class="fill-current">
                   <path
                     d="M9.00007 6.82105H7.50006H6.96434V6.27097V4.56571V4.01562H7.50006H8.62507C8.91971 4.01562 9.16078 3.79559 9.16078 3.46554V0.550085C9.16078 0.247538 8.9465 0 8.62507 0H6.66969C4.55361 0 3.08038 1.54024 3.08038 3.82309V6.21596V6.76605H2.54466H0.72322C0.348217 6.76605 0 7.06859 0 7.50866V9.48897C0 9.87402 0.294645 10.2316 0.72322 10.2316H2.49109H3.02681V10.7817V16.31C3.02681 16.6951 3.32145 17.0526 3.75003 17.0526H6.26791C6.42862 17.0526 6.56255 16.9701 6.66969 16.8601C6.77684 16.7501 6.8572 16.5576 6.8572 16.3925V10.8092V10.2591H7.4197H8.62507C8.97328 10.2591 9.24114 10.0391 9.29471 9.709V9.6815V9.65399L9.66972 7.7562C9.6965 7.56367 9.66972 7.34363 9.509 7.1236C9.45543 6.98608 9.21436 6.84856 9.00007 6.82105Z" />
-                </svg> 
+                </svg>
               </a>
               <a href="https://www.instagram.com/stepscoid/"
                 class="px-3 hover:text-primary text-dark-7 dark:text-white/40 dark:hover:text-primary">
@@ -716,28 +734,29 @@
               Get in Touch
             </h4>
             <ul class="space-y-3">
-  <li>
-    <a href="javascript:void(0)"
-      class="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
-      <i class="fas fa-map-marker-alt mr-2"></i>
-      QW3P+G3, Jl. Pd. Kelapa Raya No.5B Blok F1, RT.6/RW.11, Pd. Klp., Kec. Duren Sawit, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13450
-    </a>
-  </li>
-  <li>
-    <a href="tel:+6282130005021"
-      class="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
-      <i class="fas fa-phone-alt mr-2"></i>
-      +62 082130005021
-    </a>
-  </li>
-  <li>
-    <a href="mailto:marketing@rusera.co.id"
-      class="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
-      <i class="fas fa-envelope mr-2"></i>
-      marketing@rusera.co.id
-    </a>
-  </li>
-</ul>
+              <li>
+                <a href="javascript:void(0)"
+                  class="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
+                  <i class="fas fa-map-marker-alt mr-2"></i>
+                  QW3P+G3, Jl. Pd. Kelapa Raya No.5B Blok F1, RT.6/RW.11, Pd. Klp., Kec. Duren Sawit, Kota Jakarta
+                  Timur, Daerah Khusus Ibukota Jakarta 13450
+                </a>
+              </li>
+              <li>
+                <a href="tel:+6282130005021"
+                  class="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
+                  <i class="fas fa-phone-alt mr-2"></i>
+                  +62 082130005021
+                </a>
+              </li>
+              <li>
+                <a href="mailto:marketing@rusera.co.id"
+                  class="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
+                  <i class="fas fa-envelope mr-2"></i>
+                  marketing@rusera.co.id
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -791,44 +810,9 @@
     </label>
   </div>
 
-  <!--  MODAL LOGIN -->
-  <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-    <div class="bg-white rounded-xl shadow-lg p-6 w-96 relative">
-      <h2 class="text-xl font-semibold mb-4 text-center">Login</h2>
-      <button onclick="closeLogin()" class="absolute top-3 right-4 text-gray-500 hover:text-gray-800 text-xl">&times;</button>
-
-      <form action="app/controller/LoginController.php" method="POST" class="space-y-4">
-        <div>
-          <label class="block mb-1 text-sm font-medium text-gray-700">Nama</label>
-          <input type="text" name="name" required class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary focus:outline-none">
-        </div>
-        <div>
-          <label class="block mb-1 text-sm font-medium text-gray-700">Password</label>
-          <input type="password" name="password" required class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary focus:outline-none">
-        </div>
-        <div class="flex justify-end gap-3 pt-2">
-          <button type="button" onclick="closeLogin()" class="bg-gray-400 text-white px-4 py-2 rounded-lg hover:bg-gray-500 transition">Batal</button>
-          <button type="submit" class="bg-primary text-white px-4 py-2 rounded-lg hover:opacity-80 transition">Login</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- 🔹 SCRIPT -->
-  <script>
-    function openLogin() {
-      const modal = document.getElementById('loginModal');
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-    }
-    function closeLogin() {
-      document.getElementById('loginModal').classList.add('hidden');
-    }
-  </script>
-
-
   <!-- theme switcher -->
   <script defer src="./src/js/bundle.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
   <script>
     const swiper = new Swiper(".swiper", {
       loop: true,

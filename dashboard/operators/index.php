@@ -1,4 +1,10 @@
 <?php
+session_start();
+require_once '../../app/config/utils.php';
+if(isset($_SESSION['loggedIn']) == false){
+        header('location: ./index.php');
+        exit();
+    }
 include '../../app/config/database.php';
 $result = $conn->query("SELECT * FROM operators ORDER BY id DESC");
 ?>
