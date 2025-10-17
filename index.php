@@ -302,6 +302,15 @@ session_start();
           <div class="swiper-slide">
             <img src="src/images/hero3.jpg" alt="image" class="h-full w-full object-cover object-center" />
           </div>
+          <!-- <div class="swiper-slide">
+            <img src="src/images/hero13.jpg" alt="image" class="h-full w-full object-cover object-center" />
+          </div>
+          <div class="swiper-slide">
+            <img src="src/images/hero13.jpg" alt="image" class="h-full w-full object-cover object-center" />
+          </div>
+          <div class="swiper-slide">
+            <img src="src/images/hero13.jpg" alt="image" class="h-full w-full object-cover object-center" />
+          </div> -->
         </div>
 
         <!-- Pagination & Navigation -->
