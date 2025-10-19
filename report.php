@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once './app/config/utils.php';
 if (!isset($_SESSION['ClientLoggedIn']) == True) {
   header('location: ./index.php');
   exit();
@@ -7,41 +8,41 @@ if (!isset($_SESSION['ClientLoggedIn']) == True) {
 
 // Tentukan warna berdasarkan session
 switch ($_SESSION['theme'] ?? 'default') {
-    case 'Si' || 'Se':
-        $primary = '#1D4ED8';
-        $primaryG = 'rgba(29, 78, 216, 0.9)';
-        $secondaryG = 'rgba(30, 64, 175, 0.9)';
-        break;
+  case 'Si' || 'Se':
+    $primary = '#1D4ED8';
+    $primaryG = 'rgba(29, 78, 216, 0.9)';
+    $secondaryG = 'rgba(30, 64, 175, 0.9)';
+    break;
 
-    case 'Ti' || 'Te':
-        $primary = '#15803D';
-        $primaryG = 'rgba(21, 128, 61, 0.9)';
-        $secondaryG = 'rgba(22, 101, 52, 0.9)';
-        break;
+  case 'Ti' || 'Te':
+    $primary = '#15803D';
+    $primaryG = 'rgba(21, 128, 61, 0.9)';
+    $secondaryG = 'rgba(22, 101, 52, 0.9)';
+    break;
 
-    case 'Ii' || 'Ie':
-        $primary = '#7E22CE';
-        $primaryG = 'rgba(126, 34, 206, 0.95)';
-        $secondaryG = 'rgba(109, 40, 217, 0.93)';
-        break;
+  case 'Ii' || 'Ie':
+    $primary = '#7E22CE';
+    $primaryG = 'rgba(126, 34, 206, 0.95)';
+    $secondaryG = 'rgba(109, 40, 217, 0.93)';
+    break;
 
-    case 'Fi' || 'Fe':
-        $primary = '#DC2626';
-        $primaryG = 'rgba(220, 38, 38, 0.95)';
-        $secondaryG = 'rgba(185, 28, 28, 0.9)';
-        break;
+  case 'Fi' || 'Fe':
+    $primary = '#DC2626';
+    $primaryG = 'rgba(220, 38, 38, 0.95)';
+    $secondaryG = 'rgba(185, 28, 28, 0.9)';
+    break;
 
-    case 'In':
-        $primary = '#EA580C';
-        $primaryG = 'rgba(234, 88, 12, 0.95)';
-        $secondaryG = 'rgba(194, 65, 12, 0.93)';
-        break;
+  case 'In':
+    $primary = '#EA580C';
+    $primaryG = 'rgba(234, 88, 12, 0.95)';
+    $secondaryG = 'rgba(194, 65, 12, 0.93)';
+    break;
 
-    default:
-        $primary = '#6D28D9';
-        $primaryG = 'rgba(109, 40, 217, 0.95)';
-        $secondaryG = 'rgba(91, 33, 182, 0.9)';
-        break;
+  default:
+    $primary = '#6D28D9';
+    $primaryG = 'rgba(109, 40, 217, 0.95)';
+    $secondaryG = 'rgba(91, 33, 182, 0.9)';
+    break;
 }
 ?>
 
@@ -91,7 +92,7 @@ switch ($_SESSION['theme'] ?? 'default') {
         },
         extend: {
           colors: {
-            primary: "#242033ff",
+            primary: "<?= $primary ?>",
             secondary: "#252426",
             yellow: "#F9E71C",
             lila: "#E6E5EC",
@@ -102,8 +103,8 @@ switch ($_SESSION['theme'] ?? 'default') {
             "grey-50": "#F4F3F8",
             "grey-60": "#EDEBF6",
             "grey-70": "#D8D8D8",
-            "primaryG": "rgba(85, 64, 174, 0.95)",
-            "secondaryG": "rgba(65, 47, 144, 0.93)",
+            "primaryG": "<?= $primaryG ?>",
+            "secondaryG": "<?= $secondaryG ?>",
             "blog-gradient-from": "#8F9098",
             "blog-gradient-to": "#222222",
           },
@@ -307,7 +308,7 @@ switch ($_SESSION['theme'] ?? 'default') {
           <div class="container relative z-30 pt-20 pb-12 sm:pt-56 sm:pb-48 lg:pt-64 lg:pb-48">
             <div class="flex flex-col items-center justify-center lg:flex-row">
               <div class="rounded-full border-8 border-primary shadow-xl">
-                <img src="./app/uploads/photos/clients/<?=$_SESSION['profile']?>" class="h-48 rounded-full sm:h-56" alt="author">
+                <img src="./app/uploads/photos/clients/<?= $_SESSION['profile'] ?>" class="h-48 rounded-full sm:h-56" alt="author">
               </div>
               <div class="pt-8 sm:pt-10 lg:pl-8 lg:pt-0">
                 <h1 class="text-center font-header text-4xl text-white sm:text-left sm:text-5xl md:text-6xl">
@@ -641,70 +642,70 @@ switch ($_SESSION['theme'] ?? 'default') {
   </div>
 </div> -->
 
-      <div class="bg-cover bg-top bg-no-repeat pb-16 md:py-16 lg:py-24"
+      <!-- <div class="bg-cover bg-top bg-no-repeat pb-16 md:py-16 lg:py-24"
         style="background-image: url(./src/images/experience-figure.png)" id="statistics">
-        <!-- <div class="container">
-    <div class="mx-auto w-5/6 bg-white py-16 shadow md:w-11/12 lg:py-20 xl:py-24 2xl:w-full">
-      <div class="grid grid-cols-2 gap-5 md:gap-8 xl:grid-cols-4 xl:gap-5">
-        <div class="flex flex-col items-center justify-center text-center md:flex-row md:text-left">
-          <div>
-            <img src="./src/images/icon-project.svg" class="mx-auto h-12 w-auto md:h-20" alt="icon project">
-          </div>
-          <div class="pt-5 md:pl-5 md:pt-0">
-            <h1 class="font-body text-2xl font-bold text-primary md:text-4xl">
-              12
-            </h1>
-            <h4 class="text-grey-dark font-header text-base font-medium leading-loose md:text-xl">
-              Finished Projects
-            </h4>
-          </div>
-        </div>
+        <div class="container">
+          <div class="mx-auto w-5/6 bg-white py-16 shadow md:w-11/12 lg:py-20 xl:py-24 2xl:w-full">
+            <div class="grid grid-cols-2 gap-5 md:gap-8 xl:grid-cols-4 xl:gap-5">
+              <div class="flex flex-col items-center justify-center text-center md:flex-row md:text-left">
+                <div>
+                  <img src="./src/images/icon-project.svg" class="mx-auto h-12 w-auto md:h-20" alt="icon project">
+                </div>
+                <div class="pt-5 md:pl-5 md:pt-0">
+                  <h1 class="font-body text-2xl font-bold text-primary md:text-4xl">
+                    12
+                  </h1>
+                  <h4 class="text-grey-dark font-header text-base font-medium leading-loose md:text-xl">
+                    Finished Projects
+                  </h4>
+                </div>
+              </div>
 
-        <div class="flex flex-col items-center justify-center text-center md:flex-row md:text-left">
-          <div>
-            <img src="./src/images/icon-award.svg" class="mx-auto h-12 w-auto md:h-20" alt="icon award">
-          </div>
-          <div class="pt-5 md:pl-5 md:pt-0">
-            <h1 class="font-body text-2xl font-bold text-primary md:text-4xl">
-              3
-            </h1>
-            <h4 class="text-grey-dark font-header text-base font-medium leading-loose md:text-xl">
-              Awards Won
-            </h4>
-          </div>
-        </div>
+              <div class="flex flex-col items-center justify-center text-center md:flex-row md:text-left">
+                <div>
+                  <img src="./src/images/icon-award.svg" class="mx-auto h-12 w-auto md:h-20" alt="icon award">
+                </div>
+                <div class="pt-5 md:pl-5 md:pt-0">
+                  <h1 class="font-body text-2xl font-bold text-primary md:text-4xl">
+                    3
+                  </h1>
+                  <h4 class="text-grey-dark font-header text-base font-medium leading-loose md:text-xl">
+                    Awards Won
+                  </h4>
+                </div>
+              </div>
 
-        <div class="mt-6 flex flex-col items-center justify-center text-center md:mt-10 md:flex-row md:text-left lg:mt-0">
-          <div>
-            <img src="./src/images/icon-happy.svg" class="mx-auto h-12 w-auto md:h-20" alt="icon happy clients">
-          </div>
-          <div class="pt-5 md:pl-5 md:pt-0">
-            <h1 class="font-body text-2xl font-bold text-primary md:text-4xl">
-              8
-            </h1>
-            <h4 class="text-grey-dark font-header text-base font-medium leading-loose md:text-xl">
-              Happy Clients
-            </h4>
-          </div>
-        </div>
+              <div class="mt-6 flex flex-col items-center justify-center text-center md:mt-10 md:flex-row md:text-left lg:mt-0">
+                <div>
+                  <img src="./src/images/icon-happy.svg" class="mx-auto h-12 w-auto md:h-20" alt="icon happy clients">
+                </div>
+                <div class="pt-5 md:pl-5 md:pt-0">
+                  <h1 class="font-body text-2xl font-bold text-primary md:text-4xl">
+                    8
+                  </h1>
+                  <h4 class="text-grey-dark font-header text-base font-medium leading-loose md:text-xl">
+                    Happy Clients
+                  </h4>
+                </div>
+              </div>
 
-        <div class="mt-6 flex flex-col items-center justify-center text-center md:mt-10 md:flex-row md:text-left lg:mt-0">
-          <div>
-            <img src="./src/images/icon-puzzle.svg" class="mx-auto h-12 w-auto md:h-20" alt="icon puzzle">
-          </div>
-          <div class="pt-5 md:pl-5 md:pt-0">
-            <h1 class="font-body text-2xl font-bold text-primary md:text-4xl">
-              99
-            </h1>
-            <h4 class="text-grey-dark font-header text-base font-medium leading-loose md:text-xl">
-              Bugs Fixed
-            </h4>
+              <div class="mt-6 flex flex-col items-center justify-center text-center md:mt-10 md:flex-row md:text-left lg:mt-0">
+                <div>
+                  <img src="./src/images/icon-puzzle.svg" class="mx-auto h-12 w-auto md:h-20" alt="icon puzzle">
+                </div>
+                <div class="pt-5 md:pl-5 md:pt-0">
+                  <h1 class="font-body text-2xl font-bold text-primary md:text-4xl">
+                    99
+                  </h1>
+                  <h4 class="text-grey-dark font-header text-base font-medium leading-loose md:text-xl">
+                    Bugs Fixed
+                  </h4>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div> -->
-      </div>
+      </div> -->
 
       <div class="bg-grey-50" id="blog">
         <div class="container py-16 md:py-20">
@@ -764,9 +765,11 @@ switch ($_SESSION['theme'] ?? 'default') {
               </div>
             </a>
           </div>
+          <div class="pb-16 md:py-16 items-center justify-center flex">
+            <button onclick="download()" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Download</button>
+          </div>
         </div>
       </div>
-
 
       <div class="relative bg-primary bg-cover bg-center bg-no-repeat py-16 bg-blend-multiply lg:py-24"
         style="background-image: url(/bg-cta.jpg)">
@@ -814,6 +817,12 @@ switch ($_SESSION['theme'] ?? 'default') {
     </div>
   </div>
   </div>
+
+  <script>
+    function download(){
+      window.location.href='<?= base_url() ?>/app/controller/cert/download.php?id='+<?=$_SESSION['user_id']?>
+    }
+  </script>
 </body>
 
 </html>
