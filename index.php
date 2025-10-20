@@ -302,15 +302,15 @@ session_start();
           <div class="swiper-slide">
             <img src="src/images/hero3.jpg" alt="image" class="h-full w-full object-cover object-center" />
           </div>
-          <!-- <div class="swiper-slide">
-            <img src="src/images/hero13.jpg" alt="image" class="h-full w-full object-cover object-center" />
+          <div class="swiper-slide">
+            <img src="src/images/hero4.jpg" alt="image" class="h-full w-full object-cover object-center" />
           </div>
           <div class="swiper-slide">
-            <img src="src/images/hero13.jpg" alt="image" class="h-full w-full object-cover object-center" />
+            <img src="src/images/hero5.jpg" alt="image" class="h-full w-full object-cover object-center" />
           </div>
           <div class="swiper-slide">
-            <img src="src/images/hero13.jpg" alt="image" class="h-full w-full object-cover object-center" />
-          </div> -->
+            <img src="src/images/hero6.jpg" alt="image" class="h-full w-full object-cover object-center" />
+          </div>
         </div>
 
         <!-- Pagination & Navigation -->
@@ -350,15 +350,15 @@ session_start();
           <div class="flex items-center -mx-3 sm:-mx-4">
             <div class="w-full px-3 sm:px-4 xl:w-1/2">
               <div class="py-3 sm:py-4">
-                <img src="src/images/edu1.jpg" alt="" class="w-full rounded-2xl" />
+                <img src="src/images/service1.jpg" alt="" class="w-full rounded-2xl" />
               </div>
               <div class="py-3 sm:py-4">
-                <img src="src/images/edu2.jpg" alt="" class="w-full rounded-2xl" />
+                <img src="src/images/service3.jpg" alt="" class="w-full rounded-2xl" />
               </div>
             </div>
             <div class="w-full px-3 sm:px-4 xl:w-1/2">
               <div class="relative z-10 my-4">
-                <img src="src/images/edu3.jpg" alt="" class="w-full rounded-2xl" />
+                <img src="src/images/service2.jpg" alt="" class="w-full rounded-2xl" />
                 <span class="absolute -right-7 -bottom-7 z-[-1]">
                   <svg width="134" height="106" viewBox="0 0 134 106" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="1.66667" cy="104" r="1.66667" transform="rotate(-90 1.66667 104)" fill="#3056D3" />
