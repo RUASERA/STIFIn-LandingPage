@@ -393,8 +393,8 @@ if (isset($_SESSION['loggedIn']) == false) {
       const form = e.target;
       const formData = new FormData(form);
       const ENDPOINT = currentMode === "add" ?
-        "<?= base_url() ?>/app/controller/Cert/insert.php" :
-        "<?= base_url() ?>/app/controller/Cert/update.php";
+        "<?= base_url() ?>/app/controller/cert/insert.php" :
+        "<?= base_url() ?>/app/controller/cert/update.php";
 
       try {
         // Tampilkan status loading (opsional)

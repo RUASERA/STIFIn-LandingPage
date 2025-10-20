@@ -7,7 +7,7 @@ require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../config/utils.php';
 
 // Pastikan pengguna telah login
-if (!isset($_SESSION['loggedIn'])) {
+if (!isset($_SESSION['loggedIn']) || !isset($_SESSION['ClientLoggedIn'])) {
     echo json_encode(['error' => 'Unauthorized']);
     http_response_code(403);
     exit();
