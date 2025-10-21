@@ -284,63 +284,149 @@ session_start();
   </header>
   <!-- ====== Navbar Section End -->
 
-  <!-- ====== Hero Section Start -->
-  <div class="relative overflow-hidden bg-white dark:bg-dark">
-    <div class="relative z-10 pb-20 pt-[150px] lg:pb-[120px] lg:pt-[210px]">
-      <span class="absolute top-0 left-0 z-[-1] h-full w-full object-cover object-center"
-        style="background-color: rgba(46, 46, 46, 0.322)"></span>
+  <!-- ====== Hero Section Start ====== -->
+<section class="relative overflow-hidden font-[Poppins]">
+  <div class="swiper mySwiper h-[90vh] w-full">
+    <div class="swiper-wrapper">
 
-      <!-- Carousel Start -->
-      <div class="swiper absolute top-0 left-0 z-[-2] h-full w-full">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="src/images/hero1.jpg" alt="image" class="h-full w-full object-cover object-center" />
-          </div>
-          <div class="swiper-slide">
-            <img src="src/images/hero2.jpg" alt="image" class="h-full w-full object-cover object-center" />
-          </div>
-          <div class="swiper-slide">
-            <img src="src/images/hero3.jpg" alt="image" class="h-full w-full object-cover object-center" />
-          </div>
-          <!-- <div class="swiper-slide">
-            <img src="src/images/hero13.jpg" alt="image" class="h-full w-full object-cover object-center" />
-          </div>
-          <div class="swiper-slide">
-            <img src="src/images/hero13.jpg" alt="image" class="h-full w-full object-cover object-center" />
-          </div>
-          <div class="swiper-slide">
-            <img src="src/images/hero13.jpg" alt="image" class="h-full w-full object-cover object-center" />
-          </div> -->
-        </div>
-
-        <!-- Pagination & Navigation -->
-        <div class="swiper-pagination hidden"></div>
-        <div class="swiper-button-prev hidden"></div>
-        <div class="swiper-button-next hidden"></div>
-      </div>
-      <!-- Carousel End -->
-
-      <div class="container mx-auto relative z-10">
-        <div class="flex flex-wrap -mx-4">
-          <div class="w-full px-4 text-white">
-            <h1 class="text-4xl font-bold">Kenali Diri Lebih Dalam Lewat STIFIn: Langkah Awal Bersama STEPS</h1>
-            <p class="mt-4 text-lg">
-              <strong>
-                Langkah kecil yang dimulai dari mengenal diri sendiri bisa membawa perubahan besar.
-              </strong>
-            </p>
-            <div>
-              <a href="javascript:void(0)"
-                class="inline-block px-6 py-4 my-5 text-base font-medium text-white transition rounded bg-primary hover:bg-white hover:text-primary md:px-9 lg:px-6 xl:px-9">
-                Mulai Tes Sekarang!
-              </a>
+      <!-- ===== INTRAPERSONAL (In) ===== -->
+      <div class="swiper-slide flex items-center justify-center text-black" style="background-color:#febd02;">
+        <div class="container mx-auto px-6 lg:flex lg:items-center lg:justify-between h-full">
+          <div class="max-w-lg" data-aos="fade-up" data-aos-delay="100">
+            <h1 class="text-6xl font-extrabold mb-6">INTRAPERSONAL ✦</h1>
+            <div class="flex gap-4 mb-6">
+              <span class="bg-[#e1a901] px-6 py-2 rounded-lg font-semibold">In</span>
             </div>
+            <a href="#test"
+              class="inline-block px-8 py-3 bg-white text-black font-semibold rounded-lg shadow hover:bg-black hover:text-white transition">
+              Mulai Tes Sekarang!
+            </a>
+          </div>
+          <div class="lg:w-1/2 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
+            <p>
+              Tipe Intrapersonal mengenal diri dengan baik, memiliki tujuan yang jelas,
+              dan kuat dalam prinsip. Mereka reflektif dan fokus pada pertumbuhan diri
+              serta pencapaian pribadi.
+            </p>
           </div>
         </div>
       </div>
+
+      <!-- ===== FEELING (Fi, Fe) ===== -->
+      <div class="swiper-slide flex items-center justify-center text-white" style="background-color:#7dd956;">
+        <div class="container mx-auto px-6 lg:flex lg:items-center lg:justify-between h-full">
+          <div class="max-w-lg" data-aos="fade-up" data-aos-delay="100">
+            <h1 class="text-6xl font-extrabold mb-6">FEELING ✦</h1>
+            <div class="flex gap-4 mb-6">
+              <span class="bg-[#64b845] px-6 py-2 rounded-lg font-semibold">Fi</span>
+              <span class="bg-[#99ef75] px-6 py-2 rounded-lg font-semibold">Fe</span>
+            </div>
+            <a href="#test"
+              class="inline-block px-8 py-3 bg-white text-green-700 font-semibold rounded-lg shadow hover:bg-green-800 hover:text-white transition">
+              Mulai Tes Sekarang!
+            </a>
+          </div>
+          <div class="lg:w-1/2 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
+            <p>
+              Tipe Feeling memprioritaskan nilai, emosi, dan keharmonisan. Mereka peka terhadap kebutuhan orang lain
+              dan menjaga suasana positif.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== INTUITION (Ii, Ie) ===== -->
+      <div class="swiper-slide flex items-center justify-center text-white" style="background-color:#004aac;">
+        <div class="container mx-auto px-6 lg:flex lg:items-center lg:justify-between h-full">
+          <div class="max-w-lg" data-aos="fade-up" data-aos-delay="100">
+            <h1 class="text-6xl font-extrabold mb-6">INTUITION ✦</h1>
+            <div class="flex gap-4 mb-6">
+              <span class="bg-[#003a8a] px-6 py-2 rounded-lg font-semibold">Ii</span>
+              <span class="bg-[#005ef8] px-6 py-2 rounded-lg font-semibold">Ie</span>
+            </div>
+            <a href="#test"
+              class="inline-block px-8 py-3 bg-white text-blue-800 font-semibold rounded-lg shadow hover:bg-blue-900 hover:text-white transition">
+              Mulai Tes Sekarang!
+            </a>
+          </div>
+          <div class="lg:w-1/2 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
+            <p>
+              Tipe Intuition melihat pola, ide besar, dan potensi masa depan.
+              Mereka kreatif, visioner, dan unggul dalam inovasi serta strategi.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== THINKING (Ti, Te) ===== -->
+      <div class="swiper-slide flex items-center justify-center text-white" style="background-color:#797979;">
+        <div class="container mx-auto px-6 lg:flex lg:items-center lg:justify-between h-full">
+          <div class="max-w-lg" data-aos="fade-up" data-aos-delay="100">
+            <h1 class="text-6xl font-extrabold mb-6">THINKING ✦</h1>
+            <div class="flex gap-4 mb-6">
+              <span class="bg-[#5f5f5f] px-6 py-2 rounded-lg font-semibold">Ti</span>
+              <span class="bg-[#9a9a9a] px-6 py-2 rounded-lg font-semibold">Te</span>
+            </div>
+            <a href="#test"
+              class="inline-block px-8 py-3 bg-white text-gray-800 font-semibold rounded-lg shadow hover:bg-gray-900 hover:text-white transition">
+              Mulai Tes Sekarang!
+            </a>
+          </div>
+          <div class="lg:w-1/2 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
+            <p>
+              Tipe Thinking mengedepankan logika dan objektivitas.
+              Mereka terampil menganalisis fakta dan mengambil keputusan rasional.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== SENSING (Si, Se) ===== -->
+      <div class="swiper-slide flex items-center justify-center text-white" style="background-color:#cb1903;">
+        <div class="container mx-auto px-6 lg:flex lg:items-center lg:justify-between h-full">
+          <div class="max-w-lg" data-aos="fade-up" data-aos-delay="100">
+            <h1 class="text-6xl font-extrabold mb-6">SENSING ✦</h1>
+            <div class="flex gap-4 mb-6">
+              <span class="bg-[#a81603] px-6 py-2 rounded-lg font-semibold">Si</span>
+              <span class="bg-[#ff5043] px-6 py-2 rounded-lg font-semibold">Se</span>
+            </div>
+            <a href="#test"
+              class="inline-block px-8 py-3 bg-white text-red-800 font-semibold rounded-lg shadow hover:bg-red-900 hover:text-white transition">
+              Mulai Tes Sekarang!
+            </a>
+          </div>
+          <div class="lg:w-1/2 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
+            <p>
+              Tipe Sensing mengandalkan pancaindra dan fakta nyata dalam berpikir serta bertindak.
+              Mereka praktis, teliti, disiplin, dan menyukai rutinitas.
+            </p>
+          </div>
+        </div>
+      </div>
+
     </div>
+    <div class="swiper-pagination"></div>
   </div>
-  <!-- ====== Hero Section End -->
+</section>
+<!-- ====== Hero Section End ====== -->
+
+<!-- SwiperJS + AOS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+  AOS.init({ duration: 1000, once: true });
+  const swiper = new Swiper('.mySwiper', {
+    loop: true,
+    autoplay: { delay: 4000 },
+    pagination: { el: '.swiper-pagination', clickable: true },
+    effect: 'fade',
+    fadeEffect: { crossFade: true },
+  });
+</script>
+
 
   <!-- ====== Services Section Start -->
   <section class="overflow-hidden dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
@@ -350,15 +436,15 @@ session_start();
           <div class="flex items-center -mx-3 sm:-mx-4">
             <div class="w-full px-3 sm:px-4 xl:w-1/2">
               <div class="py-3 sm:py-4">
-                <img src="src/images/edu1.jpg" alt="" class="w-full rounded-2xl" />
+                <img src="src/images/service1.jpg" alt="" class="w-full rounded-2xl" />
               </div>
               <div class="py-3 sm:py-4">
-                <img src="src/images/edu2.jpg" alt="" class="w-full rounded-2xl" />
+                <img src="src/images/service3.jpg" alt="" class="w-full rounded-2xl" />
               </div>
             </div>
             <div class="w-full px-3 sm:px-4 xl:w-1/2">
               <div class="relative z-10 my-4">
-                <img src="src/images/edu3.jpg" alt="" class="w-full rounded-2xl" />
+                <img src="src/images/service2.jpg" alt="" class="w-full rounded-2xl" />
                 <span class="absolute -right-7 -bottom-7 z-[-1]">
                   <svg width="134" height="106" viewBox="0 0 134 106" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="1.66667" cy="104" r="1.66667" transform="rotate(-90 1.66667 104)" fill="#3056D3" />
