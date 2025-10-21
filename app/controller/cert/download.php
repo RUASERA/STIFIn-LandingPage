@@ -7,11 +7,11 @@ require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../config/utils.php';
 
 // Pastikan pengguna telah login
-if (!isset($_SESSION['loggedIn']) || !isset($_SESSION['ClientLoggedIn'])) {
-    echo json_encode(['error' => 'Unauthorized']);
-    http_response_code(403);
-    exit();
-}
+// if (!isset($_SESSION['loggedIn']) || !isset($_SESSION['ClientLoggedIn'])) {
+//     echo json_encode(['error' => 'Unauthorized']);
+//     http_response_code(403);
+//     exit();
+// }
 if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     echo json_encode(['error' => 'invalid request method']);
     http_response_code(403);
