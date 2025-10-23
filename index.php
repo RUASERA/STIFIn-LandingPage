@@ -219,8 +219,10 @@ session_start();
         </div>
         <div class="flex items-center justify-between w-full px-4">
           <div>
-            <button 
-              onclick="<?php if (isset($_SESSION['ClientLoggedIn'])) { echo "window.location.href='report.php'; return false;"; }?>"
+            <button
+              onclick="<?php if (isset($_SESSION['ClientLoggedIn'])) {
+                          echo "window.location.href='report.php'; return false;";
+                        } ?>"
               data-modal-target="authentication-modal" data-modal-toggle="authentication-modal"
               class="absolute right-4 top-1/2 -translate-y-1/2 rounded-md px-4 py-[6px] text-white bg-primary hover:opacity-80 ring-stroke focus:ring-2 transition">
               Cek Hasil Tes Kamu
@@ -284,149 +286,59 @@ session_start();
   </header>
   <!-- ====== Navbar Section End -->
 
-  <!-- ====== Hero Section Start ====== -->
-<section class="relative overflow-hidden font-[Poppins]">
-  <div class="swiper mySwiper h-[90vh] w-full">
-    <div class="swiper-wrapper">
+  <!-- ====== Hero Section Start -->
+  <div class="relative overflow-hidden bg-white dark:bg-dark">
+    <div class="relative z-10 pb-20 pt-[150px] lg:pb-[120px] lg:pt-[210px]">
+      <span class="absolute top-0 left-0 z-[-1] h-full w-full object-cover object-center"
+        style="background-color: rgba(46, 46, 46, 0.322)"></span>
 
-      <!-- ===== INTRAPERSONAL (In) ===== -->
-      <div class="swiper-slide flex items-center justify-center text-black" style="background-color:#febd02;">
-        <div class="container mx-auto px-6 lg:flex lg:items-center lg:justify-between h-full">
-          <div class="max-w-lg" data-aos="fade-up" data-aos-delay="100">
-            <h1 class="text-6xl font-extrabold mb-6">INTRAPERSONAL ✦</h1>
-            <div class="flex gap-4 mb-6">
-              <span class="bg-[#e1a901] px-6 py-2 rounded-lg font-semibold">In</span>
-            </div>
-            <a href="#test"
-              class="inline-block px-8 py-3 bg-white text-black font-semibold rounded-lg shadow hover:bg-black hover:text-white transition">
-              Mulai Tes Sekarang!
-            </a>
+      <!-- Carousel Start -->
+      <div class="swiper2 absolute top-0 left-0 z-[-2] h-full w-full">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="src/images/hero1.jpg" alt="image" class="h-full w-full object-cover object-center" />
           </div>
-          <div class="lg:w-1/2 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
-            <p>
-              Tipe Intrapersonal mengenal diri dengan baik, memiliki tujuan yang jelas,
-              dan kuat dalam prinsip. Mereka reflektif dan fokus pada pertumbuhan diri
-              serta pencapaian pribadi.
+          <div class="swiper-slide">
+            <img src="src/images/hero2.jpg" alt="image" class="h-full w-full object-cover object-center" />
+          </div>
+          <div class="swiper-slide">
+            <img src="src/images/hero3.jpg" alt="image" class="h-full w-full object-cover object-center" />
+          </div>
+          <div class="swiper-slide">
+            <img src="src/images/hero4.jpg" alt="image" class="h-full w-full object-cover object-center" />
+          </div>
+          <div class="swiper-slide">
+            <img src="src/images/hero5.jpg" alt="image" class="h-full w-full object-cover object-center" />
+          </div>
+          <div class="swiper-slide">
+            <img src="src/images/hero6.jpg" alt="image" class="h-full w-full object-cover object-center" />
+          </div>
+        </div>
+
+      </div>
+      <!-- Carousel End -->
+
+      <div class="container mx-auto relative z-10">
+        <div class="flex flex-wrap -mx-4">
+          <div class="w-full px-4 text-white">
+            <h1 class="text-4xl font-bold">Kenali Diri Lebih Dalam Lewat STIFIn: Langkah Awal Bersama STEPS</h1>
+            <p class="mt-4 text-lg">
+              <strong>
+                Langkah kecil yang dimulai dari mengenal diri sendiri bisa membawa perubahan besar.
+              </strong>
             </p>
+            <div>
+              <a href="javascript:void(0)"
+                class="inline-block px-6 py-4 my-5 text-base font-medium text-white transition rounded bg-primary hover:bg-white hover:text-primary md:px-9 lg:px-6 xl:px-9">
+                Mulai Tes Sekarang!
+              </a>
+            </div>
           </div>
         </div>
       </div>
-
-      <!-- ===== FEELING (Fi, Fe) ===== -->
-      <div class="swiper-slide flex items-center justify-center text-white" style="background-color:#7dd956;">
-        <div class="container mx-auto px-6 lg:flex lg:items-center lg:justify-between h-full">
-          <div class="max-w-lg" data-aos="fade-up" data-aos-delay="100">
-            <h1 class="text-6xl font-extrabold mb-6">FEELING ✦</h1>
-            <div class="flex gap-4 mb-6">
-              <span class="bg-[#64b845] px-6 py-2 rounded-lg font-semibold">Fi</span>
-              <span class="bg-[#99ef75] px-6 py-2 rounded-lg font-semibold">Fe</span>
-            </div>
-            <a href="#test"
-              class="inline-block px-8 py-3 bg-white text-green-700 font-semibold rounded-lg shadow hover:bg-green-800 hover:text-white transition">
-              Mulai Tes Sekarang!
-            </a>
-          </div>
-          <div class="lg:w-1/2 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
-            <p>
-              Tipe Feeling memprioritaskan nilai, emosi, dan keharmonisan. Mereka peka terhadap kebutuhan orang lain
-              dan menjaga suasana positif.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== INTUITION (Ii, Ie) ===== -->
-      <div class="swiper-slide flex items-center justify-center text-white" style="background-color:#004aac;">
-        <div class="container mx-auto px-6 lg:flex lg:items-center lg:justify-between h-full">
-          <div class="max-w-lg" data-aos="fade-up" data-aos-delay="100">
-            <h1 class="text-6xl font-extrabold mb-6">INTUITION ✦</h1>
-            <div class="flex gap-4 mb-6">
-              <span class="bg-[#003a8a] px-6 py-2 rounded-lg font-semibold">Ii</span>
-              <span class="bg-[#005ef8] px-6 py-2 rounded-lg font-semibold">Ie</span>
-            </div>
-            <a href="#test"
-              class="inline-block px-8 py-3 bg-white text-blue-800 font-semibold rounded-lg shadow hover:bg-blue-900 hover:text-white transition">
-              Mulai Tes Sekarang!
-            </a>
-          </div>
-          <div class="lg:w-1/2 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
-            <p>
-              Tipe Intuition melihat pola, ide besar, dan potensi masa depan.
-              Mereka kreatif, visioner, dan unggul dalam inovasi serta strategi.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== THINKING (Ti, Te) ===== -->
-      <div class="swiper-slide flex items-center justify-center text-white" style="background-color:#797979;">
-        <div class="container mx-auto px-6 lg:flex lg:items-center lg:justify-between h-full">
-          <div class="max-w-lg" data-aos="fade-up" data-aos-delay="100">
-            <h1 class="text-6xl font-extrabold mb-6">THINKING ✦</h1>
-            <div class="flex gap-4 mb-6">
-              <span class="bg-[#5f5f5f] px-6 py-2 rounded-lg font-semibold">Ti</span>
-              <span class="bg-[#9a9a9a] px-6 py-2 rounded-lg font-semibold">Te</span>
-            </div>
-            <a href="#test"
-              class="inline-block px-8 py-3 bg-white text-gray-800 font-semibold rounded-lg shadow hover:bg-gray-900 hover:text-white transition">
-              Mulai Tes Sekarang!
-            </a>
-          </div>
-          <div class="lg:w-1/2 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
-            <p>
-              Tipe Thinking mengedepankan logika dan objektivitas.
-              Mereka terampil menganalisis fakta dan mengambil keputusan rasional.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== SENSING (Si, Se) ===== -->
-      <div class="swiper-slide flex items-center justify-center text-white" style="background-color:#cb1903;">
-        <div class="container mx-auto px-6 lg:flex lg:items-center lg:justify-between h-full">
-          <div class="max-w-lg" data-aos="fade-up" data-aos-delay="100">
-            <h1 class="text-6xl font-extrabold mb-6">SENSING ✦</h1>
-            <div class="flex gap-4 mb-6">
-              <span class="bg-[#a81603] px-6 py-2 rounded-lg font-semibold">Si</span>
-              <span class="bg-[#ff5043] px-6 py-2 rounded-lg font-semibold">Se</span>
-            </div>
-            <a href="#test"
-              class="inline-block px-8 py-3 bg-white text-red-800 font-semibold rounded-lg shadow hover:bg-red-900 hover:text-white transition">
-              Mulai Tes Sekarang!
-            </a>
-          </div>
-          <div class="lg:w-1/2 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
-            <p>
-              Tipe Sensing mengandalkan pancaindra dan fakta nyata dalam berpikir serta bertindak.
-              Mereka praktis, teliti, disiplin, dan menyukai rutinitas.
-            </p>
-          </div>
-        </div>
-      </div>
-
     </div>
-    <div class="swiper-pagination"></div>
   </div>
-</section>
-<!-- ====== Hero Section End ====== -->
-
-<!-- SwiperJS + AOS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-<script>
-  AOS.init({ duration: 1000, once: true });
-  const swiper = new Swiper('.mySwiper', {
-    loop: true,
-    autoplay: { delay: 4000 },
-    pagination: { el: '.swiper-pagination', clickable: true },
-    effect: 'fade',
-    fadeEffect: { crossFade: true },
-  });
-</script>
-
+  <!-- ====== Hero Section End -->
 
   <!-- ====== Services Section Start -->
   <section class="overflow-hidden dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
@@ -616,8 +528,134 @@ session_start();
   <!-- ====== Services Section End -->
 
   <!-- ====== Services Section Start -->
-  <section class="bg-tg-bg dark:bg-dark-2 pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
-    <div class="container mx-auto">
+  <section class="bg-tg-bg dark:bg-dark-2 pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] flex flex-col justify-center items-center w-full">
+    <div class="flex flex-wrap -mx-4">
+      <div class="w-full px-4">
+        <div class="mx-auto mb-12 max-w-[510px] text-center lg:mb-20">
+          <span class="block mb-2 text-lg font-semibold text-primary">
+            Why You Should Try?
+          </span>
+          <h2 class="text-dark dark:text-white mb-3 text-3xl leading-[1.2] font-bold sm:text-4xl md:text-[40px]">
+            The Benefit of STIFIn Test
+          </h2>
+          <p class="text-base text-body-color dark:text-dark-6">
+            Di STEPS, kami percaya bahwa setiap orang memiliki potensi luar biasa hanya saja cara memicunya
+            berbeda-beda.
+            Melalui metode STIFIn, kami membantu individu:
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative flex justify-center items-center bg-white rounded-2xl shadow-lg overflow-hidden w-full max-w-[1320px] h-[400px] sm:h-[450px] md:h-[500px]">
+      <!-- Pagination kiri -->
+      <div
+        id="pagination"
+        class="absolute left-4 z-10 flex flex-col space-y-2 text-gray-500 text-lg font-semibold"></div>
+
+      <!-- Swiper -->
+      <div class="swiper w-full h-full">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide flex items-center justify-center text-center px-6 sm:px-10 lg:px-16 xl:px-20">
+  <div class="w-full max-w-[1140px] mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 lg:gap-12 h-full">
+    
+    <!-- Kolom kiri -->
+    <div class="flex-1 text-left lg:text-left" data-aos="fade-up" data-aos-delay="100">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6">SENSING</h1>
+      <div class="flex justify-center lg:justify-start gap-4 mb-6">
+        <span class="bg-[#a81603] text-white px-6 py-2 rounded-lg font-semibold shadow-md">Si</span>
+        <span class="bg-[#ff5043] text-white px-6 py-2 rounded-lg font-semibold shadow-md">Se</span>
+      </div>
+    </div>
+
+    <!-- Kolom kanan -->
+    <div class="flex-1 text-base sm:text-lg leading-relaxed text-gray-700" data-aos="fade-up" data-aos-delay="300">
+      <p>
+        Tipe Sensing mengandalkan pancaindra dan fakta nyata dalam berpikir serta bertindak.
+        Mereka praktis, teliti, disiplin, dan menyukai rutinitas.
+      </p>
+    </div>
+  </div>
+</div>
+
+          <div
+            class="swiper-slide flex flex-col justify-center items-center text-center">
+            <div class="container mx-auto px-20 lg:flex lg:items-center lg:justify-between h-full">
+              <div class="max-w-lg" data-aos="fade-up" data-aos-delay="100">
+                <h1 class="text-6xl font-extrabold mb-6">THINKING ✦</h1>
+                <div class="flex gap-4 mb-6">
+                  <span class="bg-[#5f5f5f] px-6 py-2 rounded-lg font-semibold">Ti</span>
+                  <span class="bg-[#9a9a9a] px-6 py-2 rounded-lg font-semibold">Te</span>
+                </div>
+              </div>
+              <div class="lg:w-1/2 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
+                <p>
+                  Tipe Thinking mengedepankan logika dan objektivitas.
+                  Mereka terampil menganalisis fakta dan mengambil keputusan rasional.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="swiper-slide flex flex-col justify-center items-center text-center">
+            <div class="container mx-auto px-20 lg:flex lg:items-center lg:justify-between h-full">
+              <div class="max-w-lg" data-aos="fade-up" data-aos-delay="100">
+                <h1 class="text-6xl font-extrabold mb-6">INTUITION ✦</h1>
+                <div class="flex gap-4 mb-6">
+                  <span class="bg-[#003a8a] px-6 py-2 rounded-lg font-semibold">Ii</span>
+                  <span class="bg-[#005ef8] px-6 py-2 rounded-lg font-semibold">Ie</span>
+                </div>
+              </div>
+              <div class="lg:w-1/2 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
+                <p>
+                  Tipe Intuition melihat pola, ide besar, dan potensi masa depan.
+                  Mereka kreatif, visioner, dan unggul dalam inovasi serta strategi.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="swiper-slide flex flex-col justify-center items-center text-center">
+            <div class="container mx-auto px-20 lg:flex lg:items-center lg:justify-between h-full">
+              <div class="max-w-lg" data-aos="fade-up" data-aos-delay="100">
+                <h1 class="text-6xl font-extrabold mb-6">FEELING</h1>
+                <div class="flex gap-4 mb-6">
+                  <span class="bg-[#64b845] px-6 py-2 rounded-lg font-semibold">Fi</span>
+                  <span class="bg-[#99ef75] px-6 py-2 rounded-lg font-semibold">Fe</span>
+                </div>
+              </div>
+              <div class="lg:w-1/2 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
+                <p>
+                  Tipe Feeling memprioritaskan nilai, emosi, dan keharmonisan. Mereka peka terhadap kebutuhan orang lain
+                  dan menjaga suasana positif.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="swiper-slide flex flex-col justify-center items-center text-center">
+            <div class="container mx-auto px-20 lg:flex lg:items-center lg:justify-between h-full">
+              <div class="max-w-lg" data-aos="fade-up" data-aos-delay="100">
+                <h1 class="text-6xl font-extrabold mb-6">INTRAPERSONAL</h1>
+                <div class="flex gap-4 mb-6">
+                  <span class="bg-[#e1a901] px-6 py-2 rounded-lg font-semibold">In</span>
+                </div>
+              </div>
+              <div class="lg:w-1/2 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
+                <p>
+                  Tipe Intrapersonal mengenal diri dengan baik, memiliki tujuan yang jelas,
+                  dan kuat dalam prinsip. Mereka reflektif dan fokus pada pertumbuhan diri
+                  serta pencapaian pribadi.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="container mx-auto">
       <div class="flex flex-wrap -mx-4">
         <div class="w-full px-4">
           <div class="mx-auto mb-12 max-w-[510px] text-center lg:mb-20">
@@ -688,7 +726,7 @@ session_start();
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </section>
   <!-- ====== Services Section End -->
 
@@ -908,7 +946,7 @@ session_start();
   <script defer src="./src/js/bundle.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
   <script>
-    const swiper = new Swiper(".swiper", {
+    const swiper2 = new Swiper(".swiper2", {
       loop: true,
       autoplay: {
         delay: 3000,
@@ -924,6 +962,80 @@ session_start();
       },
       effect: "fade",
     });
+
+    // Huruf pagination custom
+    const paginationLetters = ["S", "T", "I", "F", "In"];
+    const paginationContainer = document.getElementById("pagination");
+
+    // Tambahkan style untuk pagination dan state active (warna primary)
+    const paginationStyle = document.createElement("style");
+    paginationStyle.innerHTML = `
+      #pagination { display:flex; flex-direction:column; gap:0.5rem; }
+      .pagination-letter {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:36px;
+      height:36px;
+      border-radius:9999px;
+      background:#ffffff;
+      color:#6b7280; /* gray-500 */
+      border:1px solid #e5e7eb; /* gray-200 */
+      font-weight:600;
+      cursor:pointer;
+      transition: all .18s ease;
+      }
+      .pagination-letter.active {
+      background: #3A6F43; /* primary */
+      color: #ffffff;
+      border-color: #3A6F43;
+      }
+    `;
+    document.head.appendChild(paginationStyle);
+
+    // Render pagination letters
+    paginationLetters.forEach((letter, i) => {
+      const span = document.createElement("span");
+      span.textContent = letter;
+      span.className = "pagination-letter";
+      span.dataset.index = i;
+      span.addEventListener("click", () => {
+        // pindah slide dan update langsung tampilan pagination
+        swiper.slideTo(i);
+        updatePagination(i);
+      });
+      paginationContainer.appendChild(span);
+    });
+
+    // Inisialisasi Swiper
+    const swiper = new Swiper(".swiper", {
+      direction: "vertical",
+      slidesPerView: 1,
+      spaceBetween: 30,
+      mousewheel: true,
+      on: {
+        slideChange: () => updatePagination(swiper.activeIndex),
+      },
+      autoplay: {
+        delay: 3000, // waktu perpindahan (ms)
+        disableOnInteraction: false, // tetap jalan walau user interaksi
+      },
+    });
+
+    // Fungsi pause on hover
+    const swiperEl = document.querySelector(".swiper");
+    swiperEl.addEventListener("mouseenter", () => swiper.autoplay.stop());
+    swiperEl.addEventListener("mouseleave", () => swiper.autoplay.start());
+
+    // Fungsi update warna aktif pada pagination
+    function updatePagination(activeIndex) {
+      document.querySelectorAll(".pagination-letter").forEach((el, i) => {
+        el.classList.toggle("active", i === activeIndex);
+      });
+    }
+
+    // Set default aktif di awal
+    updatePagination(0);
   </script>
 </body>
 
