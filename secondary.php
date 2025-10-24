@@ -285,147 +285,99 @@ session_start();
   <!-- ====== Navbar Section End -->
 
   <!-- ====== Hero Section Start ====== -->
-<section class="relative overflow-hidden font-[Poppins]">
-  <div class="swiper mySwiper h-[90vh] w-full">
+<section class="relative overflow-hidden font-ubuntu">
+  <div class="swiper h-[100vh] w-full">
     <div class="swiper-wrapper">
 
-      <!-- ===== INTRAPERSONAL (In) ===== -->
-      <div class="swiper-slide flex items-center justify-center text-black" style="background-color:#febd02;">
-        <div class="container mx-auto px-6 lg:flex lg:items-center lg:justify-between h-full">
-          <div class="max-w-lg" data-aos="fade-up" data-aos-delay="100">
-            <h1 class="text-6xl font-extrabold mb-6">INTRAPERSONAL ✦</h1>
-            <div class="flex gap-4 mb-6">
-              <span class="bg-[#e1a901] px-6 py-2 rounded-lg font-semibold">In</span>
-            </div>
-            <a href="#test"
-              class="inline-block px-8 py-3 bg-white text-black font-semibold rounded-lg shadow hover:bg-black hover:text-white transition">
-              Mulai Tes Sekarang!
-            </a>
-          </div>
-          <div class="lg:w-1/2 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
-            <p>
-              Tipe Intrapersonal mengenal diri dengan baik, memiliki tujuan yang jelas,
-              dan kuat dalam prinsip. Mereka reflektif dan fokus pada pertumbuhan diri
-              serta pencapaian pribadi.
-            </p>
-          </div>
+      <!-- Slide 1 - Sensing (Si & Se) -->
+      <div class="swiper-slide relative">
+        <img src="src/images/sensing.jpg" alt="Sensing" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-[#cb1903]/60"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center text-white">
+          <h1 class="text-4xl sm:text-5xl font-bold mb-3">Sensing (Si & Se)</h1>
+          <p class="max-w-2xl text-base sm:text-lg md:text-xl mb-6">
+            Tipe Sensing cenderung realistis, fokus pada detail, dan berorientasi pada tindakan nyata.
+            <br><span class="font-semibold">Si</span> teratur dan praktis, sementara <span class="font-semibold">Se</span> energik dan spontan.
+          </p>
+          <a href="#" class="px-6 py-3 bg-white text-[#cb1903] font-medium rounded-md hover:bg-[#cb1903] hover:text-white transition-all duration-300">
+            Mulai Tes Sekarang!
+          </a>
         </div>
       </div>
 
-      <!-- ===== FEELING (Fi, Fe) ===== -->
-      <div class="swiper-slide flex items-center justify-center text-white" style="background-color:#7dd956;">
-        <div class="container mx-auto px-6 lg:flex lg:items-center lg:justify-between h-full">
-          <div class="max-w-lg" data-aos="fade-up" data-aos-delay="100">
-            <h1 class="text-6xl font-extrabold mb-6">FEELING ✦</h1>
-            <div class="flex gap-4 mb-6">
-              <span class="bg-[#64b845] px-6 py-2 rounded-lg font-semibold">Fi</span>
-              <span class="bg-[#99ef75] px-6 py-2 rounded-lg font-semibold">Fe</span>
-            </div>
-            <a href="#test"
-              class="inline-block px-8 py-3 bg-white text-green-700 font-semibold rounded-lg shadow hover:bg-green-800 hover:text-white transition">
-              Mulai Tes Sekarang!
-            </a>
-          </div>
-          <div class="lg:w-1/2 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
-            <p>
-              Tipe Feeling memprioritaskan nilai, emosi, dan keharmonisan. Mereka peka terhadap kebutuhan orang lain
-              dan menjaga suasana positif.
-            </p>
-          </div>
+      <!-- Slide 2 - Thinking (Ti & Te) -->
+      <div class="swiper-slide relative">
+        <img src="src/images/thinking.jpg" alt="Thinking" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-[#797979]/60"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center text-white">
+          <h1 class="text-4xl sm:text-5xl font-bold mb-3">Thinking (Ti & Te)</h1>
+          <p class="max-w-2xl text-base sm:text-lg md:text-xl mb-6">
+            Tipe Thinking rasional dan logis. Mereka mengutamakan analisis dan efisiensi.
+            <br><span class="font-semibold">Ti</span> berpikir sistematis, sedangkan <span class="font-semibold">Te</span> berorientasi hasil.
+          </p>
+          <a href="#" class="px-6 py-3 bg-white text-[#797979] font-medium rounded-md hover:bg-[#797979] hover:text-white transition-all duration-300">
+            Mulai Tes Sekarang!
+          </a>
         </div>
       </div>
 
-      <!-- ===== INTUITION (Ii, Ie) ===== -->
-      <div class="swiper-slide flex items-center justify-center text-white" style="background-color:#004aac;">
-        <div class="container mx-auto px-6 lg:flex lg:items-center lg:justify-between h-full">
-          <div class="max-w-lg" data-aos="fade-up" data-aos-delay="100">
-            <h1 class="text-6xl font-extrabold mb-6">INTUITION ✦</h1>
-            <div class="flex gap-4 mb-6">
-              <span class="bg-[#003a8a] px-6 py-2 rounded-lg font-semibold">Ii</span>
-              <span class="bg-[#005ef8] px-6 py-2 rounded-lg font-semibold">Ie</span>
-            </div>
-            <a href="#test"
-              class="inline-block px-8 py-3 bg-white text-blue-800 font-semibold rounded-lg shadow hover:bg-blue-900 hover:text-white transition">
-              Mulai Tes Sekarang!
-            </a>
-          </div>
-          <div class="lg:w-1/2 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
-            <p>
-              Tipe Intuition melihat pola, ide besar, dan potensi masa depan.
-              Mereka kreatif, visioner, dan unggul dalam inovasi serta strategi.
-            </p>
-          </div>
+      <!-- Slide 3 - Intuiting (Ii & Ie) -->
+      <div class="swiper-slide relative">
+        <img src="src/images/intuiting.jpg" alt="Intuiting" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-[#004aac]/60"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center text-white">
+          <h1 class="text-4xl sm:text-5xl font-bold mb-3">Intuiting (Ii & Ie)</h1>
+          <p class="max-w-2xl text-base sm:text-lg md:text-xl mb-6">
+            Tipe Intuiting visioner dan penuh ide. Mereka suka berpikir jauh ke depan.
+            <br><span class="font-semibold">Ii</span> reflektif dan imajinatif, sementara <span class="font-semibold">Ie</span> komunikatif dan inspiratif.
+          </p>
+          <a href="#" class="px-6 py-3 bg-white text-[#004aac] font-medium rounded-md hover:bg-[#004aac] hover:text-white transition-all duration-300">
+            Mulai Tes Sekarang!
+          </a>
         </div>
       </div>
 
-      <!-- ===== THINKING (Ti, Te) ===== -->
-      <div class="swiper-slide flex items-center justify-center text-white" style="background-color:#797979;">
-        <div class="container mx-auto px-6 lg:flex lg:items-center lg:justify-between h-full">
-          <div class="max-w-lg" data-aos="fade-up" data-aos-delay="100">
-            <h1 class="text-6xl font-extrabold mb-6">THINKING ✦</h1>
-            <div class="flex gap-4 mb-6">
-              <span class="bg-[#5f5f5f] px-6 py-2 rounded-lg font-semibold">Ti</span>
-              <span class="bg-[#9a9a9a] px-6 py-2 rounded-lg font-semibold">Te</span>
-            </div>
-            <a href="#test"
-              class="inline-block px-8 py-3 bg-white text-gray-800 font-semibold rounded-lg shadow hover:bg-gray-900 hover:text-white transition">
-              Mulai Tes Sekarang!
-            </a>
-          </div>
-          <div class="lg:w-1/2 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
-            <p>
-              Tipe Thinking mengedepankan logika dan objektivitas.
-              Mereka terampil menganalisis fakta dan mengambil keputusan rasional.
-            </p>
-          </div>
+      <!-- Slide 4 - Feeling (Fi & Fe) -->
+      <div class="swiper-slide relative">
+        <img src="src/images/feeling.jpg" alt="Feeling" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-[#7dd956]/60"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center text-white">
+          <h1 class="text-4xl sm:text-5xl font-bold mb-3">Feeling (Fi & Fe)</h1>
+          <p class="max-w-2xl text-base sm:text-lg md:text-xl mb-6">
+            Tipe Feeling peka terhadap emosi dan nilai-nilai kemanusiaan.
+            <br><span class="font-semibold">Fi</span> berprinsip dan empatik, sedangkan <span class="font-semibold">Fe</span> hangat dan mudah bergaul.
+          </p>
+          <a href="#" class="px-6 py-3 bg-white text-[#7dd956] font-medium rounded-md hover:bg-[#7dd956] hover:text-white transition-all duration-300">
+            Mulai Tes Sekarang!
+          </a>
         </div>
       </div>
 
-      <!-- ===== SENSING (Si, Se) ===== -->
-      <div class="swiper-slide flex items-center justify-center text-white" style="background-color:#cb1903;">
-        <div class="container mx-auto px-6 lg:flex lg:items-center lg:justify-between h-full">
-          <div class="max-w-lg" data-aos="fade-up" data-aos-delay="100">
-            <h1 class="text-6xl font-extrabold mb-6">SENSING ✦</h1>
-            <div class="flex gap-4 mb-6">
-              <span class="bg-[#a81603] px-6 py-2 rounded-lg font-semibold">Si</span>
-              <span class="bg-[#ff5043] px-6 py-2 rounded-lg font-semibold">Se</span>
-            </div>
-            <a href="#test"
-              class="inline-block px-8 py-3 bg-white text-red-800 font-semibold rounded-lg shadow hover:bg-red-900 hover:text-white transition">
-              Mulai Tes Sekarang!
-            </a>
-          </div>
-          <div class="lg:w-1/2 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
-            <p>
-              Tipe Sensing mengandalkan pancaindra dan fakta nyata dalam berpikir serta bertindak.
-              Mereka praktis, teliti, disiplin, dan menyukai rutinitas.
-            </p>
-          </div>
+      <!-- Slide 5 - Instinct (In) -->
+      <div class="swiper-slide relative">
+        <img src="src/images/instinct.jpg" alt="Instinct" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-[#febd02]/60"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center text-white">
+          <h1 class="text-4xl sm:text-5xl font-bold mb-3">Instinct (In)</h1>
+          <p class="max-w-2xl text-base sm:text-lg md:text-xl mb-6">
+            Tipe Instinct memiliki intuisi kuat dan cepat mengambil keputusan.
+            <br>Mereka cenderung percaya pada naluri dan memiliki visi jangka panjang.
+          </p>
+          <a href="#" class="px-6 py-3 bg-white text-[#febd02] font-medium rounded-md hover:bg-[#febd02] hover:text-white transition-all duration-300">
+            Mulai Tes Sekarang!
+          </a>
         </div>
       </div>
 
     </div>
+
+    <!-- Pagination & Navigation -->
     <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev hidden sm:flex"></div>
+    <div class="swiper-button-next hidden sm:flex"></div>
   </div>
 </section>
 <!-- ====== Hero Section End ====== -->
-
-<!-- SwiperJS + AOS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-<script>
-  AOS.init({ duration: 1000, once: true });
-  const swiper = new Swiper('.mySwiper', {
-    loop: true,
-    autoplay: { delay: 4000 },
-    pagination: { el: '.swiper-pagination', clickable: true },
-    effect: 'fade',
-    fadeEffect: { crossFade: true },
-  });
-</script>
 
 
   <!-- ====== Services Section Start -->
@@ -904,27 +856,30 @@ session_start();
     </label>
   </div>
 
-  <!-- theme switcher -->
-  <script defer src="./src/js/bundle.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
-  <script>
-    const swiper = new Swiper(".swiper", {
-      loop: true,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: false,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      effect: "fade",
-    });
-  </script>
+
+ <!-- SwiperJS CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  const swiper = new Swiper('.swiper', {
+    loop: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    effect: 'fade',
+    fadeEffect: { crossFade: true },
+  });
+</script>
 </body>
 
 </html>
