@@ -554,30 +554,133 @@ session_start();
         class="absolute left-4 z-10 flex flex-col space-y-2 text-gray-500 text-lg font-semibold"></div>
 
       <!-- Swiper -->
-      <div class="swiper w-full h-full">
+      <div class="swiper w-full h-full text-white">
         <div class="swiper-wrapper">
           <div class="swiper-slide flex items-center justify-center text-center px-6 sm:px-10 lg:px-16 xl:px-20">
-  <div class="w-full max-w-[1140px] mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 lg:gap-12 h-full">
-    
-    <!-- Kolom kiri -->
-    <div class="flex-1 text-left lg:text-left" data-aos="fade-up" data-aos-delay="100">
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6">SENSING</h1>
-      <div class="flex justify-center lg:justify-start gap-4 mb-6">
-        <span class="bg-[#a81603] text-white px-6 py-2 rounded-lg font-semibold shadow-md">Si</span>
-        <span class="bg-[#ff5043] text-white px-6 py-2 rounded-lg font-semibold shadow-md">Se</span>
-      </div>
-    </div>
-
-    <!-- Kolom kanan -->
-    <div class="flex-1 text-base sm:text-lg leading-relaxed text-gray-700" data-aos="fade-up" data-aos-delay="300">
-      <p>
-        Tipe Sensing mengandalkan pancaindra dan fakta nyata dalam berpikir serta bertindak.
-        Mereka praktis, teliti, disiplin, dan menyukai rutinitas.
-      </p>
-    </div>
-  </div>
-</div>
-
+            <div class="w-full max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center lg:items-center justify-center lg:justify-between gap-3 lg:gap-12 h-full">
+              <!-- Kolom kiri -->
+              <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left" data-aos="fade-up" data-aos-delay="100">
+                <h1 class="text-3xl  text-white sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">SENSING</h1>
+                <div class="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-4">
+                  <span class="px-4 py-2 sm:px-6 sm:py-2.5 rounded-lg font-semibold shadow-md text-sm sm:text-base bg-[#a81603] text-white">Si</span>
+                  <span class="px-4 py-2 sm:px-6 sm:py-2.5 rounded-lg font-semibold shadow-md text-sm sm:text-base bg-[#ff5043] text-white">Se</span>
+                </div>
+                <p class="max-w-xl text-sm sm:text-base  text-white">Tipe Sensing mengandalkan pancaindra dan fakta nyata dalam berpikir serta bertindak. Mereka praktis, teliti, disiplin, dan menyukai rutinitas.</p>
+              </div>
+              <!-- Kolom kanan (opsional: bisa berisi tambahan detail atau CTA) -->
+              <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left px-2 sm:px-0" data-aos="fade-up" data-aos-delay="300">
+                <!-- Jika Anda ingin menambahkan konten tambahan, taruh di sini. Contoh ringkasan atau tombol -->
+                <div class="w-full max-w-xl">
+                  <p class="text-sm sm:text-base md:text-lg leading-relaxed  text-white">
+                    Mereka fokus pada hal yang nyata dan segera terlihat hasilnya. Cocok untuk peran yang membutuhkan ketelitian, konsistensi, dan kemampuan menerapkan prosedur secara disiplin.
+                  </p>
+                  <div class="mt-4 flex justify-center lg:justify-start">
+                    <a href="javascript:void(0)" class="inline-block px-5 py-2.5 text-sm sm:text-base bg-primary text-white rounded-md hover:opacity-90">Pelajari Lebih Lanjut</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide flex items-center justify-center text-center px-6 sm:px-10 lg:px-16 xl:px-20">
+            <div class="w-full max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center lg:items-center justify-center lg:justify-between gap-3 lg:gap-12 h-full">
+              <!-- Kolom kiri -->
+              <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left" data-aos="fade-up" data-aos-delay="100">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">THINKING</h1>
+                <div class="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-4">
+                  <span class="px-4 py-2 sm:px-6 sm:py-2.5 rounded-lg font-semibold shadow-md text-sm sm:text-base bg-[#9a9a9a] text-white">Ti</span>
+                  <span class="px-4 py-2 sm:px-6 sm:py-2.5 rounded-lg font-semibold shadow-md text-sm sm:text-base bg-[#5f5f5f] text-white">Te</span>
+                </div>
+                <p class="max-w-xl text-sm sm:text-base  text-white/90">Tipe Sensing mengandalkan pancaindra dan fakta nyata dalam berpikir serta bertindak. Mereka praktis, teliti, disiplin, dan menyukai rutinitas.</p>
+              </div>
+              <!-- Kolom kanan (opsional: bisa berisi tambahan detail atau CTA) -->
+              <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left px-2 sm:px-0" data-aos="fade-up" data-aos-delay="300">
+                <!-- Jika Anda ingin menambahkan konten tambahan, taruh di sini. Contoh ringkasan atau tombol -->
+                <div class="w-full max-w-xl">
+                  <p class="text-sm sm:text-base md:text-lg leading-relaxed  text-white">
+                    Mereka fokus pada hal yang nyata dan segera terlihat hasilnya. Cocok untuk peran yang membutuhkan ketelitian, konsistensi, dan kemampuan menerapkan prosedur secara disiplin.
+                  </p>
+                  <div class="mt-4 flex justify-center lg:justify-start">
+                    <a href="javascript:void(0)" class="inline-block px-5 py-2.5 text-sm sm:text-base bg-primary text-white rounded-md hover:opacity-90">Pelajari Lebih Lanjut</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide flex items-center justify-center text-center px-6 sm:px-10 lg:px-16 xl:px-20">
+            <div class="w-full max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center lg:items-center justify-center lg:justify-between gap-3 lg:gap-12 h-full">
+              <!-- Kolom kiri -->
+              <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left" data-aos="fade-up" data-aos-delay="100">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">INTUITING</h1>
+                <div class="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-4">
+                  <span class="px-4 py-2 sm:px-6 sm:py-2.5 rounded-lg font-semibold shadow-md text-sm sm:text-base bg-[#003a8a] text-white">Ii</span>
+                  <span class="px-4 py-2 sm:px-6 sm:py-2.5 rounded-lg font-semibold shadow-md text-sm sm:text-base bg-[#005ef8] text-white">Ie</span>
+                </div>
+                <p class="max-w-xl text-sm sm:text-base  text-white/90">Tipe Sensing mengandalkan pancaindra dan fakta nyata dalam berpikir serta bertindak. Mereka praktis, teliti, disiplin, dan menyukai rutinitas.</p>
+              </div>
+              <!-- Kolom kanan (opsional: bisa berisi tambahan detail atau CTA) -->
+              <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left px-2 sm:px-0" data-aos="fade-up" data-aos-delay="300">
+                <!-- Jika Anda ingin menambahkan konten tambahan, taruh di sini. Contoh ringkasan atau tombol -->
+                <div class="w-full max-w-xl">
+                  <p class="text-sm sm:text-base md:text-lg leading-relaxed  text-white">
+                    Mereka fokus pada hal yang nyata dan segera terlihat hasilnya. Cocok untuk peran yang membutuhkan ketelitian, konsistensi, dan kemampuan menerapkan prosedur secara disiplin.
+                  </p>
+                  <div class="mt-4 flex justify-center lg:justify-start">
+                    <a href="javascript:void(0)" class="inline-block px-5 py-2.5 text-sm sm:text-base bg-primary text-white rounded-md hover:opacity-90">Pelajari Lebih Lanjut</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide flex items-center justify-center text-center px-6 sm:px-10 lg:px-16 xl:px-20">
+            <div class="w-full max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center lg:items-center justify-center lg:justify-between gap-3 lg:gap-12 h-full">
+              <!-- Kolom kiri -->
+              <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left" data-aos="fade-up" data-aos-delay="100">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">FEELING</h1>
+                <div class="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-4">
+                  <span class="px-4 py-2 sm:px-6 sm:py-2.5 rounded-lg font-semibold shadow-md text-sm sm:text-base bg-[#347433] text-white">Fi</span>
+                  <span class="px-4 py-2 sm:px-6 sm:py-2.5 rounded-lg font-semibold shadow-md text-sm sm:text-base bg-[#64b845] text-white">Fe</span>
+                </div>
+                <p class="max-w-xl text-sm sm:text-base  text-white/90">Tipe Sensing mengandalkan pancaindra dan fakta nyata dalam berpikir serta bertindak. Mereka praktis, teliti, disiplin, dan menyukai rutinitas.</p>
+              </div>
+              <!-- Kolom kanan (opsional: bisa berisi tambahan detail atau CTA) -->
+              <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left px-2 sm:px-0" data-aos="fade-up" data-aos-delay="300">
+                <!-- Jika Anda ingin menambahkan konten tambahan, taruh di sini. Contoh ringkasan atau tombol -->
+                <div class="w-full max-w-xl">
+                  <p class="text-sm sm:text-base md:text-lg leading-relaxed  text-white">
+                    Mereka fokus pada hal yang nyata dan segera terlihat hasilnya. Cocok untuk peran yang membutuhkan ketelitian, konsistensi, dan kemampuan menerapkan prosedur secara disiplin.
+                  </p>
+                  <div class="mt-4 flex justify-center lg:justify-start">
+                    <a href="javascript:void(0)" class="inline-block px-5 py-2.5 text-sm sm:text-base bg-primary text-white rounded-md hover:opacity-90">Pelajari Lebih Lanjut</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide flex items-center justify-center text-center px-6 sm:px-10 lg:px-16 xl:px-20">
+            <div class="w-full max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center lg:items-center justify-center lg:justify-between gap-3 lg:gap-12 h-full">
+              <!-- Kolom kiri -->
+              <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left" data-aos="fade-up" data-aos-delay="100">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">INSTINCT</h1>
+                <div class="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-4">
+                  <span class="px-4 py-2 sm:px-6 sm:py-2.5 rounded-lg font-semibold shadow-md text-sm sm:text-base bg-[#7B4019] text-white">In</span>
+                </div>
+                <p class="max-w-xl text-sm sm:text-base  text-white/90">Tipe Sensing mengandalkan pancaindra dan fakta nyata dalam berpikir serta bertindak. Mereka praktis, teliti, disiplin, dan menyukai rutinitas.</p>
+              </div>
+              <!-- Kolom kanan (opsional: bisa berisi tambahan detail atau CTA) -->
+              <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left px-2 sm:px-0" data-aos="fade-up" data-aos-delay="300">
+                <!-- Jika Anda ingin menambahkan konten tambahan, taruh di sini. Contoh ringkasan atau tombol -->
+                <div class="w-full max-w-xl">
+                  <p class="text-sm sm:text-base md:text-lg leading-relaxed  text-white">
+                    Mereka fokus pada hal yang nyata dan segera terlihat hasilnya. Cocok untuk peran yang membutuhkan ketelitian, konsistensi, dan kemampuan menerapkan prosedur secara disiplin.
+                  </p>
+                  <div class="mt-4 flex justify-center lg:justify-start">
+                    <a href="javascript:void(0)" class="inline-block px-5 py-2.5 text-sm sm:text-base bg-primary text-white rounded-md hover:opacity-90">Pelajari Lebih Lanjut</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<!-- 
           <div
             class="swiper-slide flex flex-col justify-center items-center text-center">
             <div class="container mx-auto px-20 lg:flex lg:items-center lg:justify-between h-full">
@@ -652,6 +755,7 @@ session_start();
               </div>
             </div>
           </div>
+           -->
         </div>
       </div>
     </div>
@@ -962,7 +1066,6 @@ session_start();
       },
       effect: "fade",
     });
-
     // Huruf pagination custom
     const paginationLetters = ["S", "T", "I", "F", "In"];
     const paginationContainer = document.getElementById("pagination");
@@ -1001,6 +1104,7 @@ session_start();
       span.dataset.index = i;
       span.addEventListener("click", () => {
         // pindah slide dan update langsung tampilan pagination
+        // gunakan slideTo karena index sesuai urutan slide non-loop
         swiper.slideTo(i);
         updatePagination(i);
       });
@@ -1014,7 +1118,7 @@ session_start();
       spaceBetween: 30,
       mousewheel: true,
       on: {
-        slideChange: () => updatePagination(swiper.activeIndex),
+        slideChange: () => updatePagination(typeof swiper.realIndex === "number" ? swiper.realIndex : swiper.activeIndex),
       },
       autoplay: {
         delay: 3000, // waktu perpindahan (ms)
@@ -1022,16 +1126,41 @@ session_start();
       },
     });
 
+    // --- Penambahan: background per-slide ---
+    // Array warna background untuk tiap slide (sesuaikan sesuai kebutuhan)
+    const slideBackgrounds = [
+      "#8A0000", // S
+      "#211832", // T
+      "#4E56C0", // I
+      "#59AC77", // F
+      "#F97A00"  // In
+    ];
+
+    // Container swiper utama
+    const swiperContainer = document.querySelector(".swiper");
+    // Beri transisi halus pada perubahan background
+    if (swiperContainer) {
+      swiperContainer.style.transition = "background-color 300ms ease";
+    }
+
     // Fungsi pause on hover
     const swiperEl = document.querySelector(".swiper");
     swiperEl.addEventListener("mouseenter", () => swiper.autoplay.stop());
     swiperEl.addEventListener("mouseleave", () => swiper.autoplay.start());
 
-    // Fungsi update warna aktif pada pagination
+    // Fungsi update warna aktif pada pagination + ubah background sesuai slide
     function updatePagination(activeIndex) {
+      // pastikan index valid (untuk safety jika activeIndex lebih besar dari jumlah)
+      const idx = Math.max(0, Math.min(activeIndex, paginationLetters.length - 1));
+
       document.querySelectorAll(".pagination-letter").forEach((el, i) => {
-        el.classList.toggle("active", i === activeIndex);
+        el.classList.toggle("active", i === idx);
       });
+
+      // update background swiper jika tersedia warna untuk index tersebut
+      if (swiperContainer && slideBackgrounds[idx]) {
+        swiperContainer.style.backgroundColor = slideBackgrounds[idx];
+      }
     }
 
     // Set default aktif di awal
