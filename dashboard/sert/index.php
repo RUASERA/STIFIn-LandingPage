@@ -76,6 +76,16 @@ if (isset($_SESSION['loggedIn']) == false) {
               required />
           </div>
 
+          <div>
+            <label class="block text-sm font-medium mb-1">Nama Pemilik</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Default: password"
+              class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"/>
+          </div>
+
           <!-- Input Option -->
           <div>
             <label class="block text-sm font-medium mb-1">Jenis Sertifikat</label>

@@ -22,7 +22,7 @@ $nama = mysqli_real_escape_string($conn, $_POST['nama']);
 $jenis = mysqli_real_escape_string($conn, $_POST['jenis']);
 $file = $_FILES['file'];
 $foto = $_FILES['foto']; // Foto hasil crop dari form
-$passcode = generateKodeUnik();
+$passcode = isset($_POST['password']) ? mysqli_real_escape_string($conn, $_POST['password']) : 'password';
 
 // Validasi input utama
 if (empty($nama) || empty($jenis) || empty($file)) {
@@ -78,8 +78,9 @@ if (!empty($foto) && $foto['error'] === UPLOAD_ERR_OK) {
 }
 
 // ================== SIMPAN DATA KE DATABASE ==================
+$hash = password_hash($passcode, PASSWORD_DEFAULT);
 $stmt = $conn->prepare("INSERT INTO user (name, type_id, file, profile, password) VALUES (?, ?, ?, ?, ?)");
-$stmt->bind_param("sssss", $nama, $jenis, $newFileName, $profileFileName, $passcode);
+$stmt->bind_param("sssss", $nama, $jenis, $newFileName, $profileFileName, $hash);
 
 if ($stmt->execute()) {
     echo json_encode(['success' => true, 'message' => 'Sertifikat dan foto berhasil ditambahkan.']);
