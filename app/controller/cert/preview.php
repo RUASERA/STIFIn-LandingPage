@@ -9,6 +9,7 @@ require_once __DIR__ . '/../../config/utils.php';
 if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     echo json_encode(['error' => 'invalid request method']);
     http_response_code(403);
+    exit;
 }
 
 $id = intval($_GET['id']);
@@ -32,19 +33,16 @@ if (!file_exists($filePath)) {
     die("File tidak ditemukan di server.");
 }
 
-// Siapkan header untuk download
-header("Content-Description: File Transfer");
+// Siapkan header untuk preview
 header("Content-Type: application/pdf");
-header("Content-Disposition: attachment; filename=\"" . $filename . "\"");
-header("Expires: 0");
-header("Cache-Control: must-revalidate");
-header("Pragma: public");
-header("Content-Length: " . filesize($filePath));
+header("Content-Disposition: inline; filename=\"" . $filename . "\"");
+header("Content-Transfer-Encoding: binary");
+header("Accept-Ranges: bytes");
 
 // Bersihkan output buffer agar tidak ada karakter tambahan
 ob_clean();
 flush();
 
-// Kirim file ke browser
+// Tampilkan file langsung di browser
 readfile($filePath);
 exit;
