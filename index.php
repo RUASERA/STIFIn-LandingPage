@@ -527,396 +527,30 @@ session_start();
   </section>
   <!-- ====== Services Section End -->
 
-  <!-- ====== Services Section Start -->
-  <section class="bg-tg-bg dark:bg-dark-2 pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] flex flex-col justify-center items-center w-full">
-    <div class="flex flex-wrap -mx-4">
-      <div class="w-full px-4">
-        <div class="mx-auto mb-12 max-w-[510px] text-center lg:mb-20">
-          <span class="block mb-2 text-lg font-semibold text-primary">
-            Why You Should Try?
-          </span>
-          <h2 class="text-dark dark:text-white mb-3 text-3xl leading-[1.2] font-bold sm:text-4xl md:text-[40px]">
-            The Benefit of STIFIn Test
-          </h2>
-          <p class="text-base text-body-color dark:text-dark-6">
-            Di STEPS, kami percaya bahwa setiap orang memiliki potensi luar biasa hanya saja cara memicunya
-            berbeda-beda.
-            Melalui metode STIFIn, kami membantu individu:
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="relative flex justify-center items-center bg-white rounded-2xl shadow-lg overflow-hidden w-full max-w-[1320px] h-[400px] sm:h-[450px] md:h-[500px]">
-      <!-- Pagination kiri -->
-      <div
-        id="pagination"
-        class="absolute left-4 z-10 flex flex-col space-y-2 text-gray-500 text-lg font-semibold"></div>
-
-      <!-- Swiper -->
-      <div class="swiper w-full h-full text-white">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide flex items-center justify-center text-center px-6 sm:px-10 lg:px-16 xl:px-20">
-            <div class="w-full max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center lg:items-center justify-center lg:justify-between gap-3 lg:gap-12 h-full">
-              <!-- Kolom kiri -->
-              <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left" data-aos="fade-up" data-aos-delay="100">
-                <h1 class="text-3xl  text-white sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">SENSING</h1>
-                <div class="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-4">
-                  <span class="px-4 py-2 sm:px-6 sm:py-2.5 rounded-lg font-semibold shadow-md text-sm sm:text-base bg-[#a81603] text-white">Si</span>
-                  <span class="px-4 py-2 sm:px-6 sm:py-2.5 rounded-lg font-semibold shadow-md text-sm sm:text-base bg-[#ff5043] text-white">Se</span>
-                </div>
-                <p class="max-w-xl text-sm sm:text-base  text-white">Tipe Sensing mengandalkan pancaindra dan fakta nyata dalam berpikir serta bertindak. Mereka praktis, teliti, disiplin, dan menyukai rutinitas.</p>
-              </div>
-              <!-- Kolom kanan (opsional: bisa berisi tambahan detail atau CTA) -->
-              <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left px-2 sm:px-0" data-aos="fade-up" data-aos-delay="300">
-                <!-- Jika Anda ingin menambahkan konten tambahan, taruh di sini. Contoh ringkasan atau tombol -->
-                <div class="w-full max-w-xl">
-                  <p class="text-sm sm:text-base md:text-lg leading-relaxed  text-white">
-                    Mereka fokus pada hal yang nyata dan segera terlihat hasilnya. Cocok untuk peran yang membutuhkan ketelitian, konsistensi, dan kemampuan menerapkan prosedur secara disiplin.
-                  </p>
-                  <div class="mt-4 flex justify-center lg:justify-start">
-                    <a href="javascript:void(0)" class="inline-block px-5 py-2.5 text-sm sm:text-base bg-primary text-white rounded-md hover:opacity-90">Pelajari Lebih Lanjut</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide flex items-center justify-center text-center px-6 sm:px-10 lg:px-16 xl:px-20">
-            <div class="w-full max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center lg:items-center justify-center lg:justify-between gap-3 lg:gap-12 h-full">
-              <!-- Kolom kiri -->
-              <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left" data-aos="fade-up" data-aos-delay="100">
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">THINKING</h1>
-                <div class="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-4">
-                  <span class="px-4 py-2 sm:px-6 sm:py-2.5 rounded-lg font-semibold shadow-md text-sm sm:text-base bg-[#9a9a9a] text-white">Ti</span>
-                  <span class="px-4 py-2 sm:px-6 sm:py-2.5 rounded-lg font-semibold shadow-md text-sm sm:text-base bg-[#5f5f5f] text-white">Te</span>
-                </div>
-                <p class="max-w-xl text-sm sm:text-base  text-white/90">Tipe Sensing mengandalkan pancaindra dan fakta nyata dalam berpikir serta bertindak. Mereka praktis, teliti, disiplin, dan menyukai rutinitas.</p>
-              </div>
-              <!-- Kolom kanan (opsional: bisa berisi tambahan detail atau CTA) -->
-              <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left px-2 sm:px-0" data-aos="fade-up" data-aos-delay="300">
-                <!-- Jika Anda ingin menambahkan konten tambahan, taruh di sini. Contoh ringkasan atau tombol -->
-                <div class="w-full max-w-xl">
-                  <p class="text-sm sm:text-base md:text-lg leading-relaxed  text-white">
-                    Mereka fokus pada hal yang nyata dan segera terlihat hasilnya. Cocok untuk peran yang membutuhkan ketelitian, konsistensi, dan kemampuan menerapkan prosedur secara disiplin.
-                  </p>
-                  <div class="mt-4 flex justify-center lg:justify-start">
-                    <a href="javascript:void(0)" class="inline-block px-5 py-2.5 text-sm sm:text-base bg-primary text-white rounded-md hover:opacity-90">Pelajari Lebih Lanjut</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide flex items-center justify-center text-center px-6 sm:px-10 lg:px-16 xl:px-20">
-            <div class="w-full max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center lg:items-center justify-center lg:justify-between gap-3 lg:gap-12 h-full">
-              <!-- Kolom kiri -->
-              <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left" data-aos="fade-up" data-aos-delay="100">
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">INTUITING</h1>
-                <div class="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-4">
-                  <span class="px-4 py-2 sm:px-6 sm:py-2.5 rounded-lg font-semibold shadow-md text-sm sm:text-base bg-[#003a8a] text-white">Ii</span>
-                  <span class="px-4 py-2 sm:px-6 sm:py-2.5 rounded-lg font-semibold shadow-md text-sm sm:text-base bg-[#005ef8] text-white">Ie</span>
-                </div>
-                <p class="max-w-xl text-sm sm:text-base  text-white/90">Tipe Sensing mengandalkan pancaindra dan fakta nyata dalam berpikir serta bertindak. Mereka praktis, teliti, disiplin, dan menyukai rutinitas.</p>
-              </div>
-              <!-- Kolom kanan (opsional: bisa berisi tambahan detail atau CTA) -->
-              <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left px-2 sm:px-0" data-aos="fade-up" data-aos-delay="300">
-                <!-- Jika Anda ingin menambahkan konten tambahan, taruh di sini. Contoh ringkasan atau tombol -->
-                <div class="w-full max-w-xl">
-                  <p class="text-sm sm:text-base md:text-lg leading-relaxed  text-white">
-                    Mereka fokus pada hal yang nyata dan segera terlihat hasilnya. Cocok untuk peran yang membutuhkan ketelitian, konsistensi, dan kemampuan menerapkan prosedur secara disiplin.
-                  </p>
-                  <div class="mt-4 flex justify-center lg:justify-start">
-                    <a href="javascript:void(0)" class="inline-block px-5 py-2.5 text-sm sm:text-base bg-primary text-white rounded-md hover:opacity-90">Pelajari Lebih Lanjut</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide flex items-center justify-center text-center px-6 sm:px-10 lg:px-16 xl:px-20">
-            <div class="w-full max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center lg:items-center justify-center lg:justify-between gap-3 lg:gap-12 h-full">
-              <!-- Kolom kiri -->
-              <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left" data-aos="fade-up" data-aos-delay="100">
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">FEELING</h1>
-                <div class="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-4">
-                  <span class="px-4 py-2 sm:px-6 sm:py-2.5 rounded-lg font-semibold shadow-md text-sm sm:text-base bg-[#347433] text-white">Fi</span>
-                  <span class="px-4 py-2 sm:px-6 sm:py-2.5 rounded-lg font-semibold shadow-md text-sm sm:text-base bg-[#64b845] text-white">Fe</span>
-                </div>
-                <p class="max-w-xl text-sm sm:text-base  text-white/90">Tipe Sensing mengandalkan pancaindra dan fakta nyata dalam berpikir serta bertindak. Mereka praktis, teliti, disiplin, dan menyukai rutinitas.</p>
-              </div>
-              <!-- Kolom kanan (opsional: bisa berisi tambahan detail atau CTA) -->
-              <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left px-2 sm:px-0" data-aos="fade-up" data-aos-delay="300">
-                <!-- Jika Anda ingin menambahkan konten tambahan, taruh di sini. Contoh ringkasan atau tombol -->
-                <div class="w-full max-w-xl">
-                  <p class="text-sm sm:text-base md:text-lg leading-relaxed  text-white">
-                    Mereka fokus pada hal yang nyata dan segera terlihat hasilnya. Cocok untuk peran yang membutuhkan ketelitian, konsistensi, dan kemampuan menerapkan prosedur secara disiplin.
-                  </p>
-                  <div class="mt-4 flex justify-center lg:justify-start">
-                    <a href="javascript:void(0)" class="inline-block px-5 py-2.5 text-sm sm:text-base bg-primary text-white rounded-md hover:opacity-90">Pelajari Lebih Lanjut</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide flex items-center justify-center text-center px-6 sm:px-10 lg:px-16 xl:px-20">
-            <div class="w-full max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center lg:items-center justify-center lg:justify-between gap-3 lg:gap-12 h-full">
-              <!-- Kolom kiri -->
-              <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left" data-aos="fade-up" data-aos-delay="100">
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">INSTINCT</h1>
-                <div class="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-4">
-                  <span class="px-4 py-2 sm:px-6 sm:py-2.5 rounded-lg font-semibold shadow-md text-sm sm:text-base bg-[#7B4019] text-white">In</span>
-                </div>
-                <p class="max-w-xl text-sm sm:text-base  text-white/90">Tipe Sensing mengandalkan pancaindra dan fakta nyata dalam berpikir serta bertindak. Mereka praktis, teliti, disiplin, dan menyukai rutinitas.</p>
-              </div>
-              <!-- Kolom kanan (opsional: bisa berisi tambahan detail atau CTA) -->
-              <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left px-2 sm:px-0" data-aos="fade-up" data-aos-delay="300">
-                <!-- Jika Anda ingin menambahkan konten tambahan, taruh di sini. Contoh ringkasan atau tombol -->
-                <div class="w-full max-w-xl">
-                  <p class="text-sm sm:text-base md:text-lg leading-relaxed  text-white">
-                    Mereka fokus pada hal yang nyata dan segera terlihat hasilnya. Cocok untuk peran yang membutuhkan ketelitian, konsistensi, dan kemampuan menerapkan prosedur secara disiplin.
-                  </p>
-                  <div class="mt-4 flex justify-center lg:justify-start">
-                    <a href="javascript:void(0)" class="inline-block px-5 py-2.5 text-sm sm:text-base bg-primary text-white rounded-md hover:opacity-90">Pelajari Lebih Lanjut</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-<!-- 
-          <div
-            class="swiper-slide flex flex-col justify-center items-center text-center">
-            <div class="container mx-auto px-20 lg:flex lg:items-center lg:justify-between h-full">
-              <div class="max-w-lg" data-aos="fade-up" data-aos-delay="100">
-                <h1 class="text-6xl font-extrabold mb-6">THINKING ✦</h1>
-                <div class="flex gap-4 mb-6">
-                  <span class="bg-[#5f5f5f] px-6 py-2 rounded-lg font-semibold">Ti</span>
-                  <span class="bg-[#9a9a9a] px-6 py-2 rounded-lg font-semibold">Te</span>
-                </div>
-              </div>
-              <div class="lg:w-1/2 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
-                <p>
-                  Tipe Thinking mengedepankan logika dan objektivitas.
-                  Mereka terampil menganalisis fakta dan mengambil keputusan rasional.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="swiper-slide flex flex-col justify-center items-center text-center">
-            <div class="container mx-auto px-20 lg:flex lg:items-center lg:justify-between h-full">
-              <div class="max-w-lg" data-aos="fade-up" data-aos-delay="100">
-                <h1 class="text-6xl font-extrabold mb-6">INTUITION ✦</h1>
-                <div class="flex gap-4 mb-6">
-                  <span class="bg-[#003a8a] px-6 py-2 rounded-lg font-semibold">Ii</span>
-                  <span class="bg-[#005ef8] px-6 py-2 rounded-lg font-semibold">Ie</span>
-                </div>
-              </div>
-              <div class="lg:w-1/2 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
-                <p>
-                  Tipe Intuition melihat pola, ide besar, dan potensi masa depan.
-                  Mereka kreatif, visioner, dan unggul dalam inovasi serta strategi.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="swiper-slide flex flex-col justify-center items-center text-center">
-            <div class="container mx-auto px-20 lg:flex lg:items-center lg:justify-between h-full">
-              <div class="max-w-lg" data-aos="fade-up" data-aos-delay="100">
-                <h1 class="text-6xl font-extrabold mb-6">FEELING</h1>
-                <div class="flex gap-4 mb-6">
-                  <span class="bg-[#64b845] px-6 py-2 rounded-lg font-semibold">Fi</span>
-                  <span class="bg-[#99ef75] px-6 py-2 rounded-lg font-semibold">Fe</span>
-                </div>
-              </div>
-              <div class="lg:w-1/2 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
-                <p>
-                  Tipe Feeling memprioritaskan nilai, emosi, dan keharmonisan. Mereka peka terhadap kebutuhan orang lain
-                  dan menjaga suasana positif.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div
-            class="swiper-slide flex flex-col justify-center items-center text-center">
-            <div class="container mx-auto px-20 lg:flex lg:items-center lg:justify-between h-full">
-              <div class="max-w-lg" data-aos="fade-up" data-aos-delay="100">
-                <h1 class="text-6xl font-extrabold mb-6">INTRAPERSONAL</h1>
-                <div class="flex gap-4 mb-6">
-                  <span class="bg-[#e1a901] px-6 py-2 rounded-lg font-semibold">In</span>
-                </div>
-              </div>
-              <div class="lg:w-1/2 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
-                <p>
-                  Tipe Intrapersonal mengenal diri dengan baik, memiliki tujuan yang jelas,
-                  dan kuat dalam prinsip. Mereka reflektif dan fokus pada pertumbuhan diri
-                  serta pencapaian pribadi.
-                </p>
-              </div>
-            </div>
-          </div>
-           -->
-        </div>
-      </div>
-    </div>
-    <!-- <div class="container mx-auto">
-      <div class="flex flex-wrap -mx-4">
-        <div class="w-full px-4">
-          <div class="mx-auto mb-12 max-w-[510px] text-center lg:mb-20">
-            <span class="block mb-2 text-lg font-semibold text-primary">
-              Why You Should Try?
-            </span>
-            <h2 class="text-dark dark:text-white mb-3 text-3xl leading-[1.2] font-bold sm:text-4xl md:text-[40px]">
-              The Benefit of STIFIn Test
-            </h2>
-            <p class="text-base text-body-color dark:text-dark-6">
-              Di STEPS, kami percaya bahwa setiap orang memiliki potensi luar biasa hanya saja cara memicunya
-              berbeda-beda.
-              Melalui metode STIFIn, kami membantu individu:
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="flex flex-wrap -mx-4">
-        <div class="w-full px-4 md:w-1/3 ">
-          <div class="mb-9 rounded-[20px] bg-white dark:bg-dark p-10 shadow-2 hover:shadow-lg md:px-7 xl:px-10">
-            <div class="bg-primary mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl">
-              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M21.0375 1.2374C11.8125 -0.393851 2.92503 5.7374 1.29378 14.9624C0.450029 19.4061 1.46253 23.9624 4.05003 27.6749C6.63753 31.4436 10.5188 33.9186 14.9625 34.7624C15.975 34.9311 16.9875 35.0436 18 35.0436C26.0438 35.0436 33.2438 29.2499 34.7625 21.0374C36.3938 11.8124 30.2625 2.9249 21.0375 1.2374ZM32.2313 20.5874C32.175 21.0374 32.0625 21.4874 31.95 21.8811L19.2375 17.0999V3.5999C19.6875 3.65615 20.1375 3.7124 20.5313 3.76865C28.4063 5.1749 33.6375 12.7124 32.2313 20.5874ZM16.7063 3.5999V16.7624H3.60003C3.65628 16.3124 3.71253 15.8624 3.76878 15.4124C4.95003 8.83115 10.4063 4.10615 16.7063 3.5999ZM15.4125 32.2311C11.5875 31.5561 8.32503 29.4186 6.13128 26.2124C4.66878 24.1311 3.82503 21.7124 3.60003 19.2374H17.775L31.05 24.2436C28.2938 29.9811 21.9375 33.4686 15.4125 32.2311Z"
-                  fill="white" />
-              </svg>
-            </div>
-            <h4 class="text-dark dark:text-white mb-[14px] text-2xl font-semibold">
-              Self-Awarness
-            </h4>
-            <p class="text-body-color dark:text-dark-6">
-              Mengenali gaya belajar dan cara kerja paling efektif sesuai fungsi otak dominan.
-            </p>
-          </div>
-        </div>
-        <div class="w-full px-4 md:w-1/3 ">
-          <div class="mb-9 rounded-[20px] bg-white dark:bg-dark p-10 shadow-2 hover:shadow-lg md:px-7 xl:px-10">
-            <div class="bg-primary mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl">
-              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M9.89195 14.625C10.9995 10.1252 13.769 7.875 18.1996 7.875C24.8458 7.875 25.6765 12.9375 28.9996 13.7812C31.2151 14.3439 33.1535 13.5002 34.815 11.25C33.7075 15.7498 30.9379 18 26.5073 18C19.8611 18 19.0304 12.9375 15.7073 12.0938C13.4918 11.5311 11.5535 12.3748 9.89195 14.625ZM1.58423 24.75C2.69174 20.2502 5.46132 18 9.89195 18C16.5381 18 17.3689 23.0625 20.692 23.9062C22.9075 24.4689 24.8458 23.6252 26.5073 21.375C25.3998 25.8748 22.6302 28.125 18.1996 28.125C11.5535 28.125 10.7227 23.0625 7.39963 22.2188C5.18405 21.6561 3.24576 22.4998 1.58423 24.75Z"
-                  fill="white" />
-              </svg>
-            </div>
-            <h4 class="text-dark dark:text-white mb-[14px] text-2xl font-semibold">
-              Comunication Knowledge
-            </h4>
-            <p class="text-body-color dark:text-dark-6">
-              Memahami cara berkomunikasi yang paling nyaman dan produktif.
-            </p>
-          </div>
-        </div>
-        <div class="w-full px-4 md:w-1/3 ">
-          <div class="mb-9 rounded-[20px] bg-white dark:bg-dark p-10 shadow-2 hover:shadow-lg md:px-7 xl:px-10">
-            <div class="bg-primary mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl">
-              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M30.0937 21.8251L29.6437 21.6001L30.2062 21.2626C31.3312 20.5876 31.95 19.4063 31.95 18.0563C31.95 16.7626 31.2187 15.5813 30.0937 14.9063L28.9125 14.2313L30.2062 13.4438C31.3312 12.7688 31.95 11.5876 31.95 10.2376C31.95 8.94385 31.2187 7.7626 30.0937 7.14385L19.9125 1.4626C18.7875 0.843848 17.3812 0.843848 16.3125 1.4626L5.84999 7.5376C4.72499 8.2126 4.04999 9.39385 4.04999 10.6876C4.04999 11.9813 4.72499 13.2188 5.84999 13.8376L7.08749 14.5688L5.84999 15.3001C4.72499 15.9751 4.04999 17.1563 4.04999 18.4501C4.04999 19.7438 4.72499 20.9813 5.84999 21.6001L6.35624 21.8813L5.84999 22.1626C4.72499 22.8376 3.99374 24.0188 3.99374 25.3126C3.99374 26.6626 4.66874 27.8438 5.79374 28.4626L16.1437 34.4813C16.7062 34.8188 17.325 34.9876 18 34.9876C18.675 34.9876 19.35 34.8188 19.9125 34.4251L30.2625 28.1251C31.3875 27.4501 32.0062 26.2688 32.0062 24.9188C31.95 23.6251 31.275 22.4438 30.0937 21.8251ZM6.52499 10.6876C6.52499 10.5188 6.58124 10.0126 7.08749 9.73135L17.55 3.65635C17.8875 3.43135 18.3375 3.43135 18.675 3.65635L28.9125 9.3376C29.4187 9.61885 29.475 10.1251 29.475 10.2938C29.475 10.4626 29.4187 10.9688 28.9125 11.3063L18.6187 17.6626C18.2812 17.8876 17.8312 17.8876 17.4375 17.6626L7.08749 11.6438C6.58124 11.3626 6.52499 10.8563 6.52499 10.6876ZM7.08749 17.4938L9.56249 16.0313L16.1437 19.8563C16.7062 20.1938 17.325 20.3626 18 20.3626C18.675 20.3626 19.35 20.1938 19.9125 19.8001L26.4375 15.8063L28.8562 17.1563C29.3625 17.4376 29.4187 17.9438 29.4187 18.1126C29.4187 18.2813 29.3625 18.7876 28.8562 19.1251L18.6187 25.4251C18.2812 25.6501 17.8312 25.6501 17.4375 25.4251L7.08749 19.4063C6.58124 19.1251 6.52499 18.6188 6.52499 18.4501C6.52499 18.2813 6.58124 17.7751 7.08749 17.4938ZM28.9125 25.9876L18.6187 32.3438C18.2812 32.5688 17.8312 32.5688 17.4375 32.3438L7.08749 26.3251C6.58124 26.0438 6.52499 25.5376 6.52499 25.3688C6.52499 25.2001 6.58124 24.6938 7.08749 24.4126L8.83124 23.4001L16.2 27.6751C16.7625 28.0126 17.3812 28.1813 18.0562 28.1813C18.7312 28.1813 19.4062 28.0126 19.9687 27.6188L27.225 23.1751L28.9125 24.0751C29.4187 24.3563 29.475 24.8626 29.475 25.0313C29.475 25.2001 29.4187 25.7063 28.9125 25.9876Z"
-                  fill="white" />
-              </svg>
-            </div>
-            <h4 class="text-dark dark:text-white mb-[14px] text-2xl font-semibold">
-              Emotional Control
-            </h4>
-            <p class="text-body-color dark:text-dark-6">
-              Mengelola emosi dan energi agar tetap seimbang.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div> -->
-  </section>
-  <!-- ====== Services Section End -->
-
-  <!-- ====== Call To Action Section Start -->
-  <section class="pt-20 lg:pt-[120px] dark:bg-dark">
-    <div class="container mx-auto">
-      <div class="relative z-10 overflow-hidden rounded bg-dark dark:bg-dark-2 py-12 px-8 md:p-[70px]">
-        <div class="flex flex-wrap items-center -mx-4">
-          <div class="w-full px-4 lg:w-1/2">
-            <span class="mb-2 text-base font-semibold text-white">
-              Find Your Dream
-            </span>
-            <h2 class="mb-6 text-3xl font-bold leading-tight text-white sm:mb-8 sm:text-[38px] lg:mb-0">
-              Mulai Sekarang,<br class="hidden xs:block" />
-              Demi Masa Depan
-            </h2>
-          </div>
-          <div class="w-full px-4 lg:w-1/2">
-            <div class="flex flex-wrap lg:justify-end">
-              <!-- <a href="javascript:void(0)"
-                class="my-1 mr-4 inline-block rounded bg-white bg-opacity-[15%] py-4 px-6 text-base font-medium text-white transition hover:bg-opacity-100 hover:text-primary md:px-9 lg:px-6 xl:px-9">
-                Get Pro Version
-              </a> -->
-              <a href="javascript:void(0)"
-                class="inline-block px-6 py-4 my-1 text-base font-medium text-white transition rounded bg-primary hover:bg-opacity-90 md:px-9 lg:px-6 xl:px-9">
-                Hubungi Kami
-              </a>
-            </div>
-          </div>
-        </div>
-        <div>
-          <span class="absolute top-0 left-0 z-[-1]">
-            <svg width="189" height="162" viewBox="0 0 189 162" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <ellipse cx="16" cy="-16.5" rx="173" ry="178.5" transform="rotate(180 16 -16.5)"
-                fill="url(#paint0_linear)" />
-              <defs>
-                <linearGradient id="paint0_linear" x1="-157" y1="-107.754" x2="98.5011" y2="-106.425"
-                  gradientUnits="userSpaceOnUse">
-                  <stop stop-color="white" stop-opacity="0.07" />
-                  <stop offset="1" stop-color="white" stop-opacity="0" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </span>
-          <span class="absolute bottom-0 right-0 z-[-1]">
-            <svg width="191" height="208" viewBox="0 0 191 208" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <ellipse cx="173" cy="178.5" rx="173" ry="178.5" fill="url(#paint0_linear)" />
-              <defs>
-                <linearGradient id="paint0_linear" x1="-3.27832e-05" y1="87.2457" x2="255.501" y2="88.5747"
-                  gradientUnits="userSpaceOnUse">
-                  <stop stop-color="white" stop-opacity="0.07" />
-                  <stop offset="1" stop-color="white" stop-opacity="0" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </span>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ====== Call To Action Section End -->
 
   <!-- ====== Footer Section Start -->
-  <footer class="relative z-10 bg-white dark:bg-dark pt-20 pb-10 lg:pt-[120px] lg:pb-20">
+  <footer class="relative z-10 bg-primary  pt-20 pb-10 lg:pt-[120px] lg:pb-20">
     <div class="container mx-auto">
       <div class="flex flex-wrap -mx-4">
         <div class="w-full px-4 sm:w-2/3 lg:w-2/4">
           <div class="w-full mb-10">
             <a href="javascript:void(0)" class="mb-6 inline-block max-w-[160px]">
-              <img src="src/images/favicon_stifin.webp" alt="logo" class="max-w-full dark:hidden" />
-              <img src="src/images/logo_stifin.webp" alt="logo" class="hidden max-w-full dark:block" />
+              <img src="src/images/logo_stifin.webp" alt="logo" class="max-w-full" />
             </a>
-            <p class="text-base text-body-color dark:text-dark-6 mb-7">
+            <p class="text-dark-7 text-body-color dark:text-dark-6 mb-7">
               QW3P+G3, Jl. Pd. Kelapa Raya No.5B Blok F1, RT.6/RW.11, Pd. Klp., Kec. Duren Sawit, Kota Jakarta Timur,
               Daerah Khusus Ibukota Jakarta 13450
             </p>
             <div class="flex items-center -mx-3">
               <a href="https://www.facebook.com/steps.co.id"
-                class="px-3 hover:text-primary text-dark-7 dark:text-white/40 dark:hover:text-primary">
+                class="px-3 hover:text-secondary text-dark-7 dark:text-white/40">
                 <svg width="10" height="18" viewBox="0 0 10 18" class="fill-current">
                   <path
                     d="M9.00007 6.82105H7.50006H6.96434V6.27097V4.56571V4.01562H7.50006H8.62507C8.91971 4.01562 9.16078 3.79559 9.16078 3.46554V0.550085C9.16078 0.247538 8.9465 0 8.62507 0H6.66969C4.55361 0 3.08038 1.54024 3.08038 3.82309V6.21596V6.76605H2.54466H0.72322C0.348217 6.76605 0 7.06859 0 7.50866V9.48897C0 9.87402 0.294645 10.2316 0.72322 10.2316H2.49109H3.02681V10.7817V16.31C3.02681 16.6951 3.32145 17.0526 3.75003 17.0526H6.26791C6.42862 17.0526 6.56255 16.9701 6.66969 16.8601C6.77684 16.7501 6.8572 16.5576 6.8572 16.3925V10.8092V10.2591H7.4197H8.62507C8.97328 10.2591 9.24114 10.0391 9.29471 9.709V9.6815V9.65399L9.66972 7.7562C9.6965 7.56367 9.66972 7.34363 9.509 7.1236C9.45543 6.98608 9.21436 6.84856 9.00007 6.82105Z" />
                 </svg>
               </a>
               <a href="https://www.instagram.com/stepscoid/"
-                class="px-3 hover:text-primary text-dark-7 dark:text-white/40 dark:hover:text-primary">
+                class="px-3 hover:text-secondary text-dark-7 dark:text-white/40">
                 <svg width="18" height="18" viewBox="0 0 18 18" class="fill-current">
                   <path
                     d="M8.91688 12.4995C10.6918 12.4995 12.1306 11.0911 12.1306 9.35385C12.1306 7.61655 10.6918 6.20819 8.91688 6.20819C7.14197 6.20819 5.70312 7.61655 5.70312 9.35385C5.70312 11.0911 7.14197 12.4995 8.91688 12.4995Z" />
@@ -927,7 +561,7 @@ session_start();
                 </svg>
               </a>
               <a href="javascript:void(0)"
-                class="px-3 hover:text-primary text-dark-7 dark:text-white/40 dark:hover:text-primary">
+                class="px-3 hover:text-secondary text-dark-7 dark:text-white/40">
                 <svg width="18" height="18" viewBox="0 0 18 18" class="fill-current">
                   <path
                     d="M16.7821 0.947388H1.84847C1.14272 0.947388 0.578125 1.49747 0.578125 2.18508V16.7623C0.578125 17.4224 1.14272 18 1.84847 18H16.7257C17.4314 18 17.996 17.4499 17.996 16.7623V2.15757C18.0525 1.49747 17.4879 0.947388 16.7821 0.947388ZM5.7442 15.4421H3.17528V7.32837H5.7442V15.4421ZM4.44563 6.2007C3.59873 6.2007 2.94944 5.5406 2.94944 4.74297C2.94944 3.94535 3.62696 3.28525 4.44563 3.28525C5.26429 3.28525 5.94181 3.94535 5.94181 4.74297C5.94181 5.5406 5.32075 6.2007 4.44563 6.2007ZM15.4835 15.4421H12.9146V11.509C12.9146 10.5739 12.8864 9.33618 11.5596 9.33618C10.2045 9.33618 10.0069 10.3813 10.0069 11.4265V15.4421H7.438V7.32837H9.95046V8.45605H9.9787C10.3457 7.79594 11.1644 7.13584 12.4347 7.13584C15.0601 7.13584 15.54 8.7861 15.54 11.0414V15.4421H15.4835Z" />
@@ -939,25 +573,25 @@ session_start();
 
         <div class="w-full px-4 sm:w-1/2 lg:w-1/4">
           <div class="w-full mb-10">
-            <h4 class="text-lg font-semibold text-dark dark:text-white mb-9">
+            <h4 class="text-lg font-semibold text-white dark:text-white mb-9">
               Company
             </h4>
             <ul class="space-y-3">
               <li>
                 <a href="https://steps.co.id/"
-                  class="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
+                  class="inline-block text-dark-7 leading-loose text-body-color hover:text-secondary dark:text-dark-6">
                   About company
                 </a>
               </li>
               <li>
                 <a href="https://steps.co.id/services/"
-                  class="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
+                  class="inline-block text-dark-7 leading-loose text-body-color hover:text-secondary dark:text-dark-6">
                   Company services
                 </a>
               </li>
               <li>
                 <a href="https://steps.co.id/hubungi-kami/"
-                  class="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
+                  class="inline-block text-dark-7 leading-loose text-body-color hover:text-secondary dark:text-dark-6">
                   Contact us
                 </a>
               </li>
@@ -966,13 +600,13 @@ session_start();
         </div>
         <div class="w-full px-4 sm:w-1/2 lg:w-1/4">
           <div class="w-full mb-10">
-            <h4 class="text-lg font-semibold text-dark dark:text-white mb-9">
+            <h4 class="text-lg font-semibold text-white dark:text-white mb-9">
               Get in Touch
             </h4>
             <ul class="space-y-3">
               <li>
                 <a href="javascript:void(0)"
-                  class="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
+                  class="inline-block text-dark-7 leading-loose text-body-color hover:text-secondary dark:text-dark-6">
                   <i class="fas fa-map-marker-alt mr-2"></i>
                   QW3P+G3, Jl. Pd. Kelapa Raya No.5B Blok F1, RT.6/RW.11, Pd. Klp., Kec. Duren Sawit, Kota Jakarta
                   Timur, Daerah Khusus Ibukota Jakarta 13450
@@ -980,14 +614,14 @@ session_start();
               </li>
               <li>
                 <a href="tel:+6282130005021"
-                  class="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
+                  class="inline-block text-dark-7 leading-loose text-body-color hover:text-secondary dark:text-dark-6">
                   <i class="fas fa-phone-alt mr-2"></i>
                   +62 082130005021
                 </a>
               </li>
               <li>
                 <a href="mailto:marketing@rusera.co.id"
-                  class="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
+                  class="inline-block text-dark-7 leading-loose text-body-color hover:text-secondary dark:text-dark-6">
                   <i class="fas fa-envelope mr-2"></i>
                   marketing@rusera.co.id
                 </a>
