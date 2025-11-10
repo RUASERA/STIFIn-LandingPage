@@ -30,9 +30,9 @@ if (isset($_SESSION['loggedIn']) == false) {
       </div>
 
       <div class="hidden md:flex items-center gap-6">
-        <a href="../index.php" class="text-gray-600 hover:text-blue-600">Home</a>
+        <a href="../" class="text-gray-600 hover:text-blue-600">Home</a>
         <a href="#" class="text-gray-600 hover:text-blue-600 font-semibold">Sertifikat</a>
-        <a href="#" class="text-gray-600 hover:text-blue-600">Pengaturan</a>
+        <a href="../operators/" class="text-gray-600 hover:text-blue-600">Operator</a>
       </div>
 
       <div class="flex items-center gap-4">
