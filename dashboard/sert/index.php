@@ -32,7 +32,7 @@ if (isset($_SESSION['loggedIn']) == false) {
       <div class="hidden md:flex items-center gap-6">
         <a href="../index.php" class="text-gray-600 hover:text-blue-600">Home</a>
         <a href="#" class="text-gray-600 hover:text-blue-600 font-semibold">Sertifikat</a>
-        <a href="#" class="text-gray-600 hover:text-blue-600">Pengaturan</a>
+        <a href="../operators/index.php" class="text-gray-600 hover:text-blue-600">Operators</a>
       </div>
 
       <div class="flex items-center gap-4">
@@ -77,7 +77,7 @@ if (isset($_SESSION['loggedIn']) == false) {
           </div>
 
           <div>
-            <label class="block text-sm font-medium mb-1">Nama Pemilik</label>
+            <label class="block text-sm font-medium mb-1">Password</label>
             <input
               type="password"
               id="password"
