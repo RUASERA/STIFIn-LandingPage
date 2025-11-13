@@ -62,7 +62,7 @@ if (isset($_SESSION['loggedIn']) == false) {
         <h2 class="text-xl font-semibold mb-4" id="formTitle">Tambah Sertifikat</h2>
 
         <!-- Form -->
-        <form id="formSertifikat" class="space-y-4">
+        <form id="formSertifikat" class="space-y-4" enctype="multipart/form-data">
           <!-- Input Text -->
           <input type="hidden" id="sertifikatId" name="id" />
           <div>
