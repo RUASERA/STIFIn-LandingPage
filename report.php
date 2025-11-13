@@ -6,27 +6,56 @@ if (!isset($_SESSION['ClientLoggedIn']) == True) {
   exit();
 }
 
+$descriptions = [
+
+  'Si' => 'Kamu adalah sosok yang teliti, sabar, dan konsisten. Tipe Si (Introvert Sensing) memiliki kekuatan pada detail dan ketepatan. Kamu bekerja dengan hati-hati, selalu memastikan segalanya berjalan rapi dan teratur. Kamu lebih nyaman dengan rutinitas yang stabil dan hasil nyata. Dalam kerja maupun kehidupan, kamu menjadi sosok yang dapat diandalkan dan dipercaya karena ketenangan serta kesungguhanmu.',
+
+  'Se' => 'Kamu hidup penuh energi dan spontanitas. Tipe Se (Extrovert Sensing) sangat menikmati dunia nyata dan segala pengalaman yang bisa dirasakan langsung. Kamu cepat bertindak, sigap membaca situasi, dan tangguh di lapangan. Dalam setiap tantangan, kamu hadir sebagai pelaku yang berani mengambil risiko dan membawa semangat hidup yang menular bagi orang di sekitarmu.',
+
+  'Ti' => 'Kamu adalah pemikir logis dan analitis. Tipe Ti (Introvert Thinking) memiliki cara berpikir sistematis dan mendalam, selalu mencari kebenaran melalui struktur dan prinsip. Kamu lebih fokus pada keakuratan dan efisiensi dibanding hal-hal emosional. Dalam setiap keputusan, kamu menilai berdasarkan logika yang matang dan fakta yang jelas. Dunia bagimu adalah rangkaian sistem yang bisa disempurnakan.',
+
+  'Te' => 'Kamu adalah penggerak yang tegas dan berorientasi hasil. Tipe Te (Extrovert Thinking) tahu bagaimana membuat rencana menjadi nyata. Kamu berpikir strategis, memimpin dengan arah yang jelas, dan menghargai kinerja serta produktivitas. Kamu tidak suka berlama-lama dalam teori — kamu bergerak cepat dan tepat sasaran. Dengan ketegasanmu, kamu membantu banyak orang mencapai tujuan bersama.',
+
+  'Fi' => 'Kamu adalah pribadi yang lembut dan penuh empati. Tipe Fi (Introvert Feeling) memiliki kepekaan mendalam terhadap nilai dan perasaan. Kamu hidup sesuai prinsip hati dan selalu berusaha menjaga keaslian diri. Dalam relasi, kamu setia, tulus, dan hangat. Kamu memahami orang lain tanpa banyak kata, karena empati adalah bahasamu. Dunia membutuhkan ketenangan dan kasihmu.',
+
+  'Fe' => 'Kamu adalah penghubung alami antar manusia. Tipe Fe (Extrovert Feeling) memiliki kemampuan luar biasa dalam menciptakan kehangatan dan harmoni di lingkunganmu. Kamu mudah membaca emosi orang lain dan berusaha membuat semua merasa diterima. Dalam kelompok, kamu adalah perekat sosial yang membawa semangat kebersamaan. Senyum dan energimu adalah kekuatan yang menginspirasi banyak orang.',
+
+  'Ii' => 'Kamu adalah pemikir yang penuh imajinasi dan makna. Tipe Ii (Introvert Intuiting) memiliki kemampuan untuk melihat pola tersembunyi dan memahami sesuatu secara mendalam. Kamu sering merenung, memikirkan konsep besar, dan mencari arti di balik kehidupan. Dengan ide-ide visionermu, kamu mampu menciptakan perubahan tanpa banyak bicara. Dunia batinmu adalah sumber inspirasi yang tak terbatas.',
+
+  'Ie' => 'Kamu adalah penggagas ide besar dan pembawa visi. Tipe Ie (Extrovert Intuiting) selalu melihat masa depan dan kemungkinan baru. Kamu kreatif, inovatif, dan suka menantang batas yang ada. Orang lain melihatmu sebagai sosok penuh ide segar yang mampu menyalakan semangat perubahan. Dunia adalah tempat eksplorasimu, dan ide-ide besarmu bisa menjadi sumber gerakan besar berikutnya.',
+
+  'In' => 'Kamu adalah pribadi yang intuitif, reflektif, dan visioner. Tipe In (Introvert Intuiting) memiliki kekuatan dalam membaca pola dan makna di balik setiap kejadian. Kamu berpikir jauh ke depan, mampu melihat kemungkinan sebelum orang lain menyadarinya. Dunia batinmu penuh ide besar yang lahir dari perenungan mendalam. Dengan ketenangan dan intuisi yang tajam, kamu lebih memilih menciptakan arah baru daripada sekadar mengikuti arus. Kepekaan dan imajinasimu menjadikanmu sumber inspirasi bagi banyak orang.',
+  
+];
+$description = $descriptions[$_SESSION['type']] ?? 'Deskripsi belum tersedia untuk tipe ini.';  
+
 // Tentukan warna berdasarkan session
-switch ($_SESSION['theme'] ?? 'default') {
-  case 'Si' || 'Se':
+$type = $_SESSION['type'] ?? 'default';
+
+switch ($type) {
+  case 'Si':
+  case 'Se':
     $primary = '#1D4ED8';
     $primaryG = 'rgba(29, 78, 216, 0.9)';
     $secondaryG = 'rgba(30, 64, 175, 0.9)';
     break;
 
-  case 'Ti' || 'Te':
+  case 'Ti':
+  case 'Te':
     $primary = '#15803D';
     $primaryG = 'rgba(21, 128, 61, 0.9)';
     $secondaryG = 'rgba(22, 101, 52, 0.9)';
     break;
 
-  case 'Ii' || 'Ie':
+  case 'Ii':
+  case 'Ie':
     $primary = '#7E22CE';
     $primaryG = 'rgba(126, 34, 206, 0.95)';
     $secondaryG = 'rgba(109, 40, 217, 0.93)';
     break;
 
-  case 'Fi' || 'Fe':
+  case 'Fi':
+  case 'Fe':
     $primary = '#DC2626';
     $primaryG = 'rgba(220, 38, 38, 0.95)';
     $secondaryG = 'rgba(185, 28, 28, 0.9)';
@@ -44,6 +73,8 @@ switch ($_SESSION['theme'] ?? 'default') {
     $secondaryG = 'rgba(91, 33, 182, 0.9)';
     break;
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -167,133 +198,6 @@ switch ($_SESSION['theme'] ?? 'default') {
           <form method="POST" action="./app/controller/LoginController.php">
             <button type="submit" name="action" value="logout" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">logout</button>
           </form>
-          <!-- <div class="hidden lg:block">
-      <ul class="flex items-center">
-        
-        <li class="group pl-6">
-          
-          <span @click="triggerNavItem(&#39;#about&#39;)" class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">About</span>
-          
-          <span class="block h-0.5 w-full bg-transparent group-hover:bg-yellow"></span>
-        </li>
-        
-        <li class="group pl-6">
-          
-          <span @click="triggerNavItem(&#39;#services&#39;)" class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">Services</span>
-          
-          <span class="block h-0.5 w-full bg-transparent group-hover:bg-yellow"></span>
-        </li>
-        
-        <li class="group pl-6">
-          
-          <span @click="triggerNavItem(&#39;#portfolio&#39;)" class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">Portfolio</span>
-          
-          <span class="block h-0.5 w-full bg-transparent group-hover:bg-yellow"></span>
-        </li>
-        
-        <li class="group pl-6">
-          
-          <span @click="triggerNavItem(&#39;#clients&#39;)" class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">Clients</span>
-          
-          <span class="block h-0.5 w-full bg-transparent group-hover:bg-yellow"></span>
-        </li>
-        
-        <li class="group pl-6">
-          
-          <span @click="triggerNavItem(&#39;#work&#39;)" class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">Work</span>
-          
-          <span class="block h-0.5 w-full bg-transparent group-hover:bg-yellow"></span>
-        </li>
-        
-        <li class="group pl-6">
-          
-          <span @click="triggerNavItem(&#39;#statistics&#39;)" class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">Statistics</span>
-          
-          <span class="block h-0.5 w-full bg-transparent group-hover:bg-yellow"></span>
-        </li>
-        
-        <li class="group pl-6">
-          
-          <span @click="triggerNavItem(&#39;#blog&#39;)" class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">Blog</span>
-          
-          <span class="block h-0.5 w-full bg-transparent group-hover:bg-yellow"></span>
-        </li>
-        
-        <li class="group pl-6">
-          
-          <span @click="triggerNavItem(&#39;#contact&#39;)" class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">Contact</span>
-          
-          <span class="block h-0.5 w-full bg-transparent group-hover:bg-yellow"></span>
-        </li>
-        
-      </ul>
-    </div>
-    <div class="block lg:hidden">
-      <button @click="mobileMenu = true">
-        <i class="bx bx-menu text-4xl text-white"></i>
-      </button>
-    </div> -->
-        </div>
-      </div>
-
-      <!-- hamburger menu, turn on if needed -->
-      <!-- <div class="pointer-events-none fixed inset-0 z-70 min-h-screen bg-black bg-opacity-70 opacity-0 transition-opacity lg:hidden" :class="{ &#39;opacity-100 pointer-events-auto&#39;: mobileMenu }">
-  <div class="absolute right-0 min-h-screen w-2/3 bg-primary py-4 px-8 shadow md:w-1/3">
-    <button class="absolute top-0 right-0 mt-4 mr-4" @click="mobileMenu = false">
-      <img src="./src/images/icon-close.svg" class="h-10 w-auto" alt="">
-    </button>
-
-    <ul class="mt-8 flex flex-col">
-      
-      <li class="py-2">
-        
-        <span @click="triggerMobileNavItem(&#39;#about&#39;)" class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">About</span>
-        
-      </li>
-      
-      <li class="py-2">
-        
-        <span @click="triggerMobileNavItem(&#39;#services&#39;)" class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">Services</span>
-        
-      </li>
-      
-      <li class="py-2">
-        
-        <span @click="triggerMobileNavItem(&#39;#portfolio&#39;)" class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">Portfolio</span>
-        
-      </li>
-      
-      <li class="py-2">
-        
-        <span @click="triggerMobileNavItem(&#39;#clients&#39;)" class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">Clients</span>
-        
-      </li>
-      
-      <li class="py-2">
-        
-        <span @click="triggerMobileNavItem(&#39;#work&#39;)" class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">Work</span>
-        
-      </li>
-      
-      <li class="py-2">
-        
-        <span @click="triggerMobileNavItem(&#39;#statistics&#39;)" class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">Statistics</span>
-        
-      </li>
-      
-      <li class="py-2">
-        
-        <span @click="triggerMobileNavItem(&#39;#blog&#39;)" class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">Blog</span>
-        
-      </li>
-      
-      <li class="py-2">
-        
-        <span @click="triggerMobileNavItem(&#39;#contact&#39;)" class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">Contact</span>
-        
-      </li>
-      
-    </ul>-->
     </div>
   </div>
 
@@ -335,14 +239,8 @@ switch ($_SESSION['theme'] ?? 'default') {
           Here&#39;s a brief description about your type
         </h4>
         <p class="pt-6 font-body leading-relaxed text-grey-20">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-          commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-          velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-          occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-          mollit anim id est laborum.
-        </p>
+  <?= $description ?>
+</p>
       </div>
       <div class="flex align-center flex-col gap-4 pt-8 lg:pl-12 lg:pt-0">
         <button
