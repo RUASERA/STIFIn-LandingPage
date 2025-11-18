@@ -296,15 +296,6 @@ session_start();
       <div class="swiper2 absolute top-0 left-0 z-[-2] h-full w-full">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="src/images/hero1.jpg" alt="image" class="h-full w-full object-cover object-center" />
-          </div>
-          <div class="swiper-slide">
-            <img src="src/images/hero2.jpg" alt="image" class="h-full w-full object-cover object-center" />
-          </div>
-          <div class="swiper-slide">
-            <img src="src/images/hero3.jpg" alt="image" class="h-full w-full object-cover object-center" />
-          </div>
-          <div class="swiper-slide">
             <img src="src/images/hero4.jpg" alt="image" class="h-full w-full object-cover object-center" />
           </div>
           <div class="swiper-slide">
