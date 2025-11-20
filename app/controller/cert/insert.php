@@ -24,7 +24,7 @@ $nama = mysqli_real_escape_string($conn, $_POST['nama']);
 $jenis = mysqli_real_escape_string($conn, $_POST['jenis']);
 $file = $_FILES['file'];
 $foto = $_FILES['foto'];
-$passcode = isset($_POST['password']) ? mysqli_real_escape_string($conn, $_POST['password']) : 'password';
+$passcode = isset($_POST['password']) ? $_POST['password'] : 'password';
 
 // Validasi input utama
 if (empty($nama) || empty($jenis) || empty($file)) {
