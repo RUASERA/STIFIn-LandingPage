@@ -32,7 +32,7 @@ if (isset($_SESSION['loggedIn']) == false) {
       <div class="hidden md:flex items-center gap-6">
         <a href="../" class="text-gray-600 hover:text-blue-600">Home</a>
         <a href="#" class="text-gray-600 hover:text-blue-600 font-semibold">Sertifikat</a>
-        <a href="../operators/" class="text-gray-600 hover:text-blue-600">Operator</a>
+        <a href="#" class="text-gray-600 hover:text-blue-600">Pengaturan</a>
       </div>
 
       <div class="flex items-center gap-4">
@@ -62,7 +62,7 @@ if (isset($_SESSION['loggedIn']) == false) {
         <h2 class="text-xl font-semibold mb-4" id="formTitle">Tambah Sertifikat</h2>
 
         <!-- Form -->
-        <form id="formSertifikat" class="space-y-4">
+        <form id="formSertifikat" class="space-y-4" enctype="multipart/form-data">
           <!-- Input Text -->
           <input type="hidden" id="sertifikatId" name="id" />
           <div>
@@ -77,7 +77,7 @@ if (isset($_SESSION['loggedIn']) == false) {
           </div>
 
           <div>
-            <label class="block text-sm font-medium mb-1">Nama Pemilik</label>
+            <label class="block text-sm font-medium mb-1">Password</label>
             <input
               type="password"
               id="password"

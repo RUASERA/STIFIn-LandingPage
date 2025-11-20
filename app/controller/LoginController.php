@@ -6,7 +6,7 @@ session_start();
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../config/utils.php';
 
-// Jalankan fungsi login (admin)
+// Jalankan fungsi login (admin/client)
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $data = json_decode(file_get_contents("php://input"), true);
     $action = $_POST['action'] ?? $data['action'] ?? '';
@@ -24,8 +24,13 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     }
 }
 
-// Fungsi login untuk client    
-function loginClient($conn) {
+/**
+ * ============================================
+ * LOGIN CLIENT
+ * ============================================
+ */
+function loginClient($conn)
+{
     $name = trim($_POST['name'] ?? '');
     $password = trim($_POST['password'] ?? '');
 
@@ -34,11 +39,13 @@ function loginClient($conn) {
         exit;
     }
 
-    $stmt = $conn->prepare("SELECT s.id, s.name, t.type AS tipe_stifin, password, s.profile
-          FROM user s
-          LEFT JOIN types t ON s.type_id = t.id
-          WHERE s.name = ?
-          LIMIT 1");
+    $stmt = $conn->prepare("
+        SELECT s.id, s.name, t.type AS tipe_stifin, s.password, s.profile
+        FROM user s
+        LEFT JOIN types t ON s.type_id = t.id
+        WHERE s.name = ?
+        LIMIT 1
+    ");
     $stmt->bind_param("s", $name);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -46,15 +53,15 @@ function loginClient($conn) {
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
 
-        if ($password === $user['password']) {
+        // Gunakan password_verify agar sesuai dengan password_hash()
+        if (password_verify($password, $user['password'])) {
             $_SESSION['ClientLoggedIn'] = true;
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['profile'] = $user['profile'] ?? 'default.jpg';
             $_SESSION['user_name'] = $user['name'];
             $_SESSION['type'] = $user['tipe_stifin'];
 
-
-            header("Location:". base_url() ."/report.php");
+            header("Location: " . base_url() . "/report.php");
             exit;
         } else {
             echo "<script>alert('Password salah!'); window.history.back();</script>";
@@ -66,7 +73,11 @@ function loginClient($conn) {
     }
 }
 
-// Fungsi login untuk admin
+/**
+ * ============================================
+ * LOGIN ADMIN
+ * ============================================
+ */
 function login($conn)
 {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
@@ -96,6 +107,11 @@ function login($conn)
     exit;
 }
 
+/**
+ * ============================================
+ * LOGOUT
+ * ============================================
+ */
 function logout()
 {
     session_unset();
@@ -103,3 +119,4 @@ function logout()
     header("Location: " . base_url() . "/index.php");
     exit;
 }
+    

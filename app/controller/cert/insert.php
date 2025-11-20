@@ -6,6 +6,7 @@ session_start();
 require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../config/utils.php';
 
+
 // Pastikan pengguna telah login
 if (!isset($_SESSION['loggedIn'])) {
     echo json_encode(['error' => 'Unauthorized']);
@@ -15,26 +16,29 @@ if (!isset($_SESSION['loggedIn'])) {
 if($_SERVER['REQUEST_METHOD'] !== 'POST'){
     echo json_encode(['error'=>'invalid request method']);
     http_response_code(403);
+    exit();
 }
 
 $data = json_decode(file_get_contents("php://input"), true);
 $nama = mysqli_real_escape_string($conn, $_POST['nama']);
 $jenis = mysqli_real_escape_string($conn, $_POST['jenis']);
 $file = $_FILES['file'];
-$foto = $_FILES['foto']; // Foto hasil crop dari form
+$foto = $_FILES['foto'];
 $passcode = isset($_POST['password']) ? mysqli_real_escape_string($conn, $_POST['password']) : 'password';
 
 // Validasi input utama
 if (empty($nama) || empty($jenis) || empty($file)) {
     echo json_encode(['success' => false, 'message' => 'Semua field harus diisi.']);
-    return;
+    exit();
 }
 
 // ================== VALIDASI & SIMPAN FILE UTAMA ==================
-$allowedTypes = ['application/pdf', 'image/jpeg', 'image/png'];
-if (!in_array($file['type'], $allowedTypes)) {
-    echo json_encode(['success' => false, 'message' => 'Tipe file tidak valid. Hanya PDF, JPEG, dan PNG yang diperbolehkan.']);
-    return;
+$allowedExtensions = ['pdf', 'jpg', 'jpeg', 'png'];
+$fileExtension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+
+if (!in_array($fileExtension, $allowedExtensions)) {
+    echo json_encode(['success' => false, 'message' => 'Tipe file tidak valid. Hanya PDF, JPG, JPEG, dan PNG diperbolehkan.']);
+    exit();
 }
 
 $uploadDir = __DIR__ . '/../../uploads/certificates/';
