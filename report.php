@@ -25,9 +25,9 @@ $descriptions = [
   'Ie' => 'Kamu adalah penggagas ide besar dan pembawa visi. Tipe Ie (Extrovert Intuiting) selalu melihat masa depan dan kemungkinan baru. Kamu kreatif, inovatif, dan suka menantang batas yang ada. Orang lain melihatmu sebagai sosok penuh ide segar yang mampu menyalakan semangat perubahan. Dunia adalah tempat eksplorasimu, dan ide-ide besarmu bisa menjadi sumber gerakan besar berikutnya.',
 
   'In' => 'Kamu adalah pribadi yang intuitif, reflektif, dan visioner. Tipe In (Introvert Intuiting) memiliki kekuatan dalam membaca pola dan makna di balik setiap kejadian. Kamu berpikir jauh ke depan, mampu melihat kemungkinan sebelum orang lain menyadarinya. Dunia batinmu penuh ide besar yang lahir dari perenungan mendalam. Dengan ketenangan dan intuisi yang tajam, kamu lebih memilih menciptakan arah baru daripada sekadar mengikuti arus. Kepekaan dan imajinasimu menjadikanmu sumber inspirasi bagi banyak orang.',
-  
+
 ];
-$description = $descriptions[$_SESSION['type']] ?? 'Deskripsi belum tersedia untuk tipe ini.';  
+$description = $descriptions[$_SESSION['type']] ?? 'Deskripsi belum tersedia untuk tipe ini.';
 
 // Tentukan warna berdasarkan session
 $type = $_SESSION['type'] ?? 'default';
@@ -198,211 +198,211 @@ switch ($type) {
           <form method="POST" action="./app/controller/LoginController.php">
             <button type="submit" name="action" value="logout" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">logout</button>
           </form>
-    </div>
-  </div>
-
-
-  <div>
-    <div class="relative bg-cover bg-center bg-no-repeat py-8"
-      style="background-image: url('./src/images/bg-hero.jpg')">
-      <div
-        class="absolute inset-0 z-20 bg-gradient-to-r from-primaryG to-secondaryG bg-cover bg-center bg-no-repeat">
+        </div>
       </div>
 
-      <div class="container relative z-30 pt-20 pb-12 sm:pt-56 sm:pb-48 lg:pt-64 lg:pb-48">
-        <div class="flex flex-col items-center justify-center lg:flex-row">
-          <div class="rounded-full border-8 border-primary shadow-xl">
-            <img src="./app/uploads/photos/clients/<?= $_SESSION['profile'] ?>" class="h-48 rounded-full sm:h-56" alt="author">
+
+      <div>
+        <div class="relative bg-cover bg-center bg-no-repeat py-8"
+          style="background-image: url('./src/images/bg-hero.jpg')">
+          <div
+            class="absolute inset-0 z-20 bg-gradient-to-r from-primaryG to-secondaryG bg-cover bg-center bg-no-repeat">
           </div>
-          <div class="pt-8 sm:pt-10 lg:pl-8 lg:pt-0">
-            <h1 class="text-center font-header text-4xl text-white sm:text-left sm:text-5xl md:text-6xl">
-              Hallo <?= $_SESSION['user_name'] ?>!
-            </h1>
-            <div class="flex flex-col justify-center pt-3 sm:flex-row sm:pt-5 lg:justify-start">
-              <see class="flex items-center justify-center pl-0 sm:justify-start md:pl-1">
-                <p class="font-body text-lg uppercase text-white">Let's see your test report!</p>
+
+          <div class="container relative z-30 pt-20 pb-12 sm:pt-56 sm:pb-48 lg:pt-64 lg:pb-48">
+            <div class="flex flex-col items-center justify-center lg:flex-row">
+              <div class="rounded-full border-8 border-primary shadow-xl">
+                <img src="./app/uploads/photos/clients/<?= $_SESSION['profile'] ?>" class="h-48 rounded-full sm:h-56" alt="author">
+              </div>
+              <div class="pt-8 sm:pt-10 lg:pl-8 lg:pt-0">
+                <h1 class="text-center font-header text-4xl text-white sm:text-left sm:text-5xl md:text-6xl">
+                  Hallo <?= $_SESSION['user_name'] ?>!
+                </h1>
+                <div class="flex flex-col justify-center pt-3 sm:flex-row sm:pt-5 lg:justify-start">
+                  <see class="flex items-center justify-center pl-0 sm:justify-start md:pl-1">
+                    <p class="font-body text-lg uppercase text-white">Let's see your test report!</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="bg-grey-50" id="about">
+
+        <div class="container flex flex-col place-content-around items-center py-16 md:py-20 lg:flex-row">
+          <div class="w-full text-center sm:w-3/4 lg:w-3/5 lg:text-left">
+            <h2 class="font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl">
+              Your type is <?= $_SESSION['type'] ?>
+            </h2>
+            <h4 class="pt-6 font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl">
+              Here&#39;s a brief description about your type
+            </h4>
+            <p class="pt-6 font-body leading-relaxed text-grey-20">
+              <?= $description ?>
+            </p>
+          </div>
+          <div class="flex align-center flex-col gap-4 pt-8 lg:pl-12 lg:pt-0">
+            <button
+              onclick="preview()"
+              class="mt-2 rounded bg-yellow px-8 py-3 font-body text-base font-bold uppercase text-primary transition-colors hover:bg-primary hover:text-white focus:border-transparent focus:outline-none focus:ring focus:ring-yellow sm:ml-2 sm:mt-0 sm:py-4 md:text-lg">
+              Preview
+            </button>
+            <button
+              onclick="download()"
+              class="mt-2 rounded bg-yellow px-8 py-3 font-body text-base font-bold uppercase text-primary transition-colors hover:bg-primary hover:text-white focus:border-transparent focus:outline-none focus:ring focus:ring-yellow sm:ml-2 sm:mt-0 sm:py-4 md:text-lg">
+              Download
+            </button>
+          </div>
+        </div>
+<!-- 
+        <div class="flex flex-col lg:flex-row border-t border-b border-grey-70 bg-white py-12 items-center gap-8" id="statistics">
+
+          Sunburn
+          <div class="w-full lg:w-1/3 flex flex-wrap justify-center gap-6">
+            <div class="relative h-24 w-24">
+              <svg class="absolute inset-0" viewBox="0 0 36 36">
+                <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none"
+                  d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
+                <path class="text-primary" stroke="currentColor" stroke-width="3" stroke-dasharray="85,100" fill="none"
+                  stroke-linecap="round"
+                  d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
+              </svg>
+              <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <h3 class="font-body text-xl font-bold text-primary">85%</h3>
+                <p class="font-body text-xs text-black">Lorem</p>
+              </div>
+            </div>
+
+            <div class="relative h-24 w-24">
+              <svg class="absolute inset-0" viewBox="0 0 36 36">
+                <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none"
+                  d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
+                <path class="text-primary" stroke="currentColor" stroke-width="3" stroke-dasharray="70,100" fill="none"
+                  stroke-linecap="round"
+                  d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
+              </svg>
+              <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <h3 class="font-body text-xl font-bold text-primary">70%</h3>
+                <p class="font-body text-xs text-black">Ipsum</p>
+              </div>
+            </div>
+
+            <div class="relative h-24 w-24">
+              <svg class="absolute inset-0" viewBox="0 0 36 36">
+                <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none"
+                  d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
+                <path class="text-primary" stroke="currentColor" stroke-width="3" stroke-dasharray="98,100" fill="none"
+                  stroke-linecap="round"
+                  d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
+              </svg>
+              <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <h3 class="font-body text-xl font-bold text-primary">98%</h3>
+                <p class="font-body text-xs text-black">Sit</p>
+              </div>
+            </div>
+          </div>
+
+          Radar
+          <div class="w-full lg:w-1/3 flex flex-col items-center">
+            <h4 class="font-body font-semibold uppercase text-black mb-2">Performance Radar</h4>
+            <div class="relative h-48 w-48">
+              <div class="absolute inset-0 rounded-full border border-lila opacity-40"></div>
+              <div class="absolute inset-4 rounded-full border border-lila opacity-40"></div>
+              <div class="absolute inset-8 rounded-full border border-lila opacity-40"></div>
+
+              <div class="absolute top-0 left-1/2 h-1/2 w-px bg-lila"></div>
+              <div class="absolute bottom-0 left-1/2 h-1/2 w-px bg-lila"></div>
+              <div class="absolute left-0 top-1/2 w-1/2 h-px bg-lila"></div>
+              <div class="absolute right-0 top-1/2 w-1/2 h-px bg-lila"></div>
+
+              <svg class="absolute inset-0" viewBox="0 0 100 100">
+                <polygon points="50,10 90,50 60,90 40,80 10,40"
+                  fill="rgba(59,130,246,0.3)"
+                  stroke="rgb(59,130,246)"
+                  stroke-width="1.5" />
+              </svg>
+
+              <span class="absolute top-0 left-1/2 -translate-x-1/2 text-[10px] font-body">Lorem</span>
+              <span class="absolute bottom-0 left-1/2 -translate-x-1/2 text-[10px] font-body">Ipsum</span>
+              <span class="absolute left-0 top-1/2 -translate-y-1/2 text-[10px] font-body">Sit</span>
+              <span class="absolute right-0 top-1/2 -translate-y-1/2 text-[10px] font-body">Dolor</span>
+            </div>
+          </div>
+
+          Line Chart Section
+          <div class="w-1/2 lg:w-1/3 pl-0 pt-6 lg:pl-8 lg:pt-0 mx-10">
+            <div>
+              <div class="flex items-end justify-between">
+                <h4 class="font-body font-semibold uppercase text-black">Lorem</h4>
+                <h3 class="font-body text-2xl font-bold text-primary">85%</h3>
+              </div>
+              <div class="mt-2 h-2 w-full rounded-full bg-lila">
+                <div class="h-2 rounded-full bg-primary" style="width: 85%"></div>
+              </div>
+            </div>
+
+            <div class="pt-4">
+              <div class="flex items-end justify-between">
+                <h4 class="font-body font-semibold uppercase text-black">Ipsum</h4>
+                <h3 class="font-body text-2xl font-bold text-primary">70%</h3>
+              </div>
+              <div class="mt-2 h-2 w-full rounded-full bg-lila">
+                <div class="h-2 rounded-full bg-primary" style="width: 70%"></div>
+              </div>
+            </div>
+
+            <div class="pt-4">
+              <div class="flex items-end justify-between">
+                <h4 class="font-body font-semibold uppercase text-black">Sit</h4>
+                <h3 class="font-body text-2xl font-bold text-primary">98%</h3>
+              </div>
+              <div class="mt-2 h-2 w-full rounded-full bg-lila">
+                <div class="h-2 rounded-full bg-primary" style="width: 98%"></div>
+              </div>
+            </div>
+
+            <div class="pt-4">
+              <div class="flex items-end justify-between">
+                <h4 class="font-body font-semibold uppercase text-black">Dolor</h4>
+                <h3 class="font-body text-2xl font-bold text-primary">91%</h3>
+              </div>
+              <div class="mt-2 h-2 w-full rounded-full bg-lila">
+                <div class="h-2 rounded-full bg-primary" style="width: 91%"></div>
+              </div>
+            </div>
+          </div>
+
+        </div> -->
+
+
+      </div>
+
+      <div class="bg-primary">
+        <div class="container flex flex-col justify-between py-6 sm:flex-row">
+          <p class="text-center font-body text-white md:text-left">
+            © Copyright 2025. All right reserved, STEPS ID.
+          </p>
+          <div class="flex items-center justify-center pt-5 sm:justify-start sm:pt-0">
+            <a href="https://atom.redpixelthemes.com/">
+              <i class="bx bxl-facebook-square text-2xl text-white hover:text-yellow"></i>
+            </a>
+            <a href="https://atom.redpixelthemes.com/" class="pl-4">
+              <i class="bx bxl-twitter text-2xl text-white hover:text-yellow"></i>
+            </a>
+            <a href="https://atom.redpixelthemes.com/" class="pl-4">
+              <i class="bx bxl-dribbble text-2xl text-white hover:text-yellow"></i>
+            </a>
+            <a href="https://atom.redpixelthemes.com/" class="pl-4">
+              <i class="bx bxl-linkedin text-2xl text-white hover:text-yellow"></i>
+            </a>
+            <a href="https://atom.redpixelthemes.com/" class="pl-4">
+              <i class="bx bxl-instagram text-2xl text-white hover:text-yellow"></i>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <div class="bg-grey-50" id="about">
-
-    <div class="container flex flex-col place-content-around items-center py-16 md:py-20 lg:flex-row">
-      <div class="w-full text-center sm:w-3/4 lg:w-3/5 lg:text-left">
-        <h2 class="font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl">
-          Your type is <?= $_SESSION['type'] ?>
-        </h2>
-        <h4 class="pt-6 font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl">
-          Here&#39;s a brief description about your type
-        </h4>
-        <p class="pt-6 font-body leading-relaxed text-grey-20">
-  <?= $description ?>
-</p>
-      </div>
-      <div class="flex align-center flex-col gap-4 pt-8 lg:pl-12 lg:pt-0">
-        <button
-        onclick="preview()"
-          class="mt-2 rounded bg-yellow px-8 py-3 font-body text-base font-bold uppercase text-primary transition-colors hover:bg-primary hover:text-white focus:border-transparent focus:outline-none focus:ring focus:ring-yellow sm:ml-2 sm:mt-0 sm:py-4 md:text-lg">
-          Preview
-        </button>
-        <button
-        onclick="download()"
-          class="mt-2 rounded bg-yellow px-8 py-3 font-body text-base font-bold uppercase text-primary transition-colors hover:bg-primary hover:text-white focus:border-transparent focus:outline-none focus:ring focus:ring-yellow sm:ml-2 sm:mt-0 sm:py-4 md:text-lg">
-          Download
-        </button>
-      </div>
-    </div>
-
-    <div class="flex flex-col lg:flex-row border-t border-b border-grey-70 bg-white py-12 items-center gap-8" id="statistics">
-
-  <!-- Sunburn -->
-  <div class="w-full lg:w-1/3 flex flex-wrap justify-center gap-6">
-    <div class="relative h-24 w-24">
-      <svg class="absolute inset-0" viewBox="0 0 36 36">
-        <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none"
-          d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
-        <path class="text-primary" stroke="currentColor" stroke-width="3" stroke-dasharray="85,100" fill="none"
-          stroke-linecap="round"
-          d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
-      </svg>
-      <div class="absolute inset-0 flex flex-col items-center justify-center">
-        <h3 class="font-body text-xl font-bold text-primary">85%</h3>
-        <p class="font-body text-xs text-black">Lorem</p>
-      </div>
-    </div>
-
-    <div class="relative h-24 w-24">
-      <svg class="absolute inset-0" viewBox="0 0 36 36">
-        <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none"
-          d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
-        <path class="text-primary" stroke="currentColor" stroke-width="3" stroke-dasharray="70,100" fill="none"
-          stroke-linecap="round"
-          d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
-      </svg>
-      <div class="absolute inset-0 flex flex-col items-center justify-center">
-        <h3 class="font-body text-xl font-bold text-primary">70%</h3>
-        <p class="font-body text-xs text-black">Ipsum</p>
-      </div>
-    </div>
-
-    <div class="relative h-24 w-24">
-      <svg class="absolute inset-0" viewBox="0 0 36 36">
-        <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none"
-          d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
-        <path class="text-primary" stroke="currentColor" stroke-width="3" stroke-dasharray="98,100" fill="none"
-          stroke-linecap="round"
-          d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
-      </svg>
-      <div class="absolute inset-0 flex flex-col items-center justify-center">
-        <h3 class="font-body text-xl font-bold text-primary">98%</h3>
-        <p class="font-body text-xs text-black">Sit</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Radar -->
-  <div class="w-full lg:w-1/3 flex flex-col items-center">
-    <h4 class="font-body font-semibold uppercase text-black mb-2">Performance Radar</h4>
-    <div class="relative h-48 w-48">
-      <div class="absolute inset-0 rounded-full border border-lila opacity-40"></div>
-      <div class="absolute inset-4 rounded-full border border-lila opacity-40"></div>
-      <div class="absolute inset-8 rounded-full border border-lila opacity-40"></div>
-
-      <div class="absolute top-0 left-1/2 h-1/2 w-px bg-lila"></div>
-      <div class="absolute bottom-0 left-1/2 h-1/2 w-px bg-lila"></div>
-      <div class="absolute left-0 top-1/2 w-1/2 h-px bg-lila"></div>
-      <div class="absolute right-0 top-1/2 w-1/2 h-px bg-lila"></div>
-
-      <svg class="absolute inset-0" viewBox="0 0 100 100">
-        <polygon points="50,10 90,50 60,90 40,80 10,40"
-          fill="rgba(59,130,246,0.3)"
-          stroke="rgb(59,130,246)"
-          stroke-width="1.5" />
-      </svg>
-
-      <span class="absolute top-0 left-1/2 -translate-x-1/2 text-[10px] font-body">Lorem</span>
-      <span class="absolute bottom-0 left-1/2 -translate-x-1/2 text-[10px] font-body">Ipsum</span>
-      <span class="absolute left-0 top-1/2 -translate-y-1/2 text-[10px] font-body">Sit</span>
-      <span class="absolute right-0 top-1/2 -translate-y-1/2 text-[10px] font-body">Dolor</span>
-    </div>
-  </div>
-
-  <!-- Line Chart Section -->
-  <div class="w-1/2 lg:w-1/3 pl-0 pt-6 lg:pl-8 lg:pt-0 mx-10">
-    <div>
-      <div class="flex items-end justify-between">
-        <h4 class="font-body font-semibold uppercase text-black">Lorem</h4>
-        <h3 class="font-body text-2xl font-bold text-primary">85%</h3>
-      </div>
-      <div class="mt-2 h-2 w-full rounded-full bg-lila">
-        <div class="h-2 rounded-full bg-primary" style="width: 85%"></div>
-      </div>
-    </div>
-
-    <div class="pt-4">
-      <div class="flex items-end justify-between">
-        <h4 class="font-body font-semibold uppercase text-black">Ipsum</h4>
-        <h3 class="font-body text-2xl font-bold text-primary">70%</h3>
-      </div>
-      <div class="mt-2 h-2 w-full rounded-full bg-lila">
-        <div class="h-2 rounded-full bg-primary" style="width: 70%"></div>
-      </div>
-    </div>
-
-    <div class="pt-4">
-      <div class="flex items-end justify-between">
-        <h4 class="font-body font-semibold uppercase text-black">Sit</h4>
-        <h3 class="font-body text-2xl font-bold text-primary">98%</h3>
-      </div>
-      <div class="mt-2 h-2 w-full rounded-full bg-lila">
-        <div class="h-2 rounded-full bg-primary" style="width: 98%"></div>
-      </div>
-    </div>
-
-    <div class="pt-4">
-      <div class="flex items-end justify-between">
-        <h4 class="font-body font-semibold uppercase text-black">Dolor</h4>
-        <h3 class="font-body text-2xl font-bold text-primary">91%</h3>
-      </div>
-      <div class="mt-2 h-2 w-full rounded-full bg-lila">
-        <div class="h-2 rounded-full bg-primary" style="width: 91%"></div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-  </div>
-
-  <div class="bg-primary">
-    <div class="container flex flex-col justify-between py-6 sm:flex-row">
-      <p class="text-center font-body text-white md:text-left">
-        © Copyright 2025. All right reserved, STEPS ID.
-      </p>
-      <div class="flex items-center justify-center pt-5 sm:justify-start sm:pt-0">
-        <a href="https://atom.redpixelthemes.com/">
-          <i class="bx bxl-facebook-square text-2xl text-white hover:text-yellow"></i>
-        </a>
-        <a href="https://atom.redpixelthemes.com/" class="pl-4">
-          <i class="bx bxl-twitter text-2xl text-white hover:text-yellow"></i>
-        </a>
-        <a href="https://atom.redpixelthemes.com/" class="pl-4">
-          <i class="bx bxl-dribbble text-2xl text-white hover:text-yellow"></i>
-        </a>
-        <a href="https://atom.redpixelthemes.com/" class="pl-4">
-          <i class="bx bxl-linkedin text-2xl text-white hover:text-yellow"></i>
-        </a>
-        <a href="https://atom.redpixelthemes.com/" class="pl-4">
-          <i class="bx bxl-instagram text-2xl text-white hover:text-yellow"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-  </div>
   </div>
 
   <script>

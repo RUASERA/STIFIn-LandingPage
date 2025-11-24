@@ -40,6 +40,9 @@ $row = $result->fetch_assoc();
 $filename = $row['file'];
 $filePath = __DIR__ . "/../../uploads/certificates/" . basename($filename);
 
+$photoname = $row['profile'];
+$photoPath = __DIR__ . "/../../uploads/photos/client/" . basename($photoname);
+
 // Gunakan transaksi agar aman
 $conn->begin_transaction();
 
@@ -52,6 +55,12 @@ try {
     // Hapus file jika ada
     if (file_exists($filePath)) {
         if (!unlink($filePath)) {
+            throw new Exception("Gagal menghapus file dari server.");
+        }
+    }
+
+    if ($photoPath && file_exists($photoPath) && basename($photoPath) !== 'default.jpg') {
+        if (!unlink($photoPath)) {
             throw new Exception("Gagal menghapus file dari server.");
         }
     }

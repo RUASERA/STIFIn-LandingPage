@@ -24,7 +24,7 @@ $nama = mysqli_real_escape_string($conn, $_POST['nama']);
 $jenis = mysqli_real_escape_string($conn, $_POST['jenis']);
 $file = $_FILES['file'];
 $foto = $_FILES['foto'];
-$passcode = trim($_POST['password'] ?? '') ?: 'password';
+$passcode = (isset($_POST['password']) && trim($_POST['password']) !== '') ? $_POST['password'] : 'password';
 
 // Validasi input utama
 if (empty($nama) || empty($jenis) || empty($file)) {
@@ -79,6 +79,8 @@ if (!empty($foto) && $foto['error'] === UPLOAD_ERR_OK) {
         echo json_encode(['success' => false, 'message' => 'Gagal menyimpan foto pemilik.']);
         return;
     }
+} else{
+    $profileFileName = 'default.jpg';
 }
 
 // ================== SIMPAN DATA KE DATABASE ==================

@@ -51,7 +51,7 @@ if ($result && mysqli_num_rows($result) > 0) {
       "id" => $row["id"],
       "typeId" => $row["type_id"],
       "name" => htmlspecialchars($row["name"]),
-      "profile" => htmlspecialchars($row["profile"]),
+      "profile" => htmlspecialchars($row["profile"] ? $row["profile"] : 'default.jpg'),
       "tipe_stifin" => htmlspecialchars($row["tipe_stifin"]),
       "tanggal_terbit" => date("d M Y", strtotime($row["tanggal_terbit"]))
     ];
