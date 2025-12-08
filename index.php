@@ -201,89 +201,103 @@ session_start();
   " x-init="window.pageYOffset >= 50 ? scrolledFromTop = true : scrolledFromTop = false"
   @scroll.window="window.pageYOffset >= 50 ? scrolledFromTop = true : scrolledFromTop = false">
   <!-- ====== Navbar Section Start -->
-  <header x-data="
-      {
-        navbarOpen: false,
-      }
-    "
-    :class="scrolledFromTop ? 'fixed z-50 bg-white dark:bg-dark bg-opacity-80 shadow-sm backdrop-blur-sm' : 'absolute' "
-    class="top-0 left-0 z-50 w-full bg-white lg:overflow-hidden dark:bg-dark">
-    <div class="container mx-auto">
-      <div class="relative flex items-center justify-between -mx-4">
-        <div class="relative z-10 max-w-full px-4 py-3 w-60">
-          <a href="javascript:void(0)" class="block w-full flex gap-2  items-center">
-            <img src="src/images/logo_stifin.webp" alt="logo" class="sm:w-[40%] w-[40%]" />
-            <img src="src/images/logo_steps.png" alt="logo" class="sm:w-[60%] w-[40%]" />
-          </a>
-          <span class="absolute right-0 top-1/2 z-[-1] h-full w-[1000%] -translate-y-1/2 bg-primary lg:h-[150%]"></span>
-        </div>
-        <div class="flex items-center justify-between w-full px-4">
-          <div>
-            <button
-              onclick="<?php if (isset($_SESSION['ClientLoggedIn'])) {
-                          echo "window.location.href='report.php'; return false;";
-                        } ?>"
-              data-modal-target="authentication-modal" data-modal-toggle="authentication-modal"
-              class="absolute right-4 top-1/2 -translate-y-1/2 rounded-md px-4 py-[6px] text-white bg-primary hover:opacity-80 ring-stroke focus:ring-2 transition">
-              Cek Hasil Tes Kamu
-            </button>
-            <!-- Main modal -->
-            <div id="authentication-modal" tabindex="-1" aria-hidden="true"
-              class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-              <div class="relative p-4 w-full max-w-md max-h-full">
-                <!-- Modal content -->
-                <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
-                  <!-- Modal header -->
-                  <div
-                    class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                      Lihat Hasil Tes Kamu yuk!
-                    </h3>
-                    <button type="button"
-                      class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                      data-modal-hide="authentication-modal">
-                      <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 14 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                      </svg>
-                      <span class="sr-only">Close modal</span>
-                    </button>
-                  </div>
-                  <!-- Modal body -->
-                  <div class="p-4 md:p-5">
-                    <form class="space-y-4" action="./app/controller/LoginController.php" method="POST">
-                      <div>
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
-                        <input type="name" name="name" id="name"
-                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                          required />
-                      </div>
-                      <div>
-                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                          password</label>
-                        <input type="password" name="password" id="password" placeholder="••••••••"
-                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                          required />
-                      </div>
-                      <div class="flex justify-between">
-                        <a href="#" class="text-sm text-blue-700 hover:underline dark:text-blue-500">Lost Password?</a>
-                      </div>
-                      <button type="submit" name="action" value="loginClient"
-                        class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login
-                        to your account</button>
-                      <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
-                        Belum punya akun? <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">Tes Sekarang yuk!</a>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+ <header 
+  x-data="{ navbarOpen: false }"
+  :class="scrolledFromTop ? 'fixed z-50 bg-white dark:bg-dark bg-opacity-80 shadow-sm backdrop-blur-sm' : 'absolute'"
+  class="top-0 left-0 z-50 w-full bg-white lg:overflow-hidden dark:bg-dark"
+>
+  <div class="container mx-auto">
+    <div class="relative flex items-center justify-between -mx-4">
+      
+      <!-- Logo -->
+      <div class="relative z-10 max-w-full px-4 py-3 w-60">
+        <a href="javascript:void(0)" class="block w-full flex gap-2 items-center">
+          <img src="src/images/logo_stifin.webp" alt="logo" class="sm:w-[40%] w-[40%]" />
+          <img src="src/images/logo_steps.png" alt="logo" class="sm:w-[60%] w-[40%]" />
+        </a>
+        <span class="absolute right-0 top-1/2 z-[-1] h-full w-[1000%] -translate-y-1/2 bg-primary lg:h-[150%]"></span>
       </div>
-  </header>
+
+      <!-- Button -->
+      <div class="flex items-center justify-between w-full px-4">
+        <button
+          onclick="<?php if (isset($_SESSION['ClientLoggedIn'])) { echo "window.location.href='report.php'; return false;"; } ?>"
+          data-modal-target="authentication-modal"
+          data-modal-toggle="authentication-modal"
+          class="absolute right-4 top-1/2 -translate-y-1/2 rounded-md px-4 py-[6px] text-white bg-primary hover:opacity-80 ring-stroke focus:ring-2 transition"
+        >
+          Cek Hasil Tes Kamu
+        </button>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- Modal Login -->
+<div id="authentication-modal" tabindex="-1" aria-hidden="true"
+  class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+  <div class="relative p-4 w-full max-w-md max-h-full">
+
+    <!-- Modal content -->
+    <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
+
+      <!-- Modal header -->
+      <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+          Lihat Hasil Tes Kamu yuk!
+        </h3>
+        <button type="button"
+          class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+          data-modal-hide="authentication-modal">
+          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 14 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+          </svg>
+          <span class="sr-only">Close modal</span>
+        </button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="p-4 md:p-5">
+        <form class="space-y-4" action="./app/controller/LoginController.php" method="POST">
+
+          <div>
+            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
+            <input type="text" name="name" id="name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              required />
+          </div>
+
+          <div>
+            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+            <input type="password" name="password" id="password"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              required />
+          </div>
+
+          <div class="flex justify-between">
+            <a href="#" class="text-sm text-blue-700 hover:underline dark:text-blue-500">Lost Password?</a>
+          </div>
+
+          <button type="submit" name="action" value="loginClient"
+            class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Login to your account
+          </button>
+
+          <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+            Belum punya akun?
+            <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">Tes Sekarang yuk!</a>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
   <!-- ====== Navbar Section End -->
 
   <!-- ====== Hero Section Start -->
