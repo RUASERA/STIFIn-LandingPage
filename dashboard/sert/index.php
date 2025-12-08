@@ -32,7 +32,7 @@ if (isset($_SESSION['loggedIn']) == false) {
       <div class="hidden md:flex items-center gap-6">
         <a href="../" class="text-gray-600 hover:text-blue-600">Home</a>
         <a href="#" class="text-gray-600 hover:text-blue-600 font-semibold">Sertifikat</a>
-        <a href="#" class="text-gray-600 hover:text-blue-600">Pengaturan</a>
+        <a href="../operators/index.php" class="text-gray-600 hover:text-blue-600">Operators</a>
       </div>
 
       <div class="flex items-center gap-4">
@@ -277,7 +277,7 @@ if (isset($_SESSION['loggedIn']) == false) {
           tr.innerHTML = `
           <td class="py-3 px-4">${(data.current_page - 1) * data.per_page + i + 1}</td>
           <td class="py-3 px-4 flex items-center gap-3">
-          <img class="w-[40px] rounded" src="<?=base_url()?>/app/uploads/photos/clients/${row.profile}" alt="img">
+            <img class="w-[40px] rounded" src="<?=base_url()?>/app/uploads/photos/clients/${row.profile || 'default.jpg'}" alt="img" onerror="this.src='<?=base_url()?>/app/uploads/photos/clients/default.jpg'">
           ${row.name}
           </td>
           <td class="py-3 px-4">${row.tipe_stifin}</td>
