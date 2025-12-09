@@ -223,19 +223,17 @@ $currentStats = $stats[$_SESSION['type']] ?? [0,0,0,0];
           <div
             class="absolute inset-0 z-20 bg-gradient-to-r from-primaryG to-secondaryG bg-cover bg-center bg-no-repeat">
           </div>
-
           <div class="container relative z-30 pt-20 pb-12 sm:pt-56 sm:pb-48 lg:pt-64 lg:pb-48">
-            <div class="flex flex-col items-center justify-center lg:flex-row">
+            <div class="flex flex-col items-center justify-center gap-4">
               <div class="rounded-full border-8 border-primary shadow-xl">
                 <img src="./app/uploads/photos/clients/<?= $_SESSION['profile'] ?>" class="h-48 rounded-full sm:h-56" alt="author">
               </div>
-              <div class="pt-8 sm:pt-10 lg:pl-8 lg:pt-0">
-                <h1 class="text-center font-header text-4xl text-white sm:text-left sm:text-5xl md:text-6xl">
-                  Hallo <?= $_SESSION['user_name'] ?>!
+              <div class="flex flex-col items-center justify-center">
+                <h1 class="text-center font-header text-4xl text-white sm:text-5xl md:text-6xl">
+                  Hallo <br><?= $_SESSION['user_name'] ?>!
                 </h1>
-                <div class="flex flex-col justify-center pt-3 sm:flex-row sm:pt-5 lg:justify-start">
-                  <see class="flex items-center justify-center pl-0 sm:justify-start md:pl-1">
-                    <p class="font-body text-lg uppercase text-white">Let's see your test report!</p>
+                <div class="pt-3 sm:flex-row sm:pt-5 lg:justify-start">
+                  <p class="font-body text-lg uppercase text-white">Let's see your test report!</p>
                 </div>
               </div>
             </div>
@@ -257,8 +255,83 @@ $currentStats = $stats[$_SESSION['type']] ?? [0,0,0,0];
               <?= $description ?>
             </p>
           </div>
-          <div class="flex align-center flex-col gap-4 pt-8 lg:pl-12 lg:pt-0">
-            <button
+          <div class="w-full lg:w-1/3 flex flex-wrap justify-center gap-6 mt-10 lg:mt-0">
+
+              <div class="flex gap-10">
+                <div class="relative h-24 w-24">
+                  <svg class="absolute inset-0" viewBox="0 0 36 36">
+                    <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none"
+                      d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
+                    <path class="text-primary" stroke="currentColor" stroke-width="3" stroke-dasharray="85,100" fill="none"
+                      stroke-linecap="round"
+                      d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
+                  </svg>
+                  <div class="absolute inset-0 flex flex-col items-center justify-center">
+                    <h3 class="font-body text-xl font-bold text-primary">85%</h3>
+                    <p class="font-body text-xs text-black">Lorem</p>
+                  </div>
+                </div>
+
+                <div class="relative h-24 w-24">
+                  <svg class="absolute inset-0" viewBox="0 0 36 36">
+                    <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none"
+                      d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
+                    <path class="text-primary" stroke="currentColor" stroke-width="3" stroke-dasharray="70,100" fill="none"
+                      stroke-linecap="round"
+                      d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
+                  </svg>
+                  <div class="absolute inset-0 flex flex-col items-center justify-center">
+                    <h3 class="font-body text-xl font-bold text-primary">70%</h3>
+                    <p class="font-body text-xs text-black">Ipsum</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="relative h-24 w-24">
+                <svg class="absolute inset-0" viewBox="0 0 36 36">
+                  <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none"
+                    d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
+                  <path class="text-primary" stroke="currentColor" stroke-width="3" stroke-dasharray="98,100" fill="none"
+                    stroke-linecap="round"
+                    d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
+                </svg>
+                <div class="absolute inset-0 flex flex-col items-center justify-center">
+                  <h3 class="font-body text-xl font-bold text-primary">98%</h3>
+                  <p class="font-body text-xs text-black">Sit</p>
+                </div>
+              </div>
+
+              <div class="flex gap-10">
+                <div class="relative h-24 w-24">
+                  <svg class="absolute inset-0" viewBox="0 0 36 36">
+                    <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none"
+                      d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
+                    <path class="text-primary" stroke="currentColor" stroke-width="3" stroke-dasharray="85,100" fill="none"
+                      stroke-linecap="round"
+                      d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
+                  </svg>
+                  <div class="absolute inset-0 flex flex-col items-center justify-center">
+                    <h3 class="font-body text-xl font-bold text-primary">85%</h3>
+                    <p class="font-body text-xs text-black">Lorem</p>
+                  </div>
+                </div>
+
+                <div class="relative h-24 w-24">
+                  <svg class="absolute inset-0" viewBox="0 0 36 36">
+                    <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none"
+                      d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
+                    <path class="text-primary" stroke="currentColor" stroke-width="3" stroke-dasharray="70,100" fill="none"
+                      stroke-linecap="round"
+                      d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
+                  </svg>
+                  <div class="absolute inset-0 flex flex-col items-center justify-center">
+                    <h3 class="font-body text-xl font-bold text-primary">70%</h3>
+                    <p class="font-body text-xs text-black">Ipsum</p>
+                  </div>
+                </div>
+              </div>
+
+            <!-- <button
               onclick="preview()"
               class="mt-2 rounded bg-yellow px-8 py-3 font-body text-base font-bold uppercase text-primary transition-colors hover:bg-primary hover:text-white focus:border-transparent focus:outline-none focus:ring focus:ring-yellow sm:ml-2 sm:mt-0 sm:py-4 md:text-lg">
               Preview
@@ -267,69 +340,126 @@ $currentStats = $stats[$_SESSION['type']] ?? [0,0,0,0];
               onclick="download()"
               class="mt-2 rounded bg-yellow px-8 py-3 font-body text-base font-bold uppercase text-primary transition-colors hover:bg-primary hover:text-white focus:border-transparent focus:outline-none focus:ring focus:ring-yellow sm:ml-2 sm:mt-0 sm:py-4 md:text-lg">
               Download
-            </button>
+            </button> -->
           </div>
         </div>
-
+        <!-- 
         <div class="flex flex-col lg:flex-row border-t border-b border-grey-70 bg-white py-12 items-center gap-8" id="statistics">
 
           Sunburn
-<div class="relative h-24 w-24">
-  <svg class="absolute inset-0" viewBox="0 0 36 36">
-    <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none" d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z"/>
-    <path id="circle1" class="text-primary" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z"/>
-  </svg>
-  <div class="absolute inset-0 flex flex-col items-center justify-center">
-    <h3 id="val1" class="font-body text-xl font-bold text-primary">0%</h3>
-    <p id="label1" class="font-body text-xs text-black"></p>
-  </div>
-</div>
+          <div class="w-full lg:w-1/3 flex flex-wrap justify-center gap-6">
+            <div class="relative h-24 w-24">
+              <svg class="absolute inset-0" viewBox="0 0 36 36">
+                <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none"
+                  d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
+                <path class="text-primary" stroke="currentColor" stroke-width="3" stroke-dasharray="85,100" fill="none"
+                  stroke-linecap="round"
+                  d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
+              </svg>
+              <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <h3 class="font-body text-xl font-bold text-primary">85%</h3>
+                <p class="font-body text-xs text-black">Lorem</p>
+              </div>
+            </div>
 
-<div class="relative h-24 w-24">
-  <svg class="absolute inset-0" viewBox="0 0 36 36">
-    <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none" d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z"/>
-    <path id="circle2" class="text-primary" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z"/>
-  </svg>
-  <div class="absolute inset-0 flex flex-col items-center justify-center">
-    <h3 id="val2" class="font-body text-xl font-bold text-primary">0%</h3>
-    <p id="label2" class="font-body text-xs text-black"></p>
-  </div>
-</div>
+            <div class="relative h-24 w-24">
+              <svg class="absolute inset-0" viewBox="0 0 36 36">
+                <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none"
+                  d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
+                <path class="text-primary" stroke="currentColor" stroke-width="3" stroke-dasharray="70,100" fill="none"
+                  stroke-linecap="round"
+                  d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
+              </svg>
+              <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <h3 class="font-body text-xl font-bold text-primary">70%</h3>
+                <p class="font-body text-xs text-black">Ipsum</p>
+              </div>
+            </div>
 
-<div class="relative h-24 w-24">
-  <svg class="absolute inset-0" viewBox="0 0 36 36">
-    <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none" d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z"/>
-    <path id="circle3" class="text-primary" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z"/>
-  </svg>
-  <div class="absolute inset-0 flex flex-col items-center justify-center">
-    <h3 id="val3" class="font-body text-xl font-bold text-primary">0%</h3>
-    <p id="label3" class="font-body text-xs text-black"></p>
-  </div>
-</div>
+            <div class="relative h-24 w-24">
+              <svg class="absolute inset-0" viewBox="0 0 36 36">
+                <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none"
+                  d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
+                <path class="text-primary" stroke="currentColor" stroke-width="3" stroke-dasharray="98,100" fill="none"
+                  stroke-linecap="round"
+                  d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
+              </svg>
+              <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <h3 class="font-body text-xl font-bold text-primary">98%</h3>
+                <p class="font-body text-xs text-black">Sit</p>
+              </div>
+            </div>
+          </div>
 
-<div class="relative h-24 w-24">
-  <svg class="absolute inset-0" viewBox="0 0 36 36">
-    <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none" d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z"/>
-    <path id="circle4" class="text-primary" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z"/>
-  </svg>
-  <div class="absolute inset-0 flex flex-col items-center justify-center">
-    <h3 id="val4" class="font-body text-xl font-bold text-primary">0%</h3>
-    <p id="label4" class="font-body text-xs text-black"></p>
-  </div>
-</div>
+          Radar
+          <div class="w-full lg:w-1/3 flex flex-col items-center">
+            <h4 class="font-body font-semibold uppercase text-black mb-2">Performance Radar</h4>
+            <div class="relative h-48 w-48">
+              <div class="absolute inset-0 rounded-full border border-lila opacity-40"></div>
+              <div class="absolute inset-4 rounded-full border border-lila opacity-40"></div>
+              <div class="absolute inset-8 rounded-full border border-lila opacity-40"></div>
 
-<div class="relative h-24 w-24">
-  <svg class="absolute inset-0" viewBox="0 0 36 36">
-    <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none" d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z"/>
-    <path id="circle5" class="text-primary" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z"/>
-  </svg>
-  <div class="absolute inset-0 flex flex-col items-center justify-center">
-    <h3 id="val5" class="font-body text-xl font-bold text-primary">0%</h3>
-    <p id="label5" class="font-body text-xs text-black"></p>
-  </div>
-</div>
+              <div class="absolute top-0 left-1/2 h-1/2 w-px bg-lila"></div>
+              <div class="absolute bottom-0 left-1/2 h-1/2 w-px bg-lila"></div>
+              <div class="absolute left-0 top-1/2 w-1/2 h-px bg-lila"></div>
+              <div class="absolute right-0 top-1/2 w-1/2 h-px bg-lila"></div>
 
-        </div>
+              <svg class="absolute inset-0" viewBox="0 0 100 100">
+                <polygon points="50,10 90,50 60,90 40,80 10,40"
+                  fill="rgba(59,130,246,0.3)"
+                  stroke="rgb(59,130,246)"
+                  stroke-width="1.5" />
+              </svg>
+
+              <span class="absolute top-0 left-1/2 -translate-x-1/2 text-[10px] font-body">Lorem</span>
+              <span class="absolute bottom-0 left-1/2 -translate-x-1/2 text-[10px] font-body">Ipsum</span>
+              <span class="absolute left-0 top-1/2 -translate-y-1/2 text-[10px] font-body">Sit</span>
+              <span class="absolute right-0 top-1/2 -translate-y-1/2 text-[10px] font-body">Dolor</span>
+            </div>
+          </div>
+
+          Line Chart Section
+          <div class="w-1/2 lg:w-1/3 pl-0 pt-6 lg:pl-8 lg:pt-0 mx-10">
+            <div>
+              <div class="flex items-end justify-between">
+                <h4 class="font-body font-semibold uppercase text-black">Lorem</h4>
+                <h3 class="font-body text-2xl font-bold text-primary">85%</h3>
+              </div>
+              <div class="mt-2 h-2 w-full rounded-full bg-lila">
+                <div class="h-2 rounded-full bg-primary" style="width: 85%"></div>
+              </div>
+            </div>
+
+            <div class="pt-4">
+              <div class="flex items-end justify-between">
+                <h4 class="font-body font-semibold uppercase text-black">Ipsum</h4>
+                <h3 class="font-body text-2xl font-bold text-primary">70%</h3>
+              </div>
+              <div class="mt-2 h-2 w-full rounded-full bg-lila">
+                <div class="h-2 rounded-full bg-primary" style="width: 70%"></div>
+              </div>
+            </div>
+
+            <div class="pt-4">
+              <div class="flex items-end justify-between">
+                <h4 class="font-body font-semibold uppercase text-black">Sit</h4>
+                <h3 class="font-body text-2xl font-bold text-primary">98%</h3>
+              </div>
+              <div class="mt-2 h-2 w-full rounded-full bg-lila">
+                <div class="h-2 rounded-full bg-primary" style="width: 98%"></div>
+              </div>
+            </div>
+
+            <div class="pt-4">
+              <div class="flex items-end justify-between">
+                <h4 class="font-body font-semibold uppercase text-black">Dolor</h4>
+                <h3 class="font-body text-2xl font-bold text-primary">91%</h3>
+              </div>
+              <div class="mt-2 h-2 w-full rounded-full bg-lila">
+                <div class="h-2 rounded-full bg-primary" style="width: 91%"></div>
+              </div>
+            </div>
+          </div>
 
 
       </div>
