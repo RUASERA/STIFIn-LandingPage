@@ -74,8 +74,23 @@ switch ($type) {
     break;
 }
 
+$stats = [
+  'Si' => ['sunburn'=>80, 'ipsum'=>73,'sit'=>90,'dolor'=>86],
+  'Se' => ['sunburn'=>95, 'ipsum'=>88,'sit'=>92,'dolor'=>91],
+  'Ti' => ['sunburn'=>60, 'ipsum'=>65,'sit'=>72,'dolor'=>78],
+  'Te' => ['sunburn'=>82, 'ipsum'=>75,'sit'=>80,'dolor'=>79],
+  'Fi' => ['sunburn'=>70, 'ipsum'=>75,'sit'=>60,'dolor'=>55],
+  'Fe' => ['sunburn'=>74, 'ipsum'=>77,'sit'=>72,'dolor'=>60],
+  'Ii' => ['sunburn'=>68, 'ipsum'=>70,'sit'=>78,'dolor'=>65],
+  'Ie' => ['sunburn'=>92, 'ipsum'=>89,'sit'=>94,'dolor'=>90],
+  'In' => ['sunburn'=>88, 'ipsum'=>90,'sit'=>85,'dolor'=>82],
+];
+
+$currentStats = $stats[$_SESSION['type']] ?? [0,0,0,0];
+
 
 ?>
+
 
 <!DOCTYPE html>
 <!-- saved from url=(0032)https://atom.redpixelthemes.com/ -->
@@ -255,125 +270,66 @@ switch ($type) {
             </button>
           </div>
         </div>
-<!-- 
+
         <div class="flex flex-col lg:flex-row border-t border-b border-grey-70 bg-white py-12 items-center gap-8" id="statistics">
 
           Sunburn
-          <div class="w-full lg:w-1/3 flex flex-wrap justify-center gap-6">
-            <div class="relative h-24 w-24">
-              <svg class="absolute inset-0" viewBox="0 0 36 36">
-                <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none"
-                  d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
-                <path class="text-primary" stroke="currentColor" stroke-width="3" stroke-dasharray="85,100" fill="none"
-                  stroke-linecap="round"
-                  d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
-              </svg>
-              <div class="absolute inset-0 flex flex-col items-center justify-center">
-                <h3 class="font-body text-xl font-bold text-primary">85%</h3>
-                <p class="font-body text-xs text-black">Lorem</p>
-              </div>
-            </div>
+<div class="relative h-24 w-24">
+  <svg class="absolute inset-0" viewBox="0 0 36 36">
+    <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none" d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z"/>
+    <path id="circle1" class="text-primary" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z"/>
+  </svg>
+  <div class="absolute inset-0 flex flex-col items-center justify-center">
+    <h3 id="val1" class="font-body text-xl font-bold text-primary">0%</h3>
+    <p id="label1" class="font-body text-xs text-black"></p>
+  </div>
+</div>
 
-            <div class="relative h-24 w-24">
-              <svg class="absolute inset-0" viewBox="0 0 36 36">
-                <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none"
-                  d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
-                <path class="text-primary" stroke="currentColor" stroke-width="3" stroke-dasharray="70,100" fill="none"
-                  stroke-linecap="round"
-                  d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
-              </svg>
-              <div class="absolute inset-0 flex flex-col items-center justify-center">
-                <h3 class="font-body text-xl font-bold text-primary">70%</h3>
-                <p class="font-body text-xs text-black">Ipsum</p>
-              </div>
-            </div>
+<div class="relative h-24 w-24">
+  <svg class="absolute inset-0" viewBox="0 0 36 36">
+    <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none" d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z"/>
+    <path id="circle2" class="text-primary" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z"/>
+  </svg>
+  <div class="absolute inset-0 flex flex-col items-center justify-center">
+    <h3 id="val2" class="font-body text-xl font-bold text-primary">0%</h3>
+    <p id="label2" class="font-body text-xs text-black"></p>
+  </div>
+</div>
 
-            <div class="relative h-24 w-24">
-              <svg class="absolute inset-0" viewBox="0 0 36 36">
-                <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none"
-                  d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
-                <path class="text-primary" stroke="currentColor" stroke-width="3" stroke-dasharray="98,100" fill="none"
-                  stroke-linecap="round"
-                  d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
-              </svg>
-              <div class="absolute inset-0 flex flex-col items-center justify-center">
-                <h3 class="font-body text-xl font-bold text-primary">98%</h3>
-                <p class="font-body text-xs text-black">Sit</p>
-              </div>
-            </div>
-          </div>
+<div class="relative h-24 w-24">
+  <svg class="absolute inset-0" viewBox="0 0 36 36">
+    <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none" d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z"/>
+    <path id="circle3" class="text-primary" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z"/>
+  </svg>
+  <div class="absolute inset-0 flex flex-col items-center justify-center">
+    <h3 id="val3" class="font-body text-xl font-bold text-primary">0%</h3>
+    <p id="label3" class="font-body text-xs text-black"></p>
+  </div>
+</div>
 
-          Radar
-          <div class="w-full lg:w-1/3 flex flex-col items-center">
-            <h4 class="font-body font-semibold uppercase text-black mb-2">Performance Radar</h4>
-            <div class="relative h-48 w-48">
-              <div class="absolute inset-0 rounded-full border border-lila opacity-40"></div>
-              <div class="absolute inset-4 rounded-full border border-lila opacity-40"></div>
-              <div class="absolute inset-8 rounded-full border border-lila opacity-40"></div>
+<div class="relative h-24 w-24">
+  <svg class="absolute inset-0" viewBox="0 0 36 36">
+    <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none" d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z"/>
+    <path id="circle4" class="text-primary" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z"/>
+  </svg>
+  <div class="absolute inset-0 flex flex-col items-center justify-center">
+    <h3 id="val4" class="font-body text-xl font-bold text-primary">0%</h3>
+    <p id="label4" class="font-body text-xs text-black"></p>
+  </div>
+</div>
 
-              <div class="absolute top-0 left-1/2 h-1/2 w-px bg-lila"></div>
-              <div class="absolute bottom-0 left-1/2 h-1/2 w-px bg-lila"></div>
-              <div class="absolute left-0 top-1/2 w-1/2 h-px bg-lila"></div>
-              <div class="absolute right-0 top-1/2 w-1/2 h-px bg-lila"></div>
+<div class="relative h-24 w-24">
+  <svg class="absolute inset-0" viewBox="0 0 36 36">
+    <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none" d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z"/>
+    <path id="circle5" class="text-primary" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z"/>
+  </svg>
+  <div class="absolute inset-0 flex flex-col items-center justify-center">
+    <h3 id="val5" class="font-body text-xl font-bold text-primary">0%</h3>
+    <p id="label5" class="font-body text-xs text-black"></p>
+  </div>
+</div>
 
-              <svg class="absolute inset-0" viewBox="0 0 100 100">
-                <polygon points="50,10 90,50 60,90 40,80 10,40"
-                  fill="rgba(59,130,246,0.3)"
-                  stroke="rgb(59,130,246)"
-                  stroke-width="1.5" />
-              </svg>
-
-              <span class="absolute top-0 left-1/2 -translate-x-1/2 text-[10px] font-body">Lorem</span>
-              <span class="absolute bottom-0 left-1/2 -translate-x-1/2 text-[10px] font-body">Ipsum</span>
-              <span class="absolute left-0 top-1/2 -translate-y-1/2 text-[10px] font-body">Sit</span>
-              <span class="absolute right-0 top-1/2 -translate-y-1/2 text-[10px] font-body">Dolor</span>
-            </div>
-          </div>
-
-          Line Chart Section
-          <div class="w-1/2 lg:w-1/3 pl-0 pt-6 lg:pl-8 lg:pt-0 mx-10">
-            <div>
-              <div class="flex items-end justify-between">
-                <h4 class="font-body font-semibold uppercase text-black">Lorem</h4>
-                <h3 class="font-body text-2xl font-bold text-primary">85%</h3>
-              </div>
-              <div class="mt-2 h-2 w-full rounded-full bg-lila">
-                <div class="h-2 rounded-full bg-primary" style="width: 85%"></div>
-              </div>
-            </div>
-
-            <div class="pt-4">
-              <div class="flex items-end justify-between">
-                <h4 class="font-body font-semibold uppercase text-black">Ipsum</h4>
-                <h3 class="font-body text-2xl font-bold text-primary">70%</h3>
-              </div>
-              <div class="mt-2 h-2 w-full rounded-full bg-lila">
-                <div class="h-2 rounded-full bg-primary" style="width: 70%"></div>
-              </div>
-            </div>
-
-            <div class="pt-4">
-              <div class="flex items-end justify-between">
-                <h4 class="font-body font-semibold uppercase text-black">Sit</h4>
-                <h3 class="font-body text-2xl font-bold text-primary">98%</h3>
-              </div>
-              <div class="mt-2 h-2 w-full rounded-full bg-lila">
-                <div class="h-2 rounded-full bg-primary" style="width: 98%"></div>
-              </div>
-            </div>
-
-            <div class="pt-4">
-              <div class="flex items-end justify-between">
-                <h4 class="font-body font-semibold uppercase text-black">Dolor</h4>
-                <h3 class="font-body text-2xl font-bold text-primary">91%</h3>
-              </div>
-              <div class="mt-2 h-2 w-full rounded-full bg-lila">
-                <div class="h-2 rounded-full bg-primary" style="width: 91%"></div>
-              </div>
-            </div>
-          </div>
-
-        </div> -->
+        </div>
 
 
       </div>
@@ -405,16 +361,78 @@ switch ($type) {
     </div>
   </div>
 
-  <script>
-    function download() {
-      window.location.href = '<?= base_url() ?>/app/controller/cert/download.php?id=' + <?= json_encode($_SESSION['user_id']) ?>;
-    }
+<script>
+  
+  function download(){
+    window.location.href = '<?= base_url() ?>/app/controller/cert/download.php?id=' + <?= json_encode($_SESSION['user_id']) ?>;
+  }
 
-    function preview() {
-      // buka preview di tab baru (aman dengan noopener,noreferrer)
-      window.open('<?= base_url() ?>/app/controller/cert/preview.php?id=' + <?= json_encode($_SESSION['user_id']) ?>, '_blank', 'noopener,noreferrer');
-    }
-  </script>
+  function preview(){
+    window.open('<?= base_url() ?>/app/controller/cert/preview.php?id=' + <?= json_encode($_SESSION['user_id']) ?>, '_blank', 'noopener,noreferrer');
+  }
+
+
+const type = "<?= strtoupper(substr($_SESSION['type'],0,2)) ?>"; 
+
+const data = {
+    SI: [55, 60, 40, 80, 90],
+    SE: [70, 55, 60, 30, 80],
+    FI: [80, 30, 75, 20, 85],
+    FE: [60, 40, 50, 30, 90],
+    TI: [50, 70, 30, 50, 60],
+    TE: [45, 55, 65, 70, 35]
+};
+
+const labels = ["Sunburn","Ipsum","Sit","Dolor","Amet"];
+
+const results = data[type] ?? [0,0,0,0,0];
+
+results.forEach((v,i)=>{
+  document.querySelector("#val"+(i+1)).innerHTML = v+"%";
+  document.querySelector("#label"+(i+1)).innerHTML = labels[i];
+  document.querySelector("#circle"+(i+1)).style.strokeDasharray = v+",100";
+});
+
+    const stats = {
+    sunburn: <?= $currentStats['sunburn'] ?>,
+    ipsum:   <?= $currentStats['ipsum'] ?>,
+    sit:     <?= $currentStats['sit'] ?>,
+    dolor:   <?= $currentStats['dolor'] ?>,
+    amet:    <?= $currentStats['amet'] ?? 0 ?> // data ke-5
+  };
+
+  const circles = [
+    { id: "circle1", val: "val1", label:"Sunburn", value: stats.sunburn },
+    { id: "circle2", val: "val2", label:"Ipsum",   value: stats.ipsum },
+    { id: "circle3", val: "val3", label:"Sit",     value: stats.sit },
+    { id: "circle4", val: "val4", label:"Dolor",   value: stats.dolor },
+    { id: "circle5", val: "val5", label:"Amet",    value: stats.amet }
+  ];
+
+  circles.forEach(item => {
+    let circle = document.getElementById(item.id);
+    let valueText = document.getElementById(item.val);
+
+    // cek apakah elemen ada
+    if (!circle || !valueText) return;
+
+    let radius = 16;
+    let circumference = 2 * Math.PI * radius;
+
+    // progress lingkaran
+    circle.style.strokeDasharray = circumference;
+    circle.style.strokeDashoffset = circumference - (item.value / 100) * circumference;
+
+    // isi value
+    valueText.innerHTML = item.value + "%";
+
+    // label
+    const labelEl = document.getElementById(item.val.replace("val","label"));
+    if (labelEl) labelEl.textContent = item.label;
+  });
+
+</script>
+
 </body>
 
 </html>

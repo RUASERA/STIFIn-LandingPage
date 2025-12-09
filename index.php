@@ -362,7 +362,10 @@ session_start();
                 <img src="src/images/service3.jpg" alt="" class="w-full rounded-2xl" />
               </div>
             </div>
-            <div class="w-full px-3 sm:px-4 xl:w-1/2">
+            <div class="w-full px-3 sm:px-4 xl:w-1/2 mt-20">
+              <div class="py-3 sm:py-4">
+                <img src="src/images/service3.jpg" alt="" class="w-full rounded-2xl" />
+              </div>
               <div class="relative z-10 my-4">
                 <img src="src/images/service2.jpg" alt="" class="w-full rounded-2xl" />
                 <span class="absolute -right-7 -bottom-7 z-[-1]">
@@ -501,6 +504,7 @@ session_start();
               </div>
             </div>
           </div>
+          
         </div>
         <div class="w-full px-4 lg:w-1/2 xl:w-5/12">
           <div class="mt-10 lg:mt-0">
