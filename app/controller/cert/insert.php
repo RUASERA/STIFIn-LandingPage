@@ -43,7 +43,24 @@ if (!in_array($fileExtension, $allowedExtensions)) {
 
 $uploadDir = __DIR__ . '/../../uploads/certificates/';
 if (!is_dir($uploadDir)) {
-    mkdir($uploadDir, 0755, true);
+    if (!mkdir($uploadDir, 0755, true) && !is_dir($uploadDir)) {
+        echo json_encode(['success' => false, 'message' => 'Gagal membuat direktori upload. Periksa izin.']);
+        exit();
+    }
+}
+
+// Pastikan direktori upload dapat ditulisi oleh proses PHP
+if (!is_writable($uploadDir)) {
+    // Coba ubah izin sebagai upaya pemulihan
+    @chmod($uploadDir, 0777);
+    if (!is_writable($uploadDir)) {
+        echo json_encode([
+            'success' => false,
+            'message' => 'Direktori upload tidak dapat ditulisi. Setel izin atau owner direktori ke user webserver (mis. www-data).'
+        ]);
+        http_response_code(500);
+        exit();
+    }
 }
 
 // Ganti nama file utama dengan timestamp
@@ -51,7 +68,12 @@ $newFileName = time() . "_" . preg_replace('/[^A-Za-z0-9_\-\.]/', '_', basename(
 $filePath = $uploadDir . $newFileName;
 
 if (!move_uploaded_file($file['tmp_name'], $filePath)) {
-    echo json_encode(['success' => false, 'message' => 'Gagal mengunggah file sertifikat.']);
+    $err = error_get_last();
+    echo json_encode([
+        'success' => false,
+        'message' => 'Gagal mengunggah file sertifikat. Periksa izin pada direktori uploads.',
+        'error' => $err ? $err['message'] : null
+    ]);
     return;
 }
 
@@ -68,7 +90,23 @@ if (!empty($foto) && $foto['error'] === UPLOAD_ERR_OK) {
 
     $photoDir = __DIR__ . '/../../uploads/photos/clients/';
     if (!is_dir($photoDir)) {
-        mkdir($photoDir, 0755, true);
+        if (!mkdir($photoDir, 0755, true) && !is_dir($photoDir)) {
+            echo json_encode(['success' => false, 'message' => 'Gagal membuat direktori foto. Periksa izin.']);
+            exit();
+        }
+    }
+
+    // Pastikan direktori foto dapat ditulisi
+    if (!is_writable($photoDir)) {
+        @chmod($photoDir, 0777);
+        if (!is_writable($photoDir)) {
+            echo json_encode([
+                'success' => false,
+                'message' => 'Direktori foto tidak dapat ditulisi. Setel izin atau owner direktori ke user webserver.'
+            ]);
+            http_response_code(500);
+            exit();
+        }
     }
 
     // Gunakan datetime untuk nama file foto (YYYYmmdd_His.jpg)
@@ -76,7 +114,12 @@ if (!empty($foto) && $foto['error'] === UPLOAD_ERR_OK) {
     $photoPath = $photoDir . $profileFileName;
 
     if (!move_uploaded_file($foto['tmp_name'], $photoPath)) {
-        echo json_encode(['success' => false, 'message' => 'Gagal menyimpan foto pemilik.']);
+        $err = error_get_last();
+        echo json_encode([
+            'success' => false,
+            'message' => 'Gagal menyimpan foto pemilik. Periksa izin pada direktori foto.',
+            'error' => $err ? $err['message'] : null
+        ]);
         return;
     }
 } else{
