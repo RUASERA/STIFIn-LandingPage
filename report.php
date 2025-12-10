@@ -38,6 +38,28 @@ switch ($type) {
     $primary = '#1D4ED8';
     $primaryG = 'rgba(29, 78, 216, 0.9)';
     $secondaryG = 'rgba(30, 64, 175, 0.9)';
+    $stats = [
+      [
+        "label" => "Sensing",
+        "value" => 85
+      ],
+      [
+        "label" => "Thinking",
+        "value" => 85
+      ],
+      [
+        "label" => "Feeling",
+        "value" => 85
+      ],
+      [
+        "label" => "Intuiting",
+        "value" => 85
+      ],
+      [
+        "label" => "Instinct",
+        "value" => 85
+      ]
+    ];
     break;
 
   case 'Ti':
@@ -45,6 +67,28 @@ switch ($type) {
     $primary = '#15803D';
     $primaryG = 'rgba(21, 128, 61, 0.9)';
     $secondaryG = 'rgba(22, 101, 52, 0.9)';
+    $stats = [
+      [
+        "label" => "Sensing",
+        "value" => 85
+      ],
+      [
+        "label" => "Thinking",
+        "value" => 85
+      ],
+      [
+        "label" => "Feeling",
+        "value" => 85
+      ],
+      [
+        "label" => "Intuiting",
+        "value" => 85
+      ],
+      [
+        "label" => "Instinct",
+        "value" => 85
+      ]
+    ];
     break;
 
   case 'Ii':
@@ -52,6 +96,28 @@ switch ($type) {
     $primary = '#7E22CE';
     $primaryG = 'rgba(126, 34, 206, 0.95)';
     $secondaryG = 'rgba(109, 40, 217, 0.93)';
+    $stats = [
+      [
+        "label" => "Sensing",
+        "value" => 85
+      ],
+      [
+        "label" => "Thinking",
+        "value" => 85
+      ],
+      [
+        "label" => "Feeling",
+        "value" => 85
+      ],
+      [
+        "label" => "Intuiting",
+        "value" => 85
+      ],
+      [
+        "label" => "Instinct",
+        "value" => 85
+      ]
+    ];
     break;
 
   case 'Fi':
@@ -59,35 +125,87 @@ switch ($type) {
     $primary = '#DC2626';
     $primaryG = 'rgba(220, 38, 38, 0.95)';
     $secondaryG = 'rgba(185, 28, 28, 0.9)';
+    $stats = [
+      [
+        "label" => "Sensing",
+        "value" => 85
+      ],
+      [
+        "label" => "Thinking",
+        "value" => 85
+      ],
+      [
+        "label" => "Feeling",
+        "value" => 85
+      ],
+      [
+        "label" => "Intuiting",
+        "value" => 85
+      ],
+      [
+        "label" => "Instinct",
+        "value" => 85
+      ]
+    ];
     break;
 
   case 'In':
     $primary = '#EA580C';
     $primaryG = 'rgba(234, 88, 12, 0.95)';
     $secondaryG = 'rgba(194, 65, 12, 0.93)';
+    $stats = [
+      [
+        "label" => "Sensing",
+        "value" => 85
+      ],
+      [
+        "label" => "Thinking",
+        "value" => 85
+      ],
+      [
+        "label" => "Feeling",
+        "value" => 85
+      ],
+      [
+        "label" => "Intuiting",
+        "value" => 85
+      ],
+      [
+        "label" => "Instinct",
+        "value" => 85
+      ]
+    ];
     break;
 
   default:
     $primary = '#6D28D9';
     $primaryG = 'rgba(109, 40, 217, 0.95)';
     $secondaryG = 'rgba(91, 33, 182, 0.9)';
+    $stats = [
+      [
+        "label" => "Sensing",
+        "value" => 85
+      ],
+      [
+        "label" => "Thinking",
+        "value" => 85
+      ],
+      [
+        "label" => "Feeling",
+        "value" => 85
+      ],
+      [
+        "label" => "Intuiting",
+        "value" => 85
+      ],
+      [
+        "label" => "Instinct",
+        "value" => 85
+      ]
+    ];
     break;
 }
-
-$stats = [
-  'Si' => ['sunburn'=>80, 'ipsum'=>73,'sit'=>90,'dolor'=>86],
-  'Se' => ['sunburn'=>95, 'ipsum'=>88,'sit'=>92,'dolor'=>91],
-  'Ti' => ['sunburn'=>60, 'ipsum'=>65,'sit'=>72,'dolor'=>78],
-  'Te' => ['sunburn'=>82, 'ipsum'=>75,'sit'=>80,'dolor'=>79],
-  'Fi' => ['sunburn'=>70, 'ipsum'=>75,'sit'=>60,'dolor'=>55],
-  'Fe' => ['sunburn'=>74, 'ipsum'=>77,'sit'=>72,'dolor'=>60],
-  'Ii' => ['sunburn'=>68, 'ipsum'=>70,'sit'=>78,'dolor'=>65],
-  'Ie' => ['sunburn'=>92, 'ipsum'=>89,'sit'=>94,'dolor'=>90],
-  'In' => ['sunburn'=>88, 'ipsum'=>90,'sit'=>85,'dolor'=>82],
-];
-
-$currentStats = $stats[$_SESSION['type']] ?? [0,0,0,0];
-
+$statsJson = json_encode($stats);
 
 ?>
 
@@ -248,103 +366,113 @@ $currentStats = $stats[$_SESSION['type']] ?? [0,0,0,0];
             <h2 class="font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl">
               Your type is <?= $_SESSION['type'] ?>
             </h2>
-            <h4 class="pt-6 font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl">
-              Here&#39;s a brief description about your type
-            </h4>
+            <div class="">
+              <h4 class="pt-6 font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl">
+                Here&#39;s a brief description about your type
+              </h4>
+
+            </div>
             <p class="pt-6 font-body leading-relaxed text-grey-20">
               <?= $description ?>
             </p>
           </div>
-          <div class="w-full lg:w-1/3 flex flex-wrap justify-center gap-6 mt-10 lg:mt-0">
 
+          <div class="w-full lg:w-1/3 flex justify-center gap-6 mt-10 lg:mt-0">
+            <div x-data='{items : <?php echo $statsJson; ?> }' class="w-full flex flex-wrap justify-center gap-6 mt-10 lg:mt-0">
               <div class="flex gap-10">
                 <div class="relative h-24 w-24">
                   <svg class="absolute inset-0" viewBox="0 0 36 36">
                     <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none"
                       d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
-                    <path class="text-primary" stroke="currentColor" stroke-width="3" stroke-dasharray="85,100" fill="none"
+                    <path class="text-primary" stroke="currentColor" stroke-width="3" :stroke-dasharray="`${items[0].value},100`" fill="none"
                       stroke-linecap="round"
                       d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
                   </svg>
                   <div class="absolute inset-0 flex flex-col items-center justify-center">
-                    <h3 class="font-body text-xl font-bold text-primary">85%</h3>
-                    <p class="font-body text-xs text-black">Lorem</p>
+                    <h3 class="font-body text-xl font-bold text-primary" x-text="items[0].value + '%'"></h3>
+                    <p class="font-body text-xs text-black" x-text="items[0].label"></p>
                   </div>
                 </div>
-
+  
                 <div class="relative h-24 w-24">
                   <svg class="absolute inset-0" viewBox="0 0 36 36">
                     <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none"
                       d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
-                    <path class="text-primary" stroke="currentColor" stroke-width="3" stroke-dasharray="70,100" fill="none"
+                    <path class="text-primary" stroke="currentColor" stroke-width="3" :stroke-dasharray="`${items[1].value},100`" fill="none"
                       stroke-linecap="round"
                       d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
                   </svg>
                   <div class="absolute inset-0 flex flex-col items-center justify-center">
-                    <h3 class="font-body text-xl font-bold text-primary">70%</h3>
-                    <p class="font-body text-xs text-black">Ipsum</p>
+                    <h3 class="font-body text-xl font-bold text-primary" x-text="items[1].value + '%'"></h3>
+                    <p class="font-body text-xs text-black" x-text="items[1].label"></p>
                   </div>
                 </div>
               </div>
-
+  
               <div class="relative h-24 w-24">
                 <svg class="absolute inset-0" viewBox="0 0 36 36">
                   <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none"
                     d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
-                  <path class="text-primary" stroke="currentColor" stroke-width="3" stroke-dasharray="98,100" fill="none"
+                  <path class="text-primary" stroke="currentColor" stroke-width="3" :stroke-dasharray="`${items[2].value},100`" fill="none"
                     stroke-linecap="round"
                     d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
                 </svg>
                 <div class="absolute inset-0 flex flex-col items-center justify-center">
-                  <h3 class="font-body text-xl font-bold text-primary">98%</h3>
-                  <p class="font-body text-xs text-black">Sit</p>
+                  <h3 class="font-body text-xl font-bold text-primary" x-text="items[2].value + '%'"></h3>
+                  <p class="font-body text-xs text-black" x-text="items[2].label"></p>
                 </div>
               </div>
-
+  
               <div class="flex gap-10">
                 <div class="relative h-24 w-24">
                   <svg class="absolute inset-0" viewBox="0 0 36 36">
                     <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none"
                       d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
-                    <path class="text-primary" stroke="currentColor" stroke-width="3" stroke-dasharray="85,100" fill="none"
+                    <path class="text-primary" stroke="currentColor" stroke-width="3" :stroke-dasharray="`${items[3].value},100`" fill="none"
                       stroke-linecap="round"
                       d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
                   </svg>
                   <div class="absolute inset-0 flex flex-col items-center justify-center">
-                    <h3 class="font-body text-xl font-bold text-primary">85%</h3>
-                    <p class="font-body text-xs text-black">Lorem</p>
+                    <h3 class="font-body text-xl font-bold text-primary" x-text="items[3].value + '%'"></h3>
+                    <p class="font-body text-xs text-black" x-text="items[3].label"></p>
                   </div>
                 </div>
-
+  
                 <div class="relative h-24 w-24">
                   <svg class="absolute inset-0" viewBox="0 0 36 36">
                     <path class="text-lila" stroke="currentColor" stroke-width="3" fill="none"
                       d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
-                    <path class="text-primary" stroke="currentColor" stroke-width="3" stroke-dasharray="70,100" fill="none"
+                    <path class="text-primary" stroke="currentColor" stroke-width="3" :stroke-dasharray="`${items[4].value},100`" fill="none"
                       stroke-linecap="round"
                       d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32z" />
                   </svg>
                   <div class="absolute inset-0 flex flex-col items-center justify-center">
-                    <h3 class="font-body text-xl font-bold text-primary">70%</h3>
-                    <p class="font-body text-xs text-black">Ipsum</p>
+                    <h3 class="font-body text-xl font-bold text-primary" x-text="items[4].value + '%'"></h3>
+                    <p class="font-body text-xs text-black" x-text="items[4].label"></p>
                   </div>
                 </div>
               </div>
 
-            <!-- <button
-              onclick="preview()"
-              class="mt-2 rounded bg-yellow px-8 py-3 font-body text-base font-bold uppercase text-primary transition-colors hover:bg-primary hover:text-white focus:border-transparent focus:outline-none focus:ring focus:ring-yellow sm:ml-2 sm:mt-0 sm:py-4 md:text-lg">
-              Preview
-            </button>
-            <button
-              onclick="download()"
-              class="mt-2 rounded bg-yellow px-8 py-3 font-body text-base font-bold uppercase text-primary transition-colors hover:bg-primary hover:text-white focus:border-transparent focus:outline-none focus:ring focus:ring-yellow sm:ml-2 sm:mt-0 sm:py-4 md:text-lg">
-              Download
-            </button> -->
+              <div class="mt-4 flex flex-col sm:flex-row lg:justify-start">
+                <button
+                  onclick="preview()"
+                  class="mt-2 rounded bg-yellow px-5 py-1 font-body text-base font-bold uppercase text-primary transition-colors hover:bg-primary hover:text-white focus:border-transparent focus:outline-none focus:ring focus:ring-yellow sm:ml-2 sm:mt-0 sm:py-4 ">
+                  Preview
+                </button>
+                <button
+                  onclick="download()"
+                  class="mt-2 rounded bg-yellow px-5 py-1 font-body text-base font-bold uppercase text-primary transition-colors hover:bg-primary hover:text-white focus:border-transparent focus:outline-none focus:ring focus:ring-yellow sm:ml-2 sm:mt-0 sm:py-4 ">
+                  Download
+                </button>
+              </div>
+  
+  
+            </div>
+
           </div>
         </div>
-        <!-- 
-        <div class="flex flex-col lg:flex-row border-t border-b border-grey-70 bg-white py-12 items-center gap-8" id="statistics">
+
+        <!-- <div class="flex flex-col lg:flex-row border-t border-b border-grey-70 bg-white py-12 items-center gap-8" id="statistics">
 
           Sunburn
           <div class="w-full lg:w-1/3 flex flex-wrap justify-center gap-6">
@@ -462,106 +590,44 @@ $currentStats = $stats[$_SESSION['type']] ?? [0,0,0,0];
           </div>
 
 
-      </div>
+        </div> -->
 
-      <div class="bg-primary">
-        <div class="container flex flex-col justify-between py-6 sm:flex-row">
-          <p class="text-center font-body text-white md:text-left">
-            © Copyright 2025. All right reserved, STEPS ID.
-          </p>
-          <div class="flex items-center justify-center pt-5 sm:justify-start sm:pt-0">
-            <a href="https://atom.redpixelthemes.com/">
-              <i class="bx bxl-facebook-square text-2xl text-white hover:text-yellow"></i>
-            </a>
-            <a href="https://atom.redpixelthemes.com/" class="pl-4">
-              <i class="bx bxl-twitter text-2xl text-white hover:text-yellow"></i>
-            </a>
-            <a href="https://atom.redpixelthemes.com/" class="pl-4">
-              <i class="bx bxl-dribbble text-2xl text-white hover:text-yellow"></i>
-            </a>
-            <a href="https://atom.redpixelthemes.com/" class="pl-4">
-              <i class="bx bxl-linkedin text-2xl text-white hover:text-yellow"></i>
-            </a>
-            <a href="https://atom.redpixelthemes.com/" class="pl-4">
-              <i class="bx bxl-instagram text-2xl text-white hover:text-yellow"></i>
-            </a>
+        <div class="bg-primary">
+          <div class="container flex flex-col justify-between py-6 sm:flex-row">
+            <p class="text-center font-body text-white md:text-left">
+              © Copyright 2025. All right reserved, STEPS ID.
+            </p>
+            <div class="flex items-center justify-center pt-5 sm:justify-start sm:pt-0">
+              <a href="https://atom.redpixelthemes.com/">
+                <i class="bx bxl-facebook-square text-2xl text-white hover:text-yellow"></i>
+              </a>
+              <a href="https://atom.redpixelthemes.com/" class="pl-4">
+                <i class="bx bxl-twitter text-2xl text-white hover:text-yellow"></i>
+              </a>
+              <a href="https://atom.redpixelthemes.com/" class="pl-4">
+                <i class="bx bxl-dribbble text-2xl text-white hover:text-yellow"></i>
+              </a>
+              <a href="https://atom.redpixelthemes.com/" class="pl-4">
+                <i class="bx bxl-linkedin text-2xl text-white hover:text-yellow"></i>
+              </a>
+              <a href="https://atom.redpixelthemes.com/" class="pl-4">
+                <i class="bx bxl-instagram text-2xl text-white hover:text-yellow"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-<script>
-  
-  function download(){
-    window.location.href = '<?= base_url() ?>/app/controller/cert/download.php?id=' + <?= json_encode($_SESSION['user_id']) ?>;
-  }
+    <script>
+      function download() {
+        window.location.href = '<?= base_url() ?>/app/controller/cert/download.php?id=' + <?= json_encode($_SESSION['user_id']) ?>;
+      }
 
-  function preview(){
-    window.open('<?= base_url() ?>/app/controller/cert/preview.php?id=' + <?= json_encode($_SESSION['user_id']) ?>, '_blank', 'noopener,noreferrer');
-  }
-
-
-const type = "<?= strtoupper(substr($_SESSION['type'],0,2)) ?>"; 
-
-const data = {
-    SI: [55, 60, 40, 80, 90],
-    SE: [70, 55, 60, 30, 80],
-    FI: [80, 30, 75, 20, 85],
-    FE: [60, 40, 50, 30, 90],
-    TI: [50, 70, 30, 50, 60],
-    TE: [45, 55, 65, 70, 35]
-};
-
-const labels = ["Sunburn","Ipsum","Sit","Dolor","Amet"];
-
-const results = data[type] ?? [0,0,0,0,0];
-
-results.forEach((v,i)=>{
-  document.querySelector("#val"+(i+1)).innerHTML = v+"%";
-  document.querySelector("#label"+(i+1)).innerHTML = labels[i];
-  document.querySelector("#circle"+(i+1)).style.strokeDasharray = v+",100";
-});
-
-    const stats = {
-    sunburn: <?= $currentStats['sunburn'] ?>,
-    ipsum:   <?= $currentStats['ipsum'] ?>,
-    sit:     <?= $currentStats['sit'] ?>,
-    dolor:   <?= $currentStats['dolor'] ?>,
-    amet:    <?= $currentStats['amet'] ?? 0 ?> // data ke-5
-  };
-
-  const circles = [
-    { id: "circle1", val: "val1", label:"Sunburn", value: stats.sunburn },
-    { id: "circle2", val: "val2", label:"Ipsum",   value: stats.ipsum },
-    { id: "circle3", val: "val3", label:"Sit",     value: stats.sit },
-    { id: "circle4", val: "val4", label:"Dolor",   value: stats.dolor },
-    { id: "circle5", val: "val5", label:"Amet",    value: stats.amet }
-  ];
-
-  circles.forEach(item => {
-    let circle = document.getElementById(item.id);
-    let valueText = document.getElementById(item.val);
-
-    // cek apakah elemen ada
-    if (!circle || !valueText) return;
-
-    let radius = 16;
-    let circumference = 2 * Math.PI * radius;
-
-    // progress lingkaran
-    circle.style.strokeDasharray = circumference;
-    circle.style.strokeDashoffset = circumference - (item.value / 100) * circumference;
-
-    // isi value
-    valueText.innerHTML = item.value + "%";
-
-    // label
-    const labelEl = document.getElementById(item.val.replace("val","label"));
-    if (labelEl) labelEl.textContent = item.label;
-  });
-
-</script>
+      function preview() {
+        window.open('<?= base_url() ?>/app/controller/cert/preview.php?id=' + <?= json_encode($_SESSION['user_id']) ?>, '_blank', 'noopener,noreferrer');
+      }
+    </script>
 
 </body>
 
