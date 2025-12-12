@@ -41,23 +41,23 @@ switch ($type) {
     $stats = [
       [
         "label" => "Sensing",
-        "value" => 85
+        "value" => 100
       ],
       [
         "label" => "Thinking",
-        "value" => 85
+        "value" => 40
       ],
       [
         "label" => "Feeling",
-        "value" => 85
+        "value" => 40
       ],
       [
         "label" => "Intuiting",
-        "value" => 85
+        "value" => 20
       ],
       [
         "label" => "Instinct",
-        "value" => 85
+        "value" => 100
       ]
     ];
     break;
@@ -70,23 +70,23 @@ switch ($type) {
     $stats = [
       [
         "label" => "Sensing",
-        "value" => 85
+        "value" => 40
       ],
       [
         "label" => "Thinking",
-        "value" => 85
+        "value" => 100
       ],
       [
         "label" => "Feeling",
-        "value" => 85
+        "value" => 20
       ],
       [
         "label" => "Intuiting",
-        "value" => 85
+        "value" => 40
       ],
       [
         "label" => "Instinct",
-        "value" => 85
+        "value" => 100
       ]
     ];
     break;
@@ -99,23 +99,23 @@ switch ($type) {
     $stats = [
       [
         "label" => "Sensing",
-        "value" => 85
+        "value" => 20
       ],
       [
         "label" => "Thinking",
-        "value" => 85
+        "value" => 40
       ],
       [
         "label" => "Feeling",
-        "value" => 85
+        "value" => 40
       ],
       [
         "label" => "Intuiting",
-        "value" => 85
+        "value" => 100
       ],
       [
         "label" => "Instinct",
-        "value" => 85
+        "value" => 100
       ]
     ];
     break;
@@ -128,23 +128,23 @@ switch ($type) {
     $stats = [
       [
         "label" => "Sensing",
-        "value" => 85
+        "value" => 40
       ],
       [
         "label" => "Thinking",
-        "value" => 85
+        "value" => 20
       ],
       [
         "label" => "Feeling",
-        "value" => 85
+        "value" => 100
       ],
       [
         "label" => "Intuiting",
-        "value" => 85
+        "value" => 40
       ],
       [
         "label" => "Instinct",
-        "value" => 85
+        "value" => 100
       ]
     ];
     break;
@@ -156,23 +156,23 @@ switch ($type) {
     $stats = [
       [
         "label" => "Sensing",
-        "value" => 85
+        "value" => 50
       ],
       [
         "label" => "Thinking",
-        "value" => 85
+        "value" => 50
       ],
       [
         "label" => "Feeling",
-        "value" => 85
+        "value" => 50
       ],
       [
         "label" => "Intuiting",
-        "value" => 85
+        "value" => 50
       ],
       [
         "label" => "Instinct",
-        "value" => 85
+        "value" => 100
       ]
     ];
     break;
@@ -200,7 +200,7 @@ switch ($type) {
       ],
       [
         "label" => "Instinct",
-        "value" => 85
+        "value" => 100
       ]
     ];
     break;
