@@ -201,102 +201,102 @@ session_start();
   " x-init="window.pageYOffset >= 50 ? scrolledFromTop = true : scrolledFromTop = false"
   @scroll.window="window.pageYOffset >= 50 ? scrolledFromTop = true : scrolledFromTop = false">
   <!-- ====== Navbar Section Start -->
- <header 
-  x-data="{ navbarOpen: false }"
-  :class="scrolledFromTop ? 'fixed z-50 bg-white dark:bg-dark bg-opacity-80 shadow-sm backdrop-blur-sm' : 'absolute'"
-  class="top-0 left-0 z-50 w-full bg-white lg:overflow-hidden dark:bg-dark"
->
-  <div class="container mx-auto">
-    <div class="relative flex items-center justify-between -mx-4">
-      
-      <!-- Logo -->
-      <div class="relative z-10 max-w-full px-4 py-3 w-60">
-        <a href="javascript:void(0)" class="block w-full flex gap-2 items-center">
-          <img src="src/images/logo_stifin.webp" alt="logo" class="sm:w-[40%] w-[40%]" />
-          <img src="src/images/logo_steps.png" alt="logo" class="sm:w-[50%] w-[40%]" />
-        </a>
-        <span class="absolute right-0 top-1/2 z-[-1] h-full w-[1000%] -translate-y-1/2 bg-primary lg:h-[150%]"></span>
-      </div>
+  <header
+    x-data="{ navbarOpen: false }"
+    :class="scrolledFromTop ? 'fixed z-50 bg-white dark:bg-dark bg-opacity-80 shadow-sm backdrop-blur-sm' : 'absolute'"
+    class="top-0 left-0 z-50 w-full bg-white lg:overflow-hidden dark:bg-dark">
+    <div class="container mx-auto">
+      <div class="relative flex items-center justify-between -mx-4">
 
-      <!-- Button -->
-      <div class="flex items-center justify-between w-full px-4">
-        <button
-          onclick="<?php if (isset($_SESSION['ClientLoggedIn'])) { echo "window.location.href='report.php'; return false;"; } ?>"
-          data-modal-target="authentication-modal"
-          data-modal-toggle="authentication-modal"
-          class="absolute right-4 top-1/2 -translate-y-1/2 rounded-md px-4 py-[6px] text-white bg-primary hover:opacity-80 ring-stroke focus:ring-2 transition"
-        >
-          Cek Hasil Tes Kamu
-        </button>
-      </div>
+        <!-- Logo -->
+        <div class="relative z-10 max-w-full px-4 py-3 w-60">
+          <a href="javascript:void(0)" class="block w-full flex gap-2 items-center">
+            <img src="src/images/logo_stifin.webp" alt="logo" class="sm:w-[40%] w-[40%]" />
+            <img src="src/images/logo_steps.png" alt="logo" class="sm:w-[60%] w-[40%]" />
+          </a>
+          <span class="absolute right-0 top-1/2 z-[-1] h-full w-[1000%] -translate-y-1/2 bg-primary lg:h-[150%]"></span>
+        </div>
 
-    </div>
-  </div>
-</header>
-
-<!-- Modal Login -->
-<div id="authentication-modal" tabindex="-1" aria-hidden="true"
-  class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-  <div class="relative p-4 w-full max-w-md max-h-full">
-
-    <!-- Modal content -->
-    <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
-
-      <!-- Modal header -->
-      <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
-        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-          Lihat Hasil Tes Kamu yuk!
-        </h3>
-        <button type="button"
-          class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-          data-modal-hide="authentication-modal">
-          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-            viewBox="0 0 14 14">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-          </svg>
-          <span class="sr-only">Close modal</span>
-        </button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="p-4 md:p-5">
-        <form class="space-y-4" action="./app/controller/LoginController.php" method="POST">
-
-          <div>
-            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
-            <input type="text" name="name" id="name"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-              required />
-          </div>
-
-          <div>
-            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-            <input type="password" name="password" id="password"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-              required />
-          </div>
-
-          <div class="flex justify-between">
-            <a href="#" class="text-sm text-blue-700 hover:underline dark:text-blue-500">Lost Password?</a>
-          </div>
-
-          <button type="submit" name="action" value="loginClient"
-            class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Login to your account
+        <!-- Button -->
+        <div class="flex items-center justify-between w-full px-4">
+          <button
+            onclick="<?php if (isset($_SESSION['ClientLoggedIn'])) {
+                        echo "window.location.href='report.php'; return false;";
+                      } ?>"
+            data-modal-target="authentication-modal"
+            data-modal-toggle="authentication-modal"
+            class="absolute right-4 top-1/2 -translate-y-1/2 rounded-md px-4 py-[6px] text-white bg-primary hover:opacity-80 ring-stroke focus:ring-2 transition">
+            Cek Hasil Tes Kamu
           </button>
+        </div>
 
-          <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
-            Belum punya akun?
-            <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">Tes Sekarang yuk!</a>
-          </div>
-
-        </form>
       </div>
+    </div>
+  </header>
 
+  <!-- Modal Login -->
+  <div id="authentication-modal" tabindex="-1" aria-hidden="true"
+    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-md max-h-full">
+
+      <!-- Modal content -->
+      <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
+
+        <!-- Modal header -->
+        <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+            Lihat Hasil Tes Kamu yuk!
+          </h3>
+          <button type="button"
+            class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+            data-modal-hide="authentication-modal">
+            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+              viewBox="0 0 14 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+            </svg>
+            <span class="sr-only">Close modal</span>
+          </button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="p-4 md:p-5">
+          <form class="space-y-4" action="./app/controller/LoginController.php" method="POST">
+
+            <div>
+              <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
+              <input type="text" name="name" id="name"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                required />
+            </div>
+
+            <div>
+              <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+              <input type="password" name="password" id="password"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                required />
+            </div>
+
+            <div class="flex justify-between">
+              <a href="#" class="text-sm text-blue-700 hover:underline dark:text-blue-500">Lost Password?</a>
+            </div>
+
+            <button type="submit" name="action" value="loginClient"
+              class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              Login to your account
+            </button>
+
+            <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+              Belum punya akun?
+              <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">Tes Sekarang yuk!</a>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
     </div>
   </div>
-</div>
 
   <!-- ====== Navbar Section End -->
 
@@ -348,12 +348,12 @@ session_start();
   </div>
   <!-- ====== Hero Section End -->
 
-<!-- ====== Services Section Start -->
+  <!-- ====== Services Section Start -->
   <section class="overflow-hidden dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
     <div class="container mx-auto">
       <div class="flex flex-wrap items-center justify-between -mx-4">
         <div class="w-full px-4 lg:w-6/12">
-          <div class="flex items-center -mx-3 sm:-mx-4">
+          <div class="flex relative items-center -mx-3 sm:-mx-4">
             <div class="w-full px-3 sm:px-4 xl:w-1/2">
               <div class="py-3 sm:py-4">
                 <img src="src/images/service1.jpg" alt="" class="w-full rounded-2xl" />
@@ -362,287 +362,29 @@ session_start();
                 <img src="src/images/service3.jpg" alt="" class="w-full rounded-2xl" />
               </div>
             </div>
-            
-            <!-- <div class="w-full px-3 sm:px-4 xl:w-1/2">
-              <div class="relative z-10 my-4">
-                <img src="src/images/service2.jpg" alt="" class="w-full rounded-2xl" />
-                <span class="absolute -right-7 -bottom-7 z-[-1]">
-                  <svg width="134" height="106" viewBox="0 0 134 106" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="1.66667" cy="104" r="1.66667" transform="rotate(-90 1.66667 104)" fill="#3056D3" />
-                    <circle cx="16.3333" cy="104" r="1.66667" transform="rotate(-90 16.3333 104)" fill="#3056D3" />
-                    <circle cx="31" cy="104" r="1.66667" transform="rotate(-90 31 104)" fill="#3056D3" />
-                    <circle cx="45.6667" cy="104" r="1.66667" transform="rotate(-90 45.6667 104)" fill="#3056D3" />
-                    <circle cx="60.3334" cy="104" r="1.66667" transform="rotate(-90 60.3334 104)" fill="#3056D3" />
-                    <circle cx="88.6667" cy="104" r="1.66667" transform="rotate(-90 88.6667 104)" fill="#3056D3" />
-                    <circle cx="117.667" cy="104" r="1.66667" transform="rotate(-90 117.667 104)" fill="#3056D3" />
-                    <circle cx="74.6667" cy="104" r="1.66667" transform="rotate(-90 74.6667 104)" fill="#3056D3" />
-                    <circle cx="103" cy="104" r="1.66667" transform="rotate(-90 103 104)" fill="#3056D3" />
-                    <circle cx="132" cy="104" r="1.66667" transform="rotate(-90 132 104)" fill="#3056D3" />
-                    <circle cx="1.66667" cy="89.3333" r="1.66667" transform="rotate(-90 1.66667 89.3333)"
-                      fill="#3056D3" />
-                    <circle cx="16.3333" cy="89.3333" r="1.66667" transform="rotate(-90 16.3333 89.3333)"
-                      fill="#3056D3" />
-                    <circle cx="31" cy="89.3333" r="1.66667" transform="rotate(-90 31 89.3333)" fill="#3056D3" />
-                    <circle cx="45.6667" cy="89.3333" r="1.66667" transform="rotate(-90 45.6667 89.3333)"
-                      fill="#3056D3" />
-                    <circle cx="60.3333" cy="89.3338" r="1.66667" transform="rotate(-90 60.3333 89.3338)"
-                      fill="#3056D3" />
-                    <circle cx="88.6667" cy="89.3338" r="1.66667" transform="rotate(-90 88.6667 89.3338)"
-                      fill="#3056D3" />
-                    <circle cx="117.667" cy="89.3338" r="1.66667" transform="rotate(-90 117.667 89.3338)"
-                      fill="#3056D3" />
-                    <circle cx="74.6667" cy="89.3338" r="1.66667" transform="rotate(-90 74.6667 89.3338)"
-                      fill="#3056D3" />
-                    <circle cx="103" cy="89.3338" r="1.66667" transform="rotate(-90 103 89.3338)" fill="#3056D3" />
-                    <circle cx="132" cy="89.3338" r="1.66667" transform="rotate(-90 132 89.3338)" fill="#3056D3" />
-                    <circle cx="1.66667" cy="74.6673" r="1.66667" transform="rotate(-90 1.66667 74.6673)"
-                      fill="#3056D3" />
-                    <circle cx="1.66667" cy="31.0003" r="1.66667" transform="rotate(-90 1.66667 31.0003)"
-                      fill="#3056D3" />
-                    <circle cx="16.3333" cy="74.6668" r="1.66667" transform="rotate(-90 16.3333 74.6668)"
-                      fill="#3056D3" />
-                    <circle cx="16.3333" cy="31.0003" r="1.66667" transform="rotate(-90 16.3333 31.0003)"
-                      fill="#3056D3" />
-                    <circle cx="31" cy="74.6668" r="1.66667" transform="rotate(-90 31 74.6668)" fill="#3056D3" />
-                    <circle cx="31" cy="31.0003" r="1.66667" transform="rotate(-90 31 31.0003)" fill="#3056D3" />
-                    <circle cx="45.6667" cy="74.6668" r="1.66667" transform="rotate(-90 45.6667 74.6668)"
-                      fill="#3056D3" />
-                    <circle cx="45.6667" cy="31.0003" r="1.66667" transform="rotate(-90 45.6667 31.0003)"
-                      fill="#3056D3" />
-                    <circle cx="60.3333" cy="74.6668" r="1.66667" transform="rotate(-90 60.3333 74.6668)"
-                      fill="#3056D3" />
-                    <circle cx="60.3333" cy="30.9998" r="1.66667" transform="rotate(-90 60.3333 30.9998)"
-                      fill="#3056D3" />
-                    <circle cx="88.6667" cy="74.6668" r="1.66667" transform="rotate(-90 88.6667 74.6668)"
-                      fill="#3056D3" />
-                    <circle cx="88.6667" cy="30.9998" r="1.66667" transform="rotate(-90 88.6667 30.9998)"
-                      fill="#3056D3" />
-                    <circle cx="117.667" cy="74.6668" r="1.66667" transform="rotate(-90 117.667 74.6668)"
-                      fill="#3056D3" />
-                    <circle cx="117.667" cy="30.9998" r="1.66667" transform="rotate(-90 117.667 30.9998)"
-                      fill="#3056D3" />
-                    <circle cx="74.6667" cy="74.6668" r="1.66667" transform="rotate(-90 74.6667 74.6668)"
-                      fill="#3056D3" />
-                    <circle cx="74.6667" cy="30.9998" r="1.66667" transform="rotate(-90 74.6667 30.9998)"
-                      fill="#3056D3" />
-                    <circle cx="103" cy="74.6668" r="1.66667" transform="rotate(-90 103 74.6668)" fill="#3056D3" />
-                    <circle cx="103" cy="30.9998" r="1.66667" transform="rotate(-90 103 30.9998)" fill="#3056D3" />
-                    <circle cx="132" cy="74.6668" r="1.66667" transform="rotate(-90 132 74.6668)" fill="#3056D3" />
-                    <circle cx="132" cy="30.9998" r="1.66667" transform="rotate(-90 132 30.9998)" fill="#3056D3" />
-                    <circle cx="1.66667" cy="60.0003" r="1.66667" transform="rotate(-90 1.66667 60.0003)"
-                      fill="#3056D3" />
-                    <circle cx="1.66667" cy="16.3333" r="1.66667" transform="rotate(-90 1.66667 16.3333)"
-                      fill="#3056D3" />
-                    <circle cx="16.3333" cy="60.0003" r="1.66667" transform="rotate(-90 16.3333 60.0003)"
-                      fill="#3056D3" />
-                    <circle cx="16.3333" cy="16.3333" r="1.66667" transform="rotate(-90 16.3333 16.3333)"
-                      fill="#3056D3" />
-                    <circle cx="31" cy="60.0003" r="1.66667" transform="rotate(-90 31 60.0003)" fill="#3056D3" />
-                    <circle cx="31" cy="16.3333" r="1.66667" transform="rotate(-90 31 16.3333)" fill="#3056D3" />
-                    <circle cx="45.6667" cy="60.0003" r="1.66667" transform="rotate(-90 45.6667 60.0003)"
-                      fill="#3056D3" />
-                    <circle cx="45.6667" cy="16.3333" r="1.66667" transform="rotate(-90 45.6667 16.3333)"
-                      fill="#3056D3" />
-                    <circle cx="60.3333" cy="60.0003" r="1.66667" transform="rotate(-90 60.3333 60.0003)"
-                      fill="#3056D3" />
-                    <circle cx="60.3333" cy="16.3333" r="1.66667" transform="rotate(-90 60.3333 16.3333)"
-                      fill="#3056D3" />
-                    <circle cx="88.6667" cy="60.0003" r="1.66667" transform="rotate(-90 88.6667 60.0003)"
-                      fill="#3056D3" />
-                    <circle cx="88.6667" cy="16.3333" r="1.66667" transform="rotate(-90 88.6667 16.3333)"
-                      fill="#3056D3" />
-                    <circle cx="117.667" cy="60.0003" r="1.66667" transform="rotate(-90 117.667 60.0003)"
-                      fill="#3056D3" />
-                    <circle cx="117.667" cy="16.3333" r="1.66667" transform="rotate(-90 117.667 16.3333)"
-                      fill="#3056D3" />
-                    <circle cx="74.6667" cy="60.0003" r="1.66667" transform="rotate(-90 74.6667 60.0003)"
-                      fill="#3056D3" />
-                    <circle cx="74.6667" cy="16.3333" r="1.66667" transform="rotate(-90 74.6667 16.3333)"
-                      fill="#3056D3" />
-                    <circle cx="103" cy="60.0003" r="1.66667" transform="rotate(-90 103 60.0003)" fill="#3056D3" />
-                    <circle cx="103" cy="16.3333" r="1.66667" transform="rotate(-90 103 16.3333)" fill="#3056D3" />
-                    <circle cx="132" cy="60.0003" r="1.66667" transform="rotate(-90 132 60.0003)" fill="#3056D3" />
-                    <circle cx="132" cy="16.3333" r="1.66667" transform="rotate(-90 132 16.3333)" fill="#3056D3" />
-                    <circle cx="1.66667" cy="45.3333" r="1.66667" transform="rotate(-90 1.66667 45.3333)"
-                      fill="#3056D3" />
-                    <circle cx="1.66667" cy="1.66683" r="1.66667" transform="rotate(-90 1.66667 1.66683)"
-                      fill="#3056D3" />
-                    <circle cx="16.3333" cy="45.3333" r="1.66667" transform="rotate(-90 16.3333 45.3333)"
-                      fill="#3056D3" />
-                    <circle cx="16.3333" cy="1.66683" r="1.66667" transform="rotate(-90 16.3333 1.66683)"
-                      fill="#3056D3" />
-                    <circle cx="31" cy="45.3333" r="1.66667" transform="rotate(-90 31 45.3333)" fill="#3056D3" />
-                    <circle cx="31" cy="1.66683" r="1.66667" transform="rotate(-90 31 1.66683)" fill="#3056D3" />
-                    <circle cx="45.6667" cy="45.3333" r="1.66667" transform="rotate(-90 45.6667 45.3333)"
-                      fill="#3056D3" />
-                    <circle cx="45.6667" cy="1.66683" r="1.66667" transform="rotate(-90 45.6667 1.66683)"
-                      fill="#3056D3" />
-                    <circle cx="60.3333" cy="45.3338" r="1.66667" transform="rotate(-90 60.3333 45.3338)"
-                      fill="#3056D3" />
-                    <circle cx="60.3333" cy="1.66683" r="1.66667" transform="rotate(-90 60.3333 1.66683)"
-                      fill="#3056D3" />
-                    <circle cx="88.6667" cy="45.3338" r="1.66667" transform="rotate(-90 88.6667 45.3338)"
-                      fill="#3056D3" />
-                    <circle cx="88.6667" cy="1.66683" r="1.66667" transform="rotate(-90 88.6667 1.66683)"
-                      fill="#3056D3" />
-                    <circle cx="117.667" cy="45.3338" r="1.66667" transform="rotate(-90 117.667 45.3338)"
-                      fill="#3056D3" />
-                    <circle cx="117.667" cy="1.66683" r="1.66667" transform="rotate(-90 117.667 1.66683)"
-                      fill="#3056D3" />
-                    <circle cx="74.6667" cy="45.3338" r="1.66667" transform="rotate(-90 74.6667 45.3338)"
-                      fill="#3056D3" />
-                    <circle cx="74.6667" cy="1.66683" r="1.66667" transform="rotate(-90 74.6667 1.66683)"
-                      fill="#3056D3" />
-                    <circle cx="103" cy="45.3338" r="1.66667" transform="rotate(-90 103 45.3338)" fill="#3056D3" />
-                    <circle cx="103" cy="1.66683" r="1.66667" transform="rotate(-90 103 1.66683)" fill="#3056D3" />
-                    <circle cx="132" cy="45.3338" r="1.66667" transform="rotate(-90 132 45.3338)" fill="#3056D3" />
-                    <circle cx="132" cy="1.66683" r="1.66667" transform="rotate(-90 132 1.66683)" fill="#3056D3" />
-                  </svg>
-                </span>
+
+            <div class="absolute z-10 inset-0 flex items-center justify-center pointer-events-none">
+              <div class="w-full flex justify-center">
+                <img
+                  src="src/images/service2.jpg"
+                  alt=""
+                  class="w-32 sm:w-40 md:w-48 lg:w-56 xl:w-64 rounded-full" />
               </div>
-            </div> -->
+            </div>
+
 
             <div class="w-full px-3 sm:px-4 xl:w-1/2 mt-20">
               <div class="py-3 sm:py-4">
                 <img src="src/images/service1.jpg" alt="" class="w-full rounded-2xl" />
               </div>
-              <div class="relative z-10 my-4">
+              <div class="relative my-4">
                 <img src="src/images/service2.jpg" alt="" class="w-full rounded-2xl" />
                 <span class="absolute -right-7 -bottom-7 z-[-1]">
-                  <svg width="134" height="106" viewBox="0 0 134 106" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="1.66667" cy="104" r="1.66667" transform="rotate(-90 1.66667 104)" fill="#3056D3" />
-                    <circle cx="16.3333" cy="104" r="1.66667" transform="rotate(-90 16.3333 104)" fill="#3056D3" />
-                    <circle cx="31" cy="104" r="1.66667" transform="rotate(-90 31 104)" fill="#3056D3" />
-                    <circle cx="45.6667" cy="104" r="1.66667" transform="rotate(-90 45.6667 104)" fill="#3056D3" />
-                    <circle cx="60.3334" cy="104" r="1.66667" transform="rotate(-90 60.3334 104)" fill="#3056D3" />
-                    <circle cx="88.6667" cy="104" r="1.66667" transform="rotate(-90 88.6667 104)" fill="#3056D3" />
-                    <circle cx="117.667" cy="104" r="1.66667" transform="rotate(-90 117.667 104)" fill="#3056D3" />
-                    <circle cx="74.6667" cy="104" r="1.66667" transform="rotate(-90 74.6667 104)" fill="#3056D3" />
-                    <circle cx="103" cy="104" r="1.66667" transform="rotate(-90 103 104)" fill="#3056D3" />
-                    <circle cx="132" cy="104" r="1.66667" transform="rotate(-90 132 104)" fill="#3056D3" />
-                    <circle cx="1.66667" cy="89.3333" r="1.66667" transform="rotate(-90 1.66667 89.3333)"
-                      fill="#3056D3" />
-                    <circle cx="16.3333" cy="89.3333" r="1.66667" transform="rotate(-90 16.3333 89.3333)"
-                      fill="#3056D3" />
-                    <circle cx="31" cy="89.3333" r="1.66667" transform="rotate(-90 31 89.3333)" fill="#3056D3" />
-                    <circle cx="45.6667" cy="89.3333" r="1.66667" transform="rotate(-90 45.6667 89.3333)"
-                      fill="#3056D3" />
-                    <circle cx="60.3333" cy="89.3338" r="1.66667" transform="rotate(-90 60.3333 89.3338)"
-                      fill="#3056D3" />
-                    <circle cx="88.6667" cy="89.3338" r="1.66667" transform="rotate(-90 88.6667 89.3338)"
-                      fill="#3056D3" />
-                    <circle cx="117.667" cy="89.3338" r="1.66667" transform="rotate(-90 117.667 89.3338)"
-                      fill="#3056D3" />
-                    <circle cx="74.6667" cy="89.3338" r="1.66667" transform="rotate(-90 74.6667 89.3338)"
-                      fill="#3056D3" />
-                    <circle cx="103" cy="89.3338" r="1.66667" transform="rotate(-90 103 89.3338)" fill="#3056D3" />
-                    <circle cx="132" cy="89.3338" r="1.66667" transform="rotate(-90 132 89.3338)" fill="#3056D3" />
-                    <circle cx="1.66667" cy="74.6673" r="1.66667" transform="rotate(-90 1.66667 74.6673)"
-                      fill="#3056D3" />
-                    <circle cx="1.66667" cy="31.0003" r="1.66667" transform="rotate(-90 1.66667 31.0003)"
-                      fill="#3056D3" />
-                    <circle cx="16.3333" cy="74.6668" r="1.66667" transform="rotate(-90 16.3333 74.6668)"
-                      fill="#3056D3" />
-                    <circle cx="16.3333" cy="31.0003" r="1.66667" transform="rotate(-90 16.3333 31.0003)"
-                      fill="#3056D3" />
-                    <circle cx="31" cy="74.6668" r="1.66667" transform="rotate(-90 31 74.6668)" fill="#3056D3" />
-                    <circle cx="31" cy="31.0003" r="1.66667" transform="rotate(-90 31 31.0003)" fill="#3056D3" />
-                    <circle cx="45.6667" cy="74.6668" r="1.66667" transform="rotate(-90 45.6667 74.6668)"
-                      fill="#3056D3" />
-                    <circle cx="45.6667" cy="31.0003" r="1.66667" transform="rotate(-90 45.6667 31.0003)"
-                      fill="#3056D3" />
-                    <circle cx="60.3333" cy="74.6668" r="1.66667" transform="rotate(-90 60.3333 74.6668)"
-                      fill="#3056D3" />
-                    <circle cx="60.3333" cy="30.9998" r="1.66667" transform="rotate(-90 60.3333 30.9998)"
-                      fill="#3056D3" />
-                    <circle cx="88.6667" cy="74.6668" r="1.66667" transform="rotate(-90 88.6667 74.6668)"
-                      fill="#3056D3" />
-                    <circle cx="88.6667" cy="30.9998" r="1.66667" transform="rotate(-90 88.6667 30.9998)"
-                      fill="#3056D3" />
-                    <circle cx="117.667" cy="74.6668" r="1.66667" transform="rotate(-90 117.667 74.6668)"
-                      fill="#3056D3" />
-                    <circle cx="117.667" cy="30.9998" r="1.66667" transform="rotate(-90 117.667 30.9998)"
-                      fill="#3056D3" />
-                    <circle cx="74.6667" cy="74.6668" r="1.66667" transform="rotate(-90 74.6667 74.6668)"
-                      fill="#3056D3" />
-                    <circle cx="74.6667" cy="30.9998" r="1.66667" transform="rotate(-90 74.6667 30.9998)"
-                      fill="#3056D3" />
-                    <circle cx="103" cy="74.6668" r="1.66667" transform="rotate(-90 103 74.6668)" fill="#3056D3" />
-                    <circle cx="103" cy="30.9998" r="1.66667" transform="rotate(-90 103 30.9998)" fill="#3056D3" />
-                    <circle cx="132" cy="74.6668" r="1.66667" transform="rotate(-90 132 74.6668)" fill="#3056D3" />
-                    <circle cx="132" cy="30.9998" r="1.66667" transform="rotate(-90 132 30.9998)" fill="#3056D3" />
-                    <circle cx="1.66667" cy="60.0003" r="1.66667" transform="rotate(-90 1.66667 60.0003)"
-                      fill="#3056D3" />
-                    <circle cx="1.66667" cy="16.3333" r="1.66667" transform="rotate(-90 1.66667 16.3333)"
-                      fill="#3056D3" />
-                    <circle cx="16.3333" cy="60.0003" r="1.66667" transform="rotate(-90 16.3333 60.0003)"
-                      fill="#3056D3" />
-                    <circle cx="16.3333" cy="16.3333" r="1.66667" transform="rotate(-90 16.3333 16.3333)"
-                      fill="#3056D3" />
-                    <circle cx="31" cy="60.0003" r="1.66667" transform="rotate(-90 31 60.0003)" fill="#3056D3" />
-                    <circle cx="31" cy="16.3333" r="1.66667" transform="rotate(-90 31 16.3333)" fill="#3056D3" />
-                    <circle cx="45.6667" cy="60.0003" r="1.66667" transform="rotate(-90 45.6667 60.0003)"
-                      fill="#3056D3" />
-                    <circle cx="45.6667" cy="16.3333" r="1.66667" transform="rotate(-90 45.6667 16.3333)"
-                      fill="#3056D3" />
-                    <circle cx="60.3333" cy="60.0003" r="1.66667" transform="rotate(-90 60.3333 60.0003)"
-                      fill="#3056D3" />
-                    <circle cx="60.3333" cy="16.3333" r="1.66667" transform="rotate(-90 60.3333 16.3333)"
-                      fill="#3056D3" />
-                    <circle cx="88.6667" cy="60.0003" r="1.66667" transform="rotate(-90 88.6667 60.0003)"
-                      fill="#3056D3" />
-                    <circle cx="88.6667" cy="16.3333" r="1.66667" transform="rotate(-90 88.6667 16.3333)"
-                      fill="#3056D3" />
-                    <circle cx="117.667" cy="60.0003" r="1.66667" transform="rotate(-90 117.667 60.0003)"
-                      fill="#3056D3" />
-                    <circle cx="117.667" cy="16.3333" r="1.66667" transform="rotate(-90 117.667 16.3333)"
-                      fill="#3056D3" />
-                    <circle cx="74.6667" cy="60.0003" r="1.66667" transform="rotate(-90 74.6667 60.0003)"
-                      fill="#3056D3" />
-                    <circle cx="74.6667" cy="16.3333" r="1.66667" transform="rotate(-90 74.6667 16.3333)"
-                      fill="#3056D3" />
-                    <circle cx="103" cy="60.0003" r="1.66667" transform="rotate(-90 103 60.0003)" fill="#3056D3" />
-                    <circle cx="103" cy="16.3333" r="1.66667" transform="rotate(-90 103 16.3333)" fill="#3056D3" />
-                    <circle cx="132" cy="60.0003" r="1.66667" transform="rotate(-90 132 60.0003)" fill="#3056D3" />
-                    <circle cx="132" cy="16.3333" r="1.66667" transform="rotate(-90 132 16.3333)" fill="#3056D3" />
-                    <circle cx="1.66667" cy="45.3333" r="1.66667" transform="rotate(-90 1.66667 45.3333)"
-                      fill="#3056D3" />
-                    <circle cx="1.66667" cy="1.66683" r="1.66667" transform="rotate(-90 1.66667 1.66683)"
-                      fill="#3056D3" />
-                    <circle cx="16.3333" cy="45.3333" r="1.66667" transform="rotate(-90 16.3333 45.3333)"
-                      fill="#3056D3" />
-                    <circle cx="16.3333" cy="1.66683" r="1.66667" transform="rotate(-90 16.3333 1.66683)"
-                      fill="#3056D3" />
-                    <circle cx="31" cy="45.3333" r="1.66667" transform="rotate(-90 31 45.3333)" fill="#3056D3" />
-                    <circle cx="31" cy="1.66683" r="1.66667" transform="rotate(-90 31 1.66683)" fill="#3056D3" />
-                    <circle cx="45.6667" cy="45.3333" r="1.66667" transform="rotate(-90 45.6667 45.3333)"
-                      fill="#3056D3" />
-                    <circle cx="45.6667" cy="1.66683" r="1.66667" transform="rotate(-90 45.6667 1.66683)"
-                      fill="#3056D3" />
-                    <circle cx="60.3333" cy="45.3338" r="1.66667" transform="rotate(-90 60.3333 45.3338)"
-                      fill="#3056D3" />
-                    <circle cx="60.3333" cy="1.66683" r="1.66667" transform="rotate(-90 60.3333 1.66683)"
-                      fill="#3056D3" />
-                    <circle cx="88.6667" cy="45.3338" r="1.66667" transform="rotate(-90 88.6667 45.3338)"
-                      fill="#3056D3" />
-                    <circle cx="88.6667" cy="1.66683" r="1.66667" transform="rotate(-90 88.6667 1.66683)"
-                      fill="#3056D3" />
-                    <circle cx="117.667" cy="45.3338" r="1.66667" transform="rotate(-90 117.667 45.3338)"
-                      fill="#3056D3" />
-                    <circle cx="117.667" cy="1.66683" r="1.66667" transform="rotate(-90 117.667 1.66683)"
-                      fill="#3056D3" />
-                    <circle cx="74.6667" cy="45.3338" r="1.66667" transform="rotate(-90 74.6667 45.3338)"
-                      fill="#3056D3" />
-                    <circle cx="74.6667" cy="1.66683" r="1.66667" transform="rotate(-90 74.6667 1.66683)"
-                      fill="#3056D3" />
-                    <circle cx="103" cy="45.3338" r="1.66667" transform="rotate(-90 103 45.3338)" fill="#3056D3" />
-                    <circle cx="103" cy="1.66683" r="1.66667" transform="rotate(-90 103 1.66683)" fill="#3056D3" />
-                    <circle cx="132" cy="45.3338" r="1.66667" transform="rotate(-90 132 45.3338)" fill="#3056D3" />
-                    <circle cx="132" cy="1.66683" r="1.66667" transform="rotate(-90 132 1.66683)" fill="#3056D3" />
-                  </svg>
+
                 </span>
               </div>
             </div>
+            
           </div>
         </div>
         <div class="w-full px-4 lg:w-1/2 xl:w-5/12">
@@ -680,7 +422,7 @@ session_start();
 
 
   <!-- ====== Footer Section Start -->
-  <footer class="relative z-10 bg-primary  pt-20 pb-10 lg:pt-[120px] lg:pb-20">
+  <footer class="relative z-10 bg-primary  pt-20 ">
     <div class="container mx-auto">
       <div class="flex flex-wrap -mx-4">
         <div class="w-full px-4 sm:w-2/3 lg:w-2/4">
@@ -918,7 +660,7 @@ session_start();
       "#211832", // T
       "#4E56C0", // I
       "#59AC77", // F
-      "#F97A00"  // In
+      "#F97A00" // In
     ];
 
     // Container swiper utama
