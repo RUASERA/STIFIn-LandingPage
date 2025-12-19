@@ -366,7 +366,7 @@ session_start();
             <div class="absolute z-10 inset-0 flex items-center justify-center pointer-events-none">
               <div class="w-full flex justify-center">
                 <img
-                  src="src/images/service2.jpg"
+                  src="src/images/service4.jpeg"
                   alt=""
                   class="w-32 sm:w-40 md:w-48 lg:w-56 xl:w-64 rounded-full" />
               </div>
@@ -375,7 +375,7 @@ session_start();
 
             <div class="w-full px-3 sm:px-4 xl:w-1/2 mt-20">
               <div class="py-3 sm:py-4">
-                <img src="src/images/service1.jpg" alt="" class="w-full rounded-2xl" />
+                <img src="src/images/service5.jpeg" alt="" class="w-full rounded-2xl" />
               </div>
               <div class="relative my-4">
                 <img src="src/images/service2.jpg" alt="" class="w-full rounded-2xl" />
