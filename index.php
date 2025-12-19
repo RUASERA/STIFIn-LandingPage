@@ -212,7 +212,7 @@ session_start();
         <div class="relative z-10 max-w-full px-4 py-3 w-60">
           <a href="javascript:void(0)" class="block w-full flex gap-2 items-center">
             <img src="src/images/logo_stifin.webp" alt="logo" class="sm:w-[40%] w-[40%]" />
-            <img src="src/images/logo_steps.png" alt="logo" class="sm:w-[60%] w-[40%]" />
+            <img src="src/images/logo_steps.png" alt="logo" class="sm:w-[50%] w-[40%]" />
           </a>
           <span class="absolute right-0 top-1/2 z-[-1] h-full w-[1000%] -translate-y-1/2 bg-primary lg:h-[150%]"></span>
         </div>
