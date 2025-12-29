@@ -21,6 +21,7 @@ $data = json_decode(file_get_contents("php://input"), true);
 $id = mysqli_real_escape_string($conn, $_POST['id']); // ID user yang ingin diupdate
 $nama = mysqli_real_escape_string($conn, $_POST['nama']);
 $jenis = mysqli_real_escape_string($conn, $_POST['jenis']);
+$password = mysqli_real_escape_string($conn, $_POST['password'] ?? '');
 $file = $_FILES['file'] ?? null;
 $foto = $_FILES['foto'] ?? null;
 
@@ -101,9 +102,18 @@ if (!empty($foto) && $foto['error'] === UPLOAD_ERR_OK) {
     }
 }
 
-// ================== UPDATE DATA KE DATABASE ==================
-$stmt = $conn->prepare("UPDATE user SET name = ?, type_id = ?, file = ?, profile = ? WHERE id = ?");
-$stmt->bind_param("sssss", $nama, $jenis, $newFileName, $profileFileName, $id);
+if (!empty($password)) {
+    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+    $passwordSql = ", password = '$hashedPassword'";
+    // ================== UPDATE DATA KE DATABASE ==================
+    $stmt = $conn->prepare("UPDATE user SET name = ?, type_id = ?, file = ?, profile = ?, password = ? WHERE id = ?");
+    $stmt->bind_param("ssssss", $nama, $jenis, $newFileName, $profileFileName, $hashedPassword, $id);
+} else {
+    // ================== UPDATE DATA KE DATABASE ==================
+    $stmt = $conn->prepare("UPDATE user SET name = ?, type_id = ?, file = ?, profile = ? WHERE id = ?");
+    $stmt->bind_param("ssssss", $nama, $jenis, $newFileName, $profileFileName, $id);
+}
+
 
 if ($stmt->execute()) {
     echo json_encode(['success' => true, 'message' => 'Data berhasil diperbarui.']);
