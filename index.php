@@ -390,10 +390,10 @@ session_start();
         <div class="w-full px-4 lg:w-1/2 xl:w-5/12">
           <div class="mt-10 lg:mt-0">
             <span class="block mb-4 text-lg font-semibold text-primary">
-              Why Choose Us
+              Mengapa Memilih Kami?
             </span>
             <h2 class="mb-5 text-3xl font-bold text-dark dark:text-white sm:text-[40px]/[48px]">
-              Growing Through Self-Awareness
+              Berkembang Melalui Kesadaran Diri
             </h2>
             <p class="mb-5 text-base text-body-color dark:text-dark-6">
               Dalam dunia yang serba cepat seperti sekarang, mengenal diri sendiri adalah langkah penting untuk
@@ -411,7 +411,7 @@ session_start();
             </p>
             <a href="javascript:void(0)"
               class="inline-flex items-center justify-center py-3 text-base font-medium text-center text-white border border-transparent rounded-md px-7 bg-primary hover:bg-opacity-90">
-              learn more
+              Selengkapnya
             </a>
           </div>
         </div>
